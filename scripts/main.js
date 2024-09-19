@@ -73,7 +73,18 @@
                         url: $("url", this).text()
                     };
                 }).get();
+                document.getElementById('search_btn').addEventListener('click', function() {
+                    var modal = document.querySelector('.search-modal');
+                    if (modal) {
+                      modal.style.visibility = 'visible'; // 显示搜索框
+                      modal.style.opacity = 10;
+                    } else {
+                      console.error('Search modal not found.');
+                    }
+                  });
+                  
                 var $input = document.getElementById(search_id);
+                
                 var $resultContent = document.getElementById(content_id);
                 $input.addEventListener('input', function() {
                     var str = '<ul class=\"search-result-list\">';

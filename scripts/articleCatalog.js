@@ -6,6 +6,7 @@
 **/
 ;
 let articleCatalog = (function() {
+	console.log("couldn't find the headlink elements====", document.querySelectorAll('.headerlink'));
     if ( !document.getElementById('postAr') || document.querySelectorAll('.headerlink').length === 0 || window.innerWidth < 900 ) {
         return function(){};
 	}
@@ -18,6 +19,7 @@ let articleCatalog = (function() {
 		toTopDistance: 80,        // 距离视口顶部多少高度之内时候触发高亮
 		selector: '.headerlink',  // 文章内容中标题标签的 selector
 	}
+
     return function(args) {
 		DEFAULT = Object.assign(DEFAULT, args)
 
@@ -58,6 +60,7 @@ let articleCatalog = (function() {
 
 		// 初始化
 		function initCatalog() {
+			console.log('生成目录中======');
 			let tempHeight = window.innerHeight
 			
 			if (viewPortHeight !== tempHeight) {

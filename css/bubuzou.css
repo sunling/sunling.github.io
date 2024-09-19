@@ -1464,3 +1464,12 @@ footer .copyright a:hover { color: #666; }
 @media screen and (max-width: 350px) {
     .search-modal .search-result { max-height: 370px; }
 }
+
+.toc-container {
+    position: sticky;
+    top: 80px; /* 根据需要调整 */
+    max-height: calc(100vh - 100px); /* 保持在视口内 */
+    overflow-y: auto; /* 如果内容过长，启用滚动 */
+    padding-left: 20px;
+    border-left: 1px solid #ddd;
+  }
