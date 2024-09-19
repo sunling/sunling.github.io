@@ -1073,10 +1073,9 @@ footer .copyright a:hover { color: #666; }
 /* 文章目录 */
 
 .right-container {
-    width: 260px;
+    width: 300px;
     margin-top: 95px;
     left: 50%;
-    margin-left: 220px;
     padding-top: 20px; /* 根据实际需求调整 */
     overflow: hidden; /* 确保内容在滚动时不会超出 */
 }
