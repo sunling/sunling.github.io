@@ -1,15 +1,7 @@
-/*
- * articleCatalog v2.0
- * Copyright(c) 2016 by bulandent
- * Date: 2017-5-27 16:10:41
- * Updated: 2020-10-10 17:40:04
-**/
-;
 let articleCatalog = (function() {
-	console.log("couldn't find the headlink elements====", document.querySelectorAll('.headerlink'));
-    if ( !document.getElementById('postAr') || document.querySelectorAll('.headerlink').length === 0 || window.innerWidth < 900 ) {
-        return function(){};
-	}
+    // if ( !document.getElementById('postAr') || window.innerWidth < 900 ) {
+    //     return function(){};
+	// }
 	let DEFAULT = {
 		lineHeight: 28,           // 每个菜单的行高是 28
 		moreHeight: 10,           // 菜单左侧的线比菜单多出的高度
@@ -17,7 +9,7 @@ let articleCatalog = (function() {
 		delay: 200,               // 防抖的延迟时间
 		duration: 200,            // 滚动的动画持续时间
 		toTopDistance: 80,        // 距离视口顶部多少高度之内时候触发高亮
-		selector: '.headerlink',  // 文章内容中标题标签的 selector
+		selector: 'h2, h3, h4',  // 文章内容中标题标签的 selector
 	}
 
     return function(args) {
@@ -60,20 +52,22 @@ let articleCatalog = (function() {
 
 		// 初始化
 		function initCatalog() {
-			console.log('生成目录中======');
+			// 如果不是文章页，就返回
+			console.log(arContentAnchor)
 			let tempHeight = window.innerHeight
 			
 			if (viewPortHeight !== tempHeight) {
 				viewPortHeight = tempHeight
 				maxCatalogCount = Math.floor((viewPortHeight - DEFAULT.surplusHeight) / DEFAULT.lineHeight)
 
-				generateCatalog()
-
+				generateCatalog();
+				if(arContentAnchor.length == 0) return;// 不用继续
 				catalogLength = arContentAnchor.length
 				lastSH = window.pageYOffset
 				catalogBody = document.querySelector('.arCatalog-body')
 				catalogDl = document.querySelector('.arCatalog dl')
 				catalogDd = document.querySelectorAll('.arCatalog dd')
+				if(!catalogBody) return;
 				bodyBCR = catalogBody.getBoundingClientRect()
 				initBodyTop = bodyBCR.top
 				initDlBottom = initDlBottom || catalogDl.getBoundingClientRect().bottom
@@ -108,43 +102,49 @@ let articleCatalog = (function() {
 
 		// 生成目录
 		function generateCatalog(){
+			if(!document.getElementById('arAnchorBar')) return;
 			let catalogHeight = arContentAnchor.length > maxCatalogCount ? maxCatalogCount * DEFAULT.lineHeight : arContentAnchor.length * DEFAULT.lineHeight;
 			let retStr = `
 						<div class="arCatalog">
-							<div class="arCatalog-line" style="height: ${catalogHeight + DEFAULT.moreHeight}px"></div>
+							<div class="arCatalog-line" style="height: ${catalogHeight + DEFAULT.moreHeight + 30}px"></div>
 							<div class="arCatalog-body" style="max-height: ${catalogHeight}px; height: ${catalogHeight}px">
 								<dl style="margin-top: ${marginTop}px">`
-			let h2Index = 0,
-				h3Index = 1,
-				acIndex = '',
-				tagName = '',
-				index = 0;
+			let index = 0;
 			
+			const tagNames = new Set();
 			for (let currNode of arContentAnchor) {
-				tagName = currNode.parentElement.tagName
-				if ( tagName === 'H2') {
-					acIndex = ++h2Index
-					h3Index = 1
-					className = 'arCatalog-tack1'
-				} else if (tagName === 'H3') {
-					acIndex = `${h2Index}.${h3Index++}`
-					className = 'arCatalog-tack2'
-				} else {
-					acIndex = ''
-					className = 'arCatalog-tack3'
-				}
-				retStr += `
-						<dd class="${className} ${index++ === lastOnIndex ? 'on' : ''}">
-							<span class="arCatalog-index">${acIndex}</span>
-							<a href="#">${currNode.title}</a>
+				tagNames.add(currNode.tagName);
+			}
+			if(tagNames.size == 1){
+				for (let currNode of arContentAnchor) {
+					retStr += `
+						<dd class="arCatalog-tack1 ${index++ === lastOnIndex ? 'on' : ''}">
+							<a href="#">${currNode.textContent}</a>
 							<span class="arCatalog-dot"></span>
 						</dd>`
-			};
-			retStr += `</dl></div></div>`
-
-			document.getElementById('arAnchorBar').innerHTML = retStr
+				}
+				retStr += `</dl></div></div>`
+				document.getElementById('arAnchorBar').innerHTML = retStr
+			}else {
+				for (let currNode of arContentAnchor) {
+					const tagName = currNode.tagName
+					if ( tagName === 'H2') {
+						className = 'arCatalog-tack1'
+					} else if (tagName === 'H3') {
+						className = 'arCatalog-tack2'
+					} else {
+						className = 'arCatalog-tack3'
+					}
+					retStr += `
+							<dd class="${className} ${index++ === lastOnIndex ? 'on' : ''}">
+								<a href="#">${currNode.textContent}</a>
+								<span class="arCatalog-dot"></span>
+							</dd>`
+				};
+				retStr += `</dl></div></div>`
+				document.getElementById('arAnchorBar').innerHTML = retStr
+			}
 		}
-
         // 自动滚动目录树，使得当前高亮目录在可视范围内
         function scrollCatalog() {
             let currentCatalog = document.querySelector('.arCatalog .on');

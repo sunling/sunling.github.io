@@ -6,7 +6,7 @@
   <link href="https://sunling.github.io/atom.xml" rel="self"/>
   
   <link href="https://sunling.github.io/"/>
-  <updated>2024-09-19T03:07:24.987Z</updated>
+  <updated>2024-09-19T19:12:35.758Z</updated>
   <id>https://sunling.github.io/</id>
   
   <author>
@@ -21,14 +21,13 @@
     <link href="https://sunling.github.io/2024/09/18/2024output-mysite/"/>
     <id>https://sunling.github.io/2024/09/18/2024output-mysite/</id>
     <published>2024-09-18T21:43:53.000Z</published>
-    <updated>2024-09-19T03:07:24.987Z</updated>
+    <updated>2024-09-19T19:12:35.758Z</updated>
     
-    <content type="html"><![CDATA[<p>文章目录</p><hr><h1><span id="这是标题一">这是标题一</span></h1><h2><span id="已经完成的">已经完成的</span></h2><span id="more"></span><h2><span id="没有完成的">没有完成的</span></h2><h3><span id="内容">内容</span></h3><p>右边栏显示不全<br>没有介绍启发星球<br>主要文章可以显示固定长度的内容</p><h3><span id="结构">结构</span></h3><p>搜索功能没有实现哦</p>]]></content>
+    <content type="html"><![CDATA[<p>这只是测试</p><h2><span id="1-已经完成的">1、已经完成的</span></h2><span id="more"></span><h2><span id="2-没有完成的">2、没有完成的</span></h2><h3><span id="21-内容">2.1、内容</span></h3><p>右边栏显示不全<br>没有介绍启发星球<br>主要文章可以显示固定长度的内容</p><h3><span id="22-结构">2.2、结构</span></h3><p>搜索功能没有实现哦</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;文章目录&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;这是标题一&quot;&gt;&lt;a href=&quot;#这是标题一&quot; class=&quot;headerlink&quot; title=&quot;这是标题一&quot;&gt;&lt;/a&gt;这是标题一&lt;/h1&gt;&lt;h2 id=&quot;已经完成的&quot;&gt;&lt;a href=&quot;#已经完成的&quot; class=&quot;headerlink&quot; title=&quot;已经完成的&quot;&gt;&lt;/a&gt;已经完成的&lt;/h2&gt;</summary>
+    <summary type="html">&lt;p&gt;这只是测试&lt;/p&gt;
+&lt;h2 id=&quot;1、已经完成的&quot;&gt;&lt;a href=&quot;#1、已经完成的&quot; class=&quot;headerlink&quot; title=&quot;1、已经完成的&quot;&gt;&lt;/a&gt;1、已经完成的&lt;/h2&gt;</summary>
     
     
     

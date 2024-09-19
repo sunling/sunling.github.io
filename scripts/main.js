@@ -23,7 +23,7 @@
 	});
 
     // 文章目录
-    articleCatalog();
+    // articleCatalog();
 
     // phone端，右侧导航
     // $('.right-menu').on('click', function() {

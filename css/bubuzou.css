@@ -798,7 +798,7 @@ footer .copyright a:hover { color: #666; }
 }
 
 .totop i {
-	display: block;
+	display: none;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
     border-width: 9px;
@@ -813,7 +813,7 @@ footer .copyright a:hover { color: #666; }
     width: 18px;
     height: 2px;
     background-color: var(--theme-text-color);
-    display: block;
+    display: none;
     transition: all 0.1s;
     position: absolute;
     top: 5px;
@@ -821,7 +821,7 @@ footer .copyright a:hover { color: #666; }
 }
 .totop::after {
     content: "";
-    display: block;
+    display: none;
     width: 6px;
     height: 6px;
     background-color: var(--theme-text-color);
@@ -1071,12 +1071,12 @@ footer .copyright a:hover { color: #666; }
 /* 文章目录 */
 
 .right-container {
-    position: fixed;
-    z-index: 10;
-    width: 230px;
-    top: 90px;
+    width: 260px;
+    margin-top: 95px;
     left: 50%;
-    margin-left: 310px;
+    margin-left: 300px;
+    padding-top: 20px; /* 根据实际需求调整 */
+    overflow: hidden; /* 确保内容在滚动时不会超出 */
 }
 
 .arCatalog {
@@ -1098,9 +1098,9 @@ footer .copyright a:hover { color: #666; }
 .arCatalog .arCatalog-line:before {
     content: "";
     position: absolute;
-    top: -10px;
-    left: -5px;
-    display: block;
+    /* top: -10px; */
+    /* left: -5px; */
+    display: none;
     width: 8px;
     height: 8px;
     border: 1px solid #d2d2d2;
@@ -1120,8 +1120,8 @@ footer .copyright a:hover { color: #666; }
 }
 
 .arCatalog .arCatalog-body {
-    margin-left: -2px;
-    padding-left: 27px;
+    /* margin-left: -2px; */
+    padding-left: 3px;
     overflow: hidden;
 }
 
@@ -1141,25 +1141,27 @@ footer .copyright a:hover { color: #666; }
 
 .arCatalog-body .arCatalog-tack1 a {
     display: block;
-    max-width: 170px;
+    /* max-width: 170px; */
     padding-left: 28px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.arCatalog-body dd.on a { color: var(--theme-text-color); }
+.arCatalog-body dd.on a { color: var(--theme-text-color);}
 
-.arCatalog-body .arCatalog-tack1 .arCatalog-index {
+.arCatalog-body .arCatalog-tack2 .arCatalog-dot {
     position: absolute;
-    left: 2px;
-    top: 0;
-    color: #bbb;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    background-color: #eaeaea;
+    border: 1px solid #fff;
+    border-radius: 2em;
 }
 
 .arCatalog-body .arCatalog-tack1 .arCatalog-dot {
 	position: absolute;
-    left: -22px;
     top: 11px;
     width: 8px;
     height: 8px;
@@ -1170,22 +1172,19 @@ footer .copyright a:hover { color: #666; }
 
 .arCatalog-body dd.on .arCatalog-dot {
 	position: absolute;
-    left: -23px;
     top: 8px;
     width: 12px;
     height: 12px;
-    background-color: #fd7013;
-    box-shadow: 0px 0px 2px 2px rgba(253, 112, 19, 0.5);
+    background-color: var(--theme-text-color);
+    box-shadow: 0px 0px 2px 2px rgba(239, 91, 133, 0.5);
     border-radius: 2em;
     border-width: 0;
 }
 
-.arCatalog-body .arCatalog-tack2 { padding-left: 17px; }
-
 .arCatalog-body .arCatalog-tack2 a {
     display: block;
     padding-left: 48px;
-    max-width: 150px;
+    /* max-width: 150px; */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
