@@ -982,7 +982,7 @@ footer .copyright a:hover { color: #666; }
     background: var(--theme-text-color);
 }
 
-.search-result-list .search-keyword { background-color: var(--theme-text-color); }
+.search-result-list .search-keyword { background-color: #fdcbe2; }
 
 .search-modal .input-field {
     position: relative;
