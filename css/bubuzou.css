@@ -737,8 +737,9 @@ pre .xml .css,
 pre .xml .cdata { opacity: 0.5; }
 
 .paginator {
-    margin: 4em 0;
-    text-align: center;
+    margin-top: -5px;
+    text-align: right;
+    margin-bottom: 15px;
 }
 
 .paginator .prev,
@@ -758,6 +759,7 @@ pre .xml .cdata { opacity: 0.5; }
 section.container {
     max-width: 780px;
     padding-top: 70px;
+    width: 700px;
 }
 
 footer { padding-bottom: 1px; }
@@ -1074,7 +1076,7 @@ footer .copyright a:hover { color: #666; }
     width: 260px;
     margin-top: 95px;
     left: 50%;
-    margin-left: 300px;
+    margin-left: 220px;
     padding-top: 20px; /* 根据实际需求调整 */
     overflow: hidden; /* 确保内容在滚动时不会超出 */
 }

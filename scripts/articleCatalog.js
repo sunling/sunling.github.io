@@ -52,8 +52,6 @@ let articleCatalog = (function() {
 
 		// 初始化
 		function initCatalog() {
-			// 如果不是文章页，就返回
-			console.log(arContentAnchor)
 			let tempHeight = window.innerHeight
 			
 			if (viewPortHeight !== tempHeight) {
