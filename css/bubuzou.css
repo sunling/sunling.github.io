@@ -1052,6 +1052,11 @@ footer .copyright a:hover { color: #666; }
     white-space: nowrap;
 }
 
+.wechat {
+    padding-right: 4px;
+    white-space: nowrap;
+}
+
 .recent .post-list li {
     height: 28px;
     line-height: 28px;
@@ -1147,6 +1152,10 @@ footer .copyright a:hover { color: #666; }
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.arCatalog-tack3 .arCatalog-dot {
+    margin-left: 3px;
 }
 
 .arCatalog-body dd.on a { color: var(--theme-text-color);}
