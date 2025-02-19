@@ -6,7 +6,7 @@
   <link href="https://sunling.github.io/atom.xml" rel="self"/>
   
   <link href="https://sunling.github.io/"/>
-  <updated>2025-01-16T20:32:41.959Z</updated>
+  <updated>2025-02-19T19:19:55.229Z</updated>
   <id>https://sunling.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>玩转Obsidian？我的免费同步方案+懒人整理术</title>
+    <link href="https://sunling.github.io/2025/02/13/2025output-playwithobsidian/"/>
+    <id>https://sunling.github.io/2025/02/13/2025output-playwithobsidian/</id>
+    <published>2025-02-13T08:00:00.000Z</published>
+    <updated>2025-02-19T19:19:55.229Z</updated>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><p>今天想和大家聊聊我用得比较爽的笔记工具——<strong>Obsidian</strong>。</p><p>它不是什么新鲜玩意儿，也不是我的“生产力神器”，但就像一张越用越顺手的草稿纸，陪我写日记、整理灵感、甚至规划生活。最关键的是，<strong>我一分钱没花</strong>，还摸索出了一套适合自己的“野生用法”。如果你也喜欢折腾工具但预算有限，或许我的经验能给你一点启发。</p><hr><h3><span id="一-为什么选择obsidian">一、为什么选择Obsidian？</span></h3><p>我是个“工具控”，但更是个“实用主义者”。试用过有道云、石墨、MarkEditor2、Notion、Evernote、OneNote，最后留在电脑里的还是<strong>Obsidian</strong>。原因很简单：</p><span id="more"></span><ol><li><p><strong>数据完全属于我</strong>：所有笔记都以Markdown文件存在本地，不用担心服务商倒闭或涨价；</p></li><li><p><strong>极简却灵活</strong>：没有花哨界面，但插件和自定义功能深不见底；</p></li><li><p><strong>强迫症友好</strong>：文件夹结构清晰，找笔记像翻实体笔记本一样顺手。</p></li></ol><p>不过，真正让我离不开它的，是下面这两个“私房功能”。</p><hr><h3><span id="二-我的零成本同步方案">二、我的“零成本”同步方案</span></h3><p>Obsidian官方同步服务要8美元&#x2F;月，而我……选择自己动手。</p><p>最初用<strong>谷歌云同步</strong>（我相信任何网盘都可以），但偶尔遇到手机和电脑内容冲突，或者丢失。我后来发现一个叫<strong>Stroj</strong>的第三方存储服务（类似WebDAV——一种跨平台同步协议），免费版完全够用。设置方法？其实和连接WiFi差不多：填个服务器地址、账号密码，5分钟搞定。</p><p>Obsidian的第三方插件——Rmotely Save真的是一个很神奇的插件。具体操作步骤如图所示：安装Remotely Save插件 → 选择远程服务 → 填入Stroj提供的服务地址、区域、Access Key ID、Secret Access Key、和存储桶的名字。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz1ZMDWGC64aS42gLxLPSl5QYNeSzExibqHP1aUHnelicUF6DgxJOCWT3bhaNW34OriaUAHmWcm2Uc3Q/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>现在，我的笔记在手机、iPad、电脑之间丝滑同步，甚至在走路时可以记录下灵感，回家打开电脑就能继续编辑。</p><hr><h3><span id="三-两行代码拯救整理废人">三、两行代码拯救“整理废人”</span></h3><p>作为一个总把文件丢在“下载”文件夹的懒人，Obsidian的<strong>模板功能</strong>救我于水火。</p><p>首先下载第三方插件Templater，然后设置模版文件读取目录，我设置在文件夹“<strong>Templates</strong>”下。  </p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz1ZMDWGC64aS42gLxLPSl5qsFf4LicoMwdQTfQdpCBbddE1bwkYjnHccre4a7HPo6ujj0zE1nsCdw/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>现在我有这些模版——创建日记笔记、创建公众号文章、创建阅读笔记等等。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz1ZMDWGC64aS42gLxLPSl5UuUtoIDPyrn1Y5m2rqz0ZoWt3Xq4AtACHxejF71QaITK4gN75FIGiag/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>在这里分享我的日记模板核心代码（非程序员友好版）。<strong>直接拷贝粘贴就可以用的哦。</strong></p><p><code>&lt;%*        let title = tp.file.title;       if ((title.startsWith(&quot;未命名&quot;)) || (title.startsWith(&quot;Untitled&quot;)))        &#123;            // 获取当前日期如 `2025-02-13 周四`           title = tp.date.now(&quot;YYYY-MM-DD dddd&quot;);            await tp.file.rename(title);        &#125;    %&gt;      &lt;%*    // 移动日记到指定的文件夹   await tp.file.move (&quot;/Daily Entries/&quot;+tp.date.now(&quot;YYYY&quot;)+&quot;/&quot;+tp.date.now(&quot;YYYYMM&quot;)+&quot;/&quot;+`$&#123;title&#125;`) %&gt;</code></p><p>效果是：每天新建日记时，自动按“年-月”归类到对应文件夹。比如2025年1月1日的日记会躺在<code>2025</code>年的文件夹下的<code>202501</code>里， 因为是2025的第一天，文件夹<code>2025</code>和<code>202501</code>还不存在，所以都会自动建立好，年底复盘一目了然。  </p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz1ZMDWGC64aS42gLxLPSl5sz51H1L1tBvibibBP4LwFoibud5ft1hYBaaZ2s0WKWeEMyaCflON9tMSA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>同理，读书笔记、项目计划全都可以套模板。<strong>工具的意义，不就是为了让人少操心吗？</strong></p><hr><h3><span id="四-markdown我的数字手写体">四、Markdown：我的“数字手写体”</span></h3><p>爱Obsidian，一半是因为爱Markdown。</p><ul><li><p>记录时可以往笔记里粘贴图片，非常方便。我设置了「图片自动存到笔记同名文件夹」——比如这篇日记叫《2025-01-01 周三》，拖进来的图片会自动保存在<code>Daily Entries/202501/2025-01-01 周三/images</code>里；</p></li><li><p>用<code>##</code>分级标题，按住Ctrl点一下就能折叠内容；</p></li><li><p>想高亮文字？前后加俩<code>==</code>，比Word调格式快10倍。</p></li></ul><p>最惊喜的是，所有笔记最后存储的都是以md为后缀的文件，也就是文本文件，很多工具都支持打开预览。</p><hr><h3><span id="五-我是这样用obsidian的">五、我是这样用Obsidian的</span></h3><ol><li><strong>每日流水账</strong>：</li></ol><ul><li><p>电脑端，用快捷键Cmd + N就可以开始记录；</p></li><li><p>手机端，桌面添加“今日日记”小组件 → 散步时用语音输入法口述就可以记录——<strong>流动式记录</strong>才是普通人的刚需。</p></li><li><p>遇到值得记录的事，用“@人名”“#地点”打标签，回头搜索超方便。</p></li></ul><ol start="2"><li><strong>项目复盘</strong>：</li></ol><ul><li><p>• 用“双链笔记”功能关联任务、会议记录和灵感碎片；</p></li><li><p>• 完成时在笔记顶部加个✅，成就感拉满。</p></li></ul><ol start="3"><li><strong>灵感仓库</strong>：</li></ol><ul><li><p>刷到好文章？复制金句+贴链接+写两句感想，丢进“灵感罐头”文件夹；</p></li><li><p>写作时直接搜索关键词，碎片信息瞬间变素材。</p></li></ul><hr><h3><span id="六-使用工具的心得">六、使用工具的心得</span></h3><p>这一年，我越来越觉得：<strong>工具越简单，心思越清明</strong>。</p><p>Obsidian没有让我变成学霸，也没让我日更公众号，但它默默消化了我的焦虑、收藏了我的成长。正如林语堂所说：『日记是写给自己的情书』。而Obsidian，就是帮我把这封情书整理成册的图书管理员。</p><p>如果你问我推不推荐它？我的答案是：<br><strong>“先想清楚你需要解决什么问题，再让工具为你服务——而不是反过来。”</strong></p><p>毕竟，我们追求的不是某个软件，而是一份踏实的生活痕迹呀。</p>]]></content>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+
+&lt;p&gt;今天想和大家聊聊我用得比较爽的笔记工具——&lt;strong&gt;Obsidian&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;它不是什么新鲜玩意儿，也不是我的“生产力神器”，但就像一张越用越顺手的草稿纸，陪我写日记、整理灵感、甚至规划生活。最关键的是，&lt;strong&gt;我一分钱没花&lt;/strong&gt;，还摸索出了一套适合自己的“野生用法”。如果你也喜欢折腾工具但预算有限，或许我的经验能给你一点启发。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;一、为什么选择Obsidian？&quot;&gt;&lt;a href=&quot;#一、为什么选择Obsidian？&quot; class=&quot;headerlink&quot; title=&quot;一、为什么选择Obsidian？&quot;&gt;&lt;/a&gt;一、为什么选择Obsidian？&lt;/h3&gt;&lt;p&gt;我是个“工具控”，但更是个“实用主义者”。试用过有道云、石墨、MarkEditor2、Notion、Evernote、OneNote，最后留在电脑里的还是&lt;strong&gt;Obsidian&lt;/strong&gt;。原因很简单：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="2025" scheme="https://sunling.github.io/categories/2025/"/>
+    
+    <category term="有感而发" scheme="https://sunling.github.io/categories/2025/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/"/>
+    
+    
+    <category term="记录" scheme="https://sunling.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Obsidian" scheme="https://sunling.github.io/tags/Obsidian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十五年，一个普通人的记录实验</title>
+    <link href="https://sunling.github.io/2025/02/09/2025output-writingtolearn/"/>
+    <id>https://sunling.github.io/2025/02/09/2025output-writingtolearn/</id>
+    <published>2025-02-09T08:00:00.000Z</published>
+    <updated>2025-02-19T18:54:00.273Z</updated>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><p>2025年2月5日，我在公司内部做了一个关于“Writing to Learn”的分享活动，感觉还不错，也做了不少准备。今天想和大家聊聊我为什么要做这件事，以及这个主题到底讲了什么。</p><h3><span id="为什么是writing-to-learn">为什么是“Writing to Learn”？</span></h3><span id="more"></span><p>如果大家关注我的公众号，可能会知道，我最近两个月在读一本书——《Writing to Learn》。这本书给了我很大的启发，让我意识到写作和学习其实是同一个过程。今天我想分享一下我的写作之旅，以及我对写作和记录的一些看法。</p><p>去年11月8日，我收到了公司的一个活动邀请，主题是“Wonderlust”——你可以分享任何你感兴趣的内容。那天正好是报名的最后一天，而我当时正在读这本书，于是鼓起勇气报了名。我还记得在日记里写下：“我不敢相信我真的做了这件事。”因为对我来说，用英语分享写作这个话题是一个全新的挑战。但书里的内容让我觉得，我做的事情和书中的观点很契合，于是觉得这是一个值得尝试的机会。我在日记里还写了一句话：“做这件事一定会让我骄傲。”</p><h3><span id="我的背景">我的背景</span></h3><p>先简单介绍一下我的背景。虽然很多人可能已经知道我的经历，但考虑到新读者，但考虑到新读者，还是补充些背景：2009年高中毕业后，我去了深圳，在工厂工作了一段时间，之后去软件培训学校学习了编程。2011年，我成为了一名软件工程师，直到2017年我来到美国，攻读了计算机科学的硕士学位。2018年10月之后，我在美国开始工作，2022年6月我来到西雅图，加入了谷歌。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/ZHf5naKD6cz0zdEbMWpr1EjsRT0N3tUTMXMIVibHW3Rxm0SnYWNLUQxLWK6DofPh5PHvIqvqia30W5jRIOicicKNPA/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>回头看这段经历，像是一场持续十五年的实验——<strong>用普通人最笨拙的方式，观察记录如何改变人生轨迹</strong>。</p><h3><span id="我的写作之旅">我的写作之旅</span></h3><p>我的写作之旅可以算是一个“输出型”的旅程。从2009年开始，我就养成了写日记的习惯，一直持续到现在。2012年，我开始提升英语，利用碎片时间听播客，并做一些简单的笔记。2014年左右，我开始在公众号上分享我的学习过程和笔记。2019年我开始记录和分享生活。2023年，我和朋友李影组织了一个学习社区，一起学习TED；2024年我们创建了启发星球——每周分享过去一周的一些收获和启发。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz0zdEbMWpr1EjsRT0N3tUTU2RFCELJurBe9YusP4JfSUOye6tZ7tGSDJzBKVEJoXKjW4hBScO8BA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>对我来说，写作不局限于传统定义，而是包括写日记、做笔记、记录和分享，甚至工作中的文档写作。每一种形式都帮助我更好地理解自己，也让我在记录中不断成长。</p><h4><span id="为什么要写日记">为什么要写日记？</span></h4><p>写日记对我来说是一个学习的过程，它帮助我记住过去的变化。从2009年到2024年，我已经记录了15年。最初是手写，后来换了好几个工具，现在主要用Obsidian。写日记让我更了解自己，也让我看到自己是如何一步步走到今天的。</p><p>比如，2010年6月13日的一篇日记里，我写道：“我在街上走了很久，问了所有的餐馆，但没有一家愿意招短期工。我感觉自己好像被世界抛弃了。”那时候我正在学习编程，生活压力很大，但正是这些记录让我看到了自己当时的挣扎和成长。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz0zdEbMWpr1EjsRT0N3tUTbXImQLJwBeWWLibdqIRicFKfHiakwVqChle1yMpnxibn2mQkfpxKERud8w/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><p>2019年9月19日的日记里，我记录了收到TEDx深圳活动邀请时的紧张心情。当时我觉得自己没有勇气去做分享，但最终我还是答应了。回头看这些日记，所有的画面都栩栩如生，仿佛每一步都没有白走。（TEDx演讲的整个过程：<a href="https://mp.weixin.qq.com/s?__biz=MzIyMTAxNzU1Nw==&mid=2648668281&idx=1&sn=51c782916e8b8753bb5012ad4c02b51b&scene=21#wechat_redirect">孙玲：演讲小白到TEDx舞台的心路历程</a>）</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz0zdEbMWpr1EjsRT0N3tUTCQv3JXYr81PbNiaIibr9MUumh5nbhxDNvKbFu0dicN2A4NNaicuegrMytQ/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><h4><span id="为什么要做笔记">为什么要做笔记？</span></h4><p>做笔记也是我学习的重要方式。我换过很多工具，现在主要用Obsidian来管理我的笔记。它的口号是“建立你的个人知识库”，我觉得很有道理。就像那句老话说的：“好记性不如烂笔头。”</p><p>2014年，我开始通过听BBC Learning English和VOA的慢速英语来学习英语。我会把听到的内容整理成笔记，然后分享到公众号上。这个过程不仅帮助我保持语感，还让我慢慢积累了一些读者，甚至2016年前后通过公众号赚到了一些生活费。</p><p><a href="https://mp.weixin.qq.com/s?__biz=MzIyMTAxNzU1Nw==&mid=2648671156&idx=1&sn=a83d6bd4588887c11d20bd514ad28095&scene=21#wechat_redirect">2023年，我看了44个TED视频</a>，每个视频都做了笔记。这个过程让我更清楚地知道自己知道什么，不知道什么，并加深了我对某些信念的认同。比如，有一个TED演讲里提到：“If a thing is worth doing, it is worth doing badly.”（如果一件事值得做，哪怕做得不好也值得。）与我一直在践行的价值观不谋而合——先去做，做完，再做好。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ZHf5naKD6cz0zdEbMWpr1EjsRT0N3tUTWovHmia8J2HgkIeBqsxYlLzyS1TjflFia23tXZT7W3Rh4iaaKJwxYapfw/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p><h4><span id="为什么要做公众号">为什么要做公众号？</span></h4><p>2018年底，我在知乎上回答了一个问题：“家里没钱可以出国留学吗？”我分享了自己的经历，没想到这个回答引起了很大的关注。我觉得每个人的经历都是独特的，我只是提供了一种可能性。通过在公众号分享生活点滴、日常实践和阅读心得，是帮助我更好地去表达自己，也是在锻炼能否清晰表达观点的能力。</p><h3><span id="我对写作的看法">我对写作的看法</span></h3><h4><span id="写作恐惧的背后是逃避思考与学习">写作恐惧的背后，是逃避思考与学习</span></h4><p>我现在写一篇公众号文章很耗时，但这是一个思考的过程，我时常提醒自己，坐下来坦然去接受写不出来的状态。我认为，害怕去写，往往是因为我们既懒得深入思考，又误以为自己已经理解，同时不愿投入时间梳理逻辑。但事实是，如果你对一个东西有清晰认知，文字自然会流淌出来。</p><h4><span id="用自己的话表达是有意义的">用自己的话表达是有意义的</span></h4><p>去年12月，我写了一封很长的信给自己，强迫自己用英语写。当时我还在犹豫要不要鼓励每个人都去写作，因为网上已经有太多信息了。但现在我觉得，每个人的记录都是独特的，都值得被分享。</p><h4><span id="过程比结果更重要">过程比结果更重要</span></h4><p>我想起高中时做选择题，很多时候浅显的理解也能答对，而考试中选择题占比很高，更多是专注正确答案，而找答案的过程往往被忽略了。写作也是一样，第一版很重要，重新写、反复思考的过程本身就是有意义的。我喜欢这句话：“If the process is sound, the product will take care of itself.”（如果过程是扎实的，结果自然会好。）</p><p>这场实验没有高大上的仪器，只有不断更替的日记本和闪烁的光标。但当我翻看十五年的记录数据，最清晰的结论是：<strong>普通人的坚持，本身就是最动人的变量</strong>。</p><h3><span id="最后">最后</span></h3><p>写作对我来说，不仅仅是一种记录，更是一种学习和成长的方式。它让我更清楚地看到自己的变化，也让我对自己有了更清晰的自我认知。希望我的分享能给大家一些启发，也期待大家能找到属于自己的记录方式。</p><p><img src="https://mp.weixin.qq.com/s/tm-fV0Cm7qKA9qzgu3WniQ" alt="赞赏二维码"></p><p>记录3</p><p>经验分享3</p><p>记录 · 目录</p><p>上一篇害怕去写的人，也是害怕学习的人下一篇如何玩转Obsidian？我的免费同步方案+懒人整理术</p>]]></content>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+
+&lt;p&gt;2025年2月5日，我在公司内部做了一个关于“Writing to Learn”的分享活动，感觉还不错，也做了不少准备。今天想和大家聊聊我为什么要做这件事，以及这个主题到底讲了什么。&lt;/p&gt;
+&lt;h3 id=&quot;为什么是“Writing-to-Learn”？&quot;&gt;&lt;a href=&quot;#为什么是“Writing-to-Learn”？&quot; class=&quot;headerlink&quot; title=&quot;为什么是“Writing to Learn”？&quot;&gt;&lt;/a&gt;为什么是“Writing to Learn”？&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="2025" scheme="https://sunling.github.io/categories/2025/"/>
+    
+    <category term="有感而发" scheme="https://sunling.github.io/categories/2025/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/"/>
+    
+    
+    <category term="写作" scheme="https://sunling.github.io/tags/%E5%86%99%E4%BD%9C/"/>
+    
+    <category term="学习" scheme="https://sunling.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://sunling.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>害怕去写的人，也是害怕学习的人</title>
@@ -515,64 +577,6 @@
     <category term="生活记录" scheme="https://sunling.github.io/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/"/>
     
     <category term="六月" scheme="https://sunling.github.io/tags/%E5%85%AD%E6%9C%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大提顿国家公园的旅行日记</title>
-    <link href="https://sunling.github.io/2024/06/12/2024seeworld-grandteton/"/>
-    <id>https://sunling.github.io/2024/06/12/2024seeworld-grandteton/</id>
-    <published>2024-06-12T07:00:00.000Z</published>
-    <updated>2024-09-17T19:40:18.712Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章继续叨叨六月初的黄石国家公园&amp;大提顿山脉徒步旅程。</p><h3><span id="04-6月10日">04 - 6月10日</span></h3><p>自从到了Jackson，我有种回到正常世界的感觉，因为黄石国家公园实在太独特了。</p><p>我们首先去Jackson镇上的Picnic餐厅吃早餐，这是我第二次来这家店，上次是2021年冬天，和朋友一起在这里吃早餐，还录了vlog，印象深刻。我把早餐的照片发给两个朋友，告诉她们我在想念她们。</p><p>早饭后，我们去了访客中心，询问了今明两天的徒步信息，最后确定今天去Death Valley Trail，明天去Jenny Lake。</p><p>天气很好，不冷不热。整条步道没有太陡的地方，走起来很舒适。</p><p>一路上有很多野花，长时间可以听到水流声，看着湍急的水流，我想到小时候用的描述词“白花花的水流”，觉得很贴切。我有时感觉自己仿佛走进了放松风景的视频。如果一定要和华盛顿州的山比较，我觉得这里的湖水更绿，树没有那么高大密集，但这里的山峰更尖锐，峡谷也更深邃。如果仔细看的话，峭壁上有各种小瀑布，山上的雪通过瀑布流入峡谷，最后慢慢汇入五湖四海。</p><p>途中有一段稍微有点难度，有雪且有些陡，如果摔倒，很容易掉进湍急的水流中，非常危险。在我们之前似乎没有人走过。我喜欢冒险，觉得没问题，轻而易举地先过去了，同伴说我带头做危险的事，我才意识到每个人对风险的承受能力不同，这不仅仅关乎我一个人的安全，记住多人同行时还是要谨慎些才好。</p><p>整个步道往返11英里，攀升2000英尺。半马已经是两天前，我以为恢复得差不多了，但走完后感到很累，甚至有些晕眩，小腿还是有点酸。高纬度的天气很干燥，导致我脸上开始脱皮，手也有些小裂痕，口干舌燥，我没有想象中那么适应这里的天气。</p><p>下午还有一些时间，我们去了Jackson镇稍微逛了下，感觉整个镇都很fancy，很多艺术画廊都很吸引人。晚饭我们吃了墨西哥餐，饭后感觉稍微精神一些。</p><p>饭后天还没黑，我们决定找个地方看日落。开车20多分钟后，没有找到理想的地方，想着可以爬得更高一些，看到整个平原和起伏的丘陵风景。发现步道都有点远，最后去了Mormon Row。拍照时，有个年轻人用相机给我们拍照，说拍完后会直接传给我们，真是太好了！看到照片时，他拍得非常好。之后，我们在静谧的房子前欣赏了很久，后面的雪山也显得安静祥和。</p><p>天黑后，我们才慢慢开车回家，路上有幸看到很多麋鹿，虽然天有点黑，距离也有些远，拍的照片比较模糊，但看到麋鹿的时刻让人感到愉悦。</p><h3><span id="05-6月11日">05 - 6月11日</span></h3><p>今天的计划仍然是徒步。</p><p>Jenny Lake 是听说去大提顿国家公园必去的地方。这个湖非常受欢迎，停车场绕了几圈才找到位置。等了差不多20分钟，我们终于坐上了摆渡船穿过湖面，到达徒步的入口。</p><p>一路上人挺多的，尤其是开始的时候。不到15分钟我们就走到了第一个观赏点——Hidden Falls。再爬一个坡，就到了Inspiration Point的观景点，在那里可以看到整个Jenny Lake，看到摆渡船划出长长的痕迹，不禁想起摆渡船每天不知道要渡多少人。</p><p>继续往山谷里走，爬升很缓，风景和昨天比较类似，都是在山谷里行走，伴随着流水声，路边偶尔能看到动物的粪便，还有一些小动物。这个山谷的左边就是大提顿山，树木不多，山看着不算高，但实际上有6000英尺高，本身海拔就接近7000英尺。偶尔抬头看看，每次都会被震撼到，之前我们是远观山峰，现在我们是走进山峰之间的峡谷。</p><p>最后我们走到一个比较宽阔的地方，选择在那折返，当时单程是5.5英里。在那里停留休息，吃了午饭后开始下山。</p><p>今天我口渴的速度明显快了很多，下山时大脑处于放空状态，有点犯困，和朋友聊天让我稍微有点精神。上山时我还想着回去时不坐摆渡船，徒步两英里环湖回去，但走了11英里后，最终决定还是坐船。在船上，船员说如果想看麋鹿的话，下船后往南走去Moose Ponds可以看到，虽然很累，但还是很想去看看。</p><p>我们继续走了20多分钟，果然发现一只麋鹿在池塘里，它有规律地将头放入水中，再抬起来，然后再放进去。这动作让我想起小时候自己也做过类似的事。麋鹿的角非常大，像一座皇冠，分叉多而复杂，在头上显得特别壮观，但又有对称的美感，表面光滑且呈现出温暖的棕色。近距离观察了一会儿后，我们心满意足地带着疲惫的身体离开。</p><p>晚上我们去了Jackson的China Town餐厅吃饭，发现味道很一般，填饱肚子绰绰有余，剩下的打包回去明天吃。由于明天要早起看日出，我们早早就睡了。</p><h3><span id="06-6月12日">06 - 6月12日</span></h3><p>假期的最后一天。</p><p>今天的计划比较简单：早起去Mormon Row看日出，然后开车北上，经过黄石，再次游览黄石最受欢迎的景点，最后驱车前往Bozeman的机场，飞回西雅图。</p><p>早上4点45分起床后快速收拾，我们四个人在15分钟内完成洗漱并出门。今天感觉稍微轻松了一点，有点开心。</p><p>5点半到了Mormon Row，听说这里是观赏日出的最佳地点。因为西面是高耸的大提顿山脉，清晨的第一缕阳光会投射在山顶。</p><p>人渐渐多了起来，比我们更早到的人已经将相机架好了。我快速跑去看了一下他们的黄金位置，觉得肉眼看有点远，还是去其他位置吧。</p><p>看到阳光逐渐投射在山上，真是肉眼可见的速度。由于可以一直盯着看，这种方式比直接盯着太阳看日出要舒服很多。</p><p>日出看完后，我们北上去黄石。路上看到很多人停留，用相机拍摄，原来是看到了灰熊399。之前有人说错过她很难，果真，她已经28岁了，今天我们还看到了她的孩子。</p><p>再次造访Old Faithful。在访客中心看到10:36会有喷发，还有一个多小时的时间可以探索。走到哪里都能看到大大小小的间歇泉。在去Castle Geyser的路上，我们远远看到了Beehive正在喷发。Beehive是不可预测的，能看到真是幸运，非常壮观。</p><p>10点32分时，我们还在路上，但Old Faithful已经开始喷发了。我们远处看到，只有两分钟的喷发时间，所以就边走边看，虽然之前近距离看过，但还是被震撼到。</p><p>旁边的Old Faithful Inn自1904年开业以来，是美国最早、最大、最著名的木结构建筑之一。许多木材和石材都是从附近的森林和采石场采集而来。一进入旅馆，高大的中心大厅让人感受到它的雄伟和历史厚重感。</p><p>Grand Prismatic Spring是大自然的杰作。周六我们在步道上近距离观赏过，这次我们决定去最佳观赏地点之一——Fairy Falls Trail，可以俯瞰整个泉。泉中心的深蓝色仿佛一颗巨大的宝石，周围环绕着绿色、黄色、橙色和红色的层层光晕，宛如一幅巨大的彩色棱镜。</p><p>这是我们这次旅程的最后一站。我们在West Yellowstone简单吃了午饭，然后开车去Bozeman机场。差不多两个小时的车程，我们一直在聊天，聊人际关系，聊过去，感觉时间过得飞快。或许因为这是旅程的最后，不想那么快结束，时间反而过得更快。</p><p>在飞回西雅图的路上，看到Wyoming和Washington的地形有很大的区别。Wyoming的山更矮，稀疏，贫瘠一些，而Washington的山更高，更绿，夏天还可以看到很多雪，真美，我喜欢华盛顿州，我喜欢西雅图。</p><hr><p>这次旅程从6月7号开始，到12号结束，历时6天。我打卡了黄石和大提顿两个国家公园，每天都沉浸在大自然的怀抱中。在黄石旁边跑了个半马，让整个旅程更加难忘。总体来说，这次旅行既充实又愉快，开阔眼界的，绝对不虚此行。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这篇文章继续叨叨六月初的黄石国家公园&amp;amp;大提顿山脉徒步旅程。&lt;/p&gt;
-&lt;h3&gt;&lt;span id=&quot;04-6月10日&quot;&gt;04 - 6月10日&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;自从到了Jackson，我有种回到正常世界的感觉，因为黄石国家公园实在太独特了。&lt;/p&gt;
-&lt;p&gt;我们</summary>
-      
-    
-    
-    
-    <category term="2024" scheme="https://sunling.github.io/categories/2024/"/>
-    
-    <category term="看世界" scheme="https://sunling.github.io/categories/2024/%E7%9C%8B%E4%B8%96%E7%95%8C/"/>
-    
-    
-    <category term="大提顿国家公园" scheme="https://sunling.github.io/tags/%E5%A4%A7%E6%8F%90%E9%A1%BF%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>黄石国家公园半马值得跑吗？</title>
-    <link href="https://sunling.github.io/2024/06/11/2024output-yellowhalf/"/>
-    <id>https://sunling.github.io/2024/06/11/2024output-yellowhalf/</id>
-    <published>2024-06-11T07:00:00.000Z</published>
-    <updated>2024-09-17T19:37:59.701Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章来分享一下我参加一个高海拔半马的体验。</p><p>2月初，我在社交媒体上看到一个广告，是关于国家公园半马活动的广告，当时就被吸引了，觉得应该很好玩，跑个半马，然后顺道给自己机会去国家公园逛一逛。</p><p>Vacation Races是一个专门在国家公园附近组织跑步赛事的组织，几乎所有国家公园附近都有跑步赛事，最后我和朋友决定报名黄石公园的。2021年年底我和两位好友尝试去探索黄石，但最终因为天气原因没有去成，只是路过。今年我一定要去黄石探个究竟。这里只是分享参加半马的体验。</p><p>在去之前，有点担心，因为之前从未在高海拔跑过步。这个赛事是在6500英尺（1980米）海拔上，总爬升有582英尺（177米），并且路线比较崎岖多石。我的目标是完成比赛，虽然这样说，还是希望自己能有一个不错的成绩。</p><p>活动是在6月8号，早上6点半开跑。</p><p>一开始我是跟着2小时的领跑员跑，她的配速非常稳，前面4英里的配速都在3秒只差，配速是8分50秒上下，能够感受到我的心率比平时稍微高一些，应该是高海拔的关系。</p><p>到了5英里的时候，领跑员把我甩在了后面，我用蜗牛般的速度在移动，能听到的只有自己气喘吁吁的呼吸声。有一瞬间我甚至感觉自己撑不住了，心脏仿佛要蹦出来。这个上坡有2英里长，不是很陡，但很痛苦，很耗体力。</p><p>到7英里的时候，我以为我的体力全部被这个上坡耗尽了，好在之后2英里是个缓缓的下坡，只要迈开腿就好，有惯性，有势能，但我心里已经开始担心，到了平地，我还能迈开腿吗？下坡时我尽量摆正姿势，挺直腰背，不让身体下沉。</p><p>9英里开始，我感受到了煎熬，风景很美，流水声理论上能缓解压力，心里却在想，好想停下来享受一下风景，听听流水声多好，但停下来是最后的选择，不能停下来。没想到之后偶尔有小上坡，当我被他人超越时，开始产生一些负面情绪，比如我为什么这么弱。</p><p>最后2英里，我的身体下沉更加频繁，直线形状的路线更是觉得无止境似的，我知道，只要一步一步往前跑，肯定会到终点。最后200米，我用尽全身力气加了点速，终于完成了。</p><p>这个赛事提倡环保，没有提供一次性水杯，而是提供了可以拿在手上重复利用的水杯。我将这个水杯带在身上，但一路上都没有去补给站喝水。跑完后，工作人员给了奖牌和零食，但我最需要的是水。</p><p>我看着时间指示牌显示2小时2分钟，心想这次没有在两个小时内完成是在预期范围之内，但我出发时是在第二波跑的，所以出发时间晚两分钟，最终结果是1小时59分33秒，算是超出期待完成。这次半马真的很痛苦啊，想到全马跑者，半马结束时我还能再来一次吗？很是怀疑。</p><p>跑完才8点半，好早啊，成就感是满满的，跑完后的那种痛苦已经转化为内啡肽，心情上感受了好多，做什么感觉都是愉悦的。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这篇文章来分享一下我参加一个高海拔半马的体验。&lt;/p&gt;
-&lt;p&gt;2月初，我在社交媒体上看到一个广告，是关于国家公园半马活动的广告，当时就被吸引了，觉得应该很好玩，跑个半马，然后顺道给自己机会去国家公园逛一逛。&lt;/p&gt;
-&lt;p&gt;Vacation Races是一个专门在国家公园附近</summary>
-      
-    
-    
-    
-    <category term="2024" scheme="https://sunling.github.io/categories/2024/"/>
-    
-    <category term="有感而发" scheme="https://sunling.github.io/categories/2024/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/"/>
-    
-    
-    <category term="跑步" scheme="https://sunling.github.io/tags/%E8%B7%91%E6%AD%A5/"/>
-    
-    <category term="半马突破" scheme="https://sunling.github.io/tags/%E5%8D%8A%E9%A9%AC%E7%AA%81%E7%A0%B4/"/>
     
   </entry>
   
