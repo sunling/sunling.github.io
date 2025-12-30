@@ -1,65 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bysunling.com - 个人主页</title>
-    <link rel="stylesheet" href="/styles/shared.css">
-    <link rel="icon" type="image/png" href="/favicon.ico">
+    <title>Choose your language - bysunling.com</title>
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <style>
+        .language-chooser {
+            max-width: 520px;
+            margin: 120px auto;
+            text-align: center;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+        .language-chooser h1 { margin: 0 0 16px; }
+        .language-chooser p { margin: 0 0 24px; color: #555; }
+        .lang-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .lang-buttons a {
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 1px solid #d8d8d8;
+            color: #1f1f1f;
+            background: #f7f7f7;
+            min-width: 120px;
+        }
+        .lang-buttons a:hover { background: #eef2ff; border-color: #d0d7ff; }
+        .hint { margin-top: 12px; font-size: 14px; color: #777; }
+    </style>
 </head>
-<body class="home-body">
-    <!-- Header will be dynamically inserted by shared.js -->
-    
-    <div class="home-container">
-        <div class="sites-grid">
-            <a href="https://blog.bysunling.com" target="_blank" class="site-card">
-                <div class="site-icon">Blog</div>
-                <div class="site-title">博客</div>
-                <div class="site-description">记录思考与成长的地方，分享学习心得和生活感悟</div>
-                <div class="site-url">blog.bysunling.com</div>
-            </a>
-            <a href="https://cards.bysunling.com" target="_blank" class="site-card">
-                <div class="site-icon">Cards</div>
-                <div class="site-title">启发卡片</div>
-                <div class="site-description">创造你的启发时刻卡片，记录和分享有价值的想法</div>
-                <div class="site-url">cards.bysunling.com</div>
-            </a>
-            <a href="https://meetup.bysunling.com" target="_blank" class="site-card">
-                <div class="site-icon">Meetup</div>
-                <div class="site-title">活动聚会</div>
-                <div class="site-description">组织和参与有意义的线下活动，建立真实的连接</div>
-                <div class="site-url">meetup.bysunling.com</div>
-            </a>
-            <a href="/insights.html" class="site-card">
-                <div class="site-icon">Insights</div>
-                <div class="site-title">信息聚合器</div>
-                <div class="site-description">智能RSS聚合与分析，发现有价值的内容和洞察</div>
-                <div class="site-url">bysunling.com/insights</div>
-            </a>
-            <a href="#" class="site-card">
-                <div class="site-icon">Tools</div>
-                <div class="site-title">工具区</div>
-                <div class="site-description">实用的小工具集合：封面图生成、日签制作等（开发中）</div>
-                <div class="site-url">tools.bysunling.com</div>
-            </a>
+<body>
+    <div class="language-chooser">
+        <h1>选择语言 / Choose language</h1>
+        <p>若浏览器语言检测成功，将自动跳转；否则请选择进入。</p>
+        <div class="lang-buttons">
+            <a href="zh/">进入中文站</a>
+            <a href="en/">Enter English</a>
         </div>
+        <div class="hint">如果没有自动跳转，请手动点击上方按钮。</div>
     </div>
 
-    <!-- Footer will be dynamically inserted by shared.js -->
-    
-    <script src="/scripts/shared.js"></script>
     <script>
-        // 页面特定的JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // 检查是否从登录页面跳转过来
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('login') === 'success') {
-                // 可以显示登录成功的提示
-                console.log('登录成功！');
-                // 清除URL参数
-                window.history.replaceState({}, document.title, window.location.pathname);
+        (function() {
+            const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            const prefersZh = userLang.startsWith('zh');
+            const target = prefersZh ? 'zh/' : 'en/';
+            // Delay a tick so users still see buttons; skip if hash forces manual
+            if (!window.location.hash.includes('no-redirect')) {
+                window.location.href = target;
             }
-        });
+        })();
     </script>
 </body>
 </html>
