@@ -22,6 +22,7 @@
 
         const title = document.createElement('h1');
         title.className = 'title';
+        title.style.marginLeft = '22px';
         const homeLink = document.createElement('a');
         homeLink.className = 'link';
         homeLink.textContent = isZh ? '孙玲' : 'Sun Ling';
