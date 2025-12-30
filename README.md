@@ -1,4 +1,4 @@
-# bylingsun.com
+# bysunling.com
 
 静态双语站点，可直接托管到 GitHub Pages。
 
