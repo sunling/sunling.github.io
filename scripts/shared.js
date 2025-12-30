@@ -68,8 +68,18 @@
         github.rel = 'noreferrer';
         github.innerHTML = '<svg viewBox="0 0 24 24" role="img"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56v-2.02c-3.2.7-3.88-1.37-3.88-1.37-.53-1.35-1.3-1.71-1.3-1.71-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.22 1.8 1.22 1.04 1.79 2.73 1.27 3.4.97.1-.78.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.2-3.09-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.21 1.18a11 11 0 0 1 5.84 0c2.23-1.49 3.2-1.18 3.2-1.18.63 1.65.23 2.87.11 3.17.75.8 1.2 1.83 1.2 3.09 0 4.43-2.69 5.4-5.25 5.68.42.36.8 1.07.8 2.17v3.22c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"></path></svg>';
 
+        const linkedin = document.createElement('a');
+        linkedin.className = 'link';
+        linkedin.href = 'https://www.linkedin.com/in/lingsunhi/';
+        linkedin.title = 'LinkedIn';
+        linkedin.setAttribute('aria-label', 'LinkedIn');
+        linkedin.target = '_blank';
+        linkedin.rel = 'noreferrer';
+        linkedin.innerHTML = '<svg viewBox="0 0 24 24" role="img"><path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.454C23.204 24 24 23.226 24 22.271V1.729C24 .774 23.204 0 22.225 0zM7.34 20.452H3.998V9h3.342v11.452zM5.667 7.433a1.942 1.942 0 110-3.883 1.942 1.942 0 010 3.883zM20.447 20.452h-3.352v-5.569c0-1.328-.026-3.037-1.85-3.037-1.853 0-2.136 1.447-2.136 2.944v5.662H9.757V9h3.212v1.561h.046c.447-.846 1.537-1.732 3.164-1.732 3.386 0 4.268 2.229 4.268 5.126v6.497z"></path></svg>';
+
         footer.appendChild(email);
         footer.appendChild(github);
+        footer.appendChild(linkedin);
 
         return footer;
     }
