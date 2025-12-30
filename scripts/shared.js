@@ -1,5 +1,5 @@
 // Shared layout utilities for the static site (auth temporarily disabled)
-(function() {
+(function () {
     'use strict';
 
     function getBasePath() {
@@ -24,7 +24,6 @@
         title.className = 'title';
         const homeLink = document.createElement('a');
         homeLink.className = 'link';
-        homeLink.href = `${basePath}index.html`;
         homeLink.textContent = isZh ? '孙玲' : 'Sun Ling';
         title.appendChild(homeLink);
 
@@ -152,11 +151,11 @@
         const isZh = window.location.pathname.includes('/zh/');
         const base = getBasePath();
         fetch(base + 'data/recent-writing.json')
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
                 const items = (isZh ? data.zh : data.en).slice(0, 3);
                 grid.innerHTML = '';
-                items.forEach(function(item) {
+                items.forEach(function (item) {
                     const a = document.createElement('a');
                     a.className = 'writing-card';
                     a.href = item.url;
@@ -177,14 +176,14 @@
                     grid.appendChild(a);
                 });
             })
-            .catch(function() {});
+            .catch(function () { });
     }
-    
+
     function truncateSummary(text) {
         const limit = window.innerWidth <= 640 ? 90 : 140;
         const t = String(text || '');
         if (t.length <= limit) return t;
-        return t.slice(0, limit).replace(/[,.，。;；、!\s]+$/,'') + '…';
+        return t.slice(0, limit).replace(/[,.，。;；、!\s]+$/, '') + '…';
     }
 
     function initSharedComponents() {
