@@ -106,7 +106,7 @@
             const p = document.createElement('p');
             p.textContent = phrases[Math.floor(Math.random() * phrases.length)];
             const size = Math.round(14 + Math.random() * 8);
-            const opacity = (0.025 + Math.random() * 0.03).toFixed(3);
+            const opacity = (0.020 + Math.random() * 0.010).toFixed(3);
             const rotate = (Math.random() - 0.5) * 10;
             p.style.fontSize = size + 'px';
             p.style.opacity = opacity;
@@ -153,7 +153,7 @@
         fetch(base + 'data/recent-writing.json')
             .then(function(res) { return res.json(); })
             .then(function(data) {
-                const items = isZh ? data.zh : data.en;
+                const items = (isZh ? data.zh : data.en).slice(0, 3);
                 grid.innerHTML = '';
                 items.forEach(function(item) {
                     const a = document.createElement('a');

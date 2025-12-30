@@ -90,21 +90,34 @@ header nav a:hover {
 
 /* Minimal footer with icon links (no extra classes) */
 footer {
-    text-align: center;
-    margin: 32px 0 20px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(150%) blur(6px);
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
     color: #6b7280;
+    z-index: 1000;
 }
 
 footer a {
-    margin: 0 8px;
+    margin: 0;
     display: inline-block;
 }
 
 footer svg {
-    width: 22px;
-    height: 22px;
-    fill: #6b7280;
-    stroke: #6b7280;
+    width: 24px;
+    height: 24px;
+    fill: #4b5563;
+    stroke: #4b5563;
     stroke-width: 1.5;
 }
 
@@ -580,6 +593,10 @@ section {
     text-align: left;
 }
 
+.profile-bio p {
+    line-height: 1.75;
+}
+
 .sites-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -894,11 +911,8 @@ figure iframe {
     margin: 24px auto 0;
 }
 
-.featured-talk .caption {
-    margin-top: 8px;
-    color: #666;
-    font-size: 0.9rem;
-    text-align: center;
+.featured-talk--compact {
+    max-width: 480px;
 }
 
 /* Recent Writing */
@@ -908,6 +922,60 @@ figure iframe {
     padding: 0 20px;
 }
 
+/* Featured section container aligned with Recent Writing */
+.featured-section {
+    margin: 40px auto 0;
+    max-width: 840px;
+    padding: 0 20px;
+}
+
+.bottom-row {
+    max-width: 840px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+}
+
+.bottom-row .recent-writing,
+.bottom-row .featured-section {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+    height: 100%;
+}
+
+.bottom-row .featured-talk {
+    max-width: 100%;
+}
+
+.featured-section .featured-talk {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .bottom-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+.featured-section h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    text-align: center;
+}
+
+body.compact .featured-section {
+    margin: 24px auto 0;
+}
+
+body.compact .featured-section h2 {
+    font-size: 20px;
+}
 .recent-writing h2 {
     margin: 0 0 16px;
     font-size: 22px;
