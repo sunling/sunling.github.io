@@ -52,8 +52,7 @@
             { text: 'Inspire Planet', url: SiteLinks?.inspirePlanet || 'https://inspireplanet.cc/' },
             { text: 'GitHub Repo', url: SiteLinks?.repo || 'https://github.com/sunling/inspireplanet.cc' },
             { text: 'Blog', url: SiteLinks?.blog || 'https://blog.bysunling.com' },
-            { text: 'Cards', url: SiteLinks?.cards || 'https://cards.bysunling.com' },
-            { text: 'Insights', url: `${basePath}insights.html` }
+            { text: 'Cards', url: SiteLinks?.cards || 'https://cards.bysunling.com' }
         ];
 
         navItems.forEach(item => {
