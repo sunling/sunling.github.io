@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sun Ling | Google Cloud Engineer & Writer</title>
-    <meta name="description" content="Personal site of Sun Ling, a Full Stack Engineer at Google Cloud, organizer of Inspiration Planet, and TEDx speaker based in Seattle." />
-    <meta property="og:title" content="Sun Ling | Google Cloud Engineer & Writer" />
-    <meta property="og:description" content="Personal site of Sun Ling, a Full Stack Engineer at Google Cloud, organizer of Inspiration Planet, and TEDx speaker based in Seattle." />
+    <meta
+      name="description"
+      content="Personal site of Sun Ling, a Full Stack Engineer at Google Cloud, organizer of Inspiration Planet, and TEDx speaker based in Seattle."
+    />
+    <meta
+      property="og:title"
+      content="Sun Ling | Google Cloud Engineer & Writer"
+    />
+    <meta
+      property="og:description"
+      content="Personal site of Sun Ling, a Full Stack Engineer at Google Cloud, organizer of Inspiration Planet, and TEDx speaker based in Seattle."
+    />
     <meta property="og:image" content="/assets/sunling.jpeg" />
     <link rel="alternate" hreflang="zh-CN" href="../zh/" />
     <link rel="alternate" hreflang="en" href="../en/" />
@@ -23,9 +32,9 @@
         />
         <div class="profile-bio">
           <p>
-            I am a full stack software engineer working on the Google Cloud Compute
-            Core Experience team. I am originally from Xinhua County, China, and
-            currently reside in Seattle, WA. I gave a
+            I am a full stack software engineer working on the Google Cloud
+            Compute Core Experience team. I am originally from Xinhua County,
+            China, and currently reside in Seattle, WA. I gave a
             <a
               class="link"
               href="https://embed.ted.com/talks/sun_ling_how_i_got_to_google_from_being_a_factory_worker"
@@ -35,8 +44,8 @@
             >
             on my journey in 2019. I organize a weekly online forum called
             Inspiration Planet, and am interested in all topics related to self
-            improvement, especially as they relate to frisbee, skiing, running, AI,
-            women/Chinese in tech, etc. You can read some of my posts on
+            improvement, especially as they relate to frisbee, skiing, running,
+            AI, women/Chinese in tech, etc. You can read some of my posts on
             <a
               class="link"
               href="../assets/wechat-qr.jpg"
@@ -67,7 +76,6 @@
             >
             website.
           </p>
-          
         </div>
       </section>
     </main>
@@ -91,25 +99,6 @@
         </div>
       </section>
     </section>
-    <script>
-      (function applyLinks() {
-        if (!window.SiteLinks) return;
-        document.querySelectorAll("[data-link]").forEach((el) => {
-          const key = el.dataset.link;
-          const url = SiteLinks[key];
-          if (!url) return;
-          if (el.tagName.toLowerCase() === "a") {
-            el.href = url;
-            if (el.dataset.blank !== "false") {
-              el.target = "_blank";
-              el.rel = "noreferrer";
-            }
-          } else if (el.tagName.toLowerCase() === "img") {
-            el.src = url;
-          }
-        });
-      })();
-    </script>
     <script src="../scripts/shared.js"></script>
   </body>
 </html>

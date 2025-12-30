@@ -50,7 +50,8 @@
     }
 
     function createSharedFooter() {
-        const footer = document.createElement('footer');
+        const footer = document.createElement('div');
+        footer.className = 'footer-inline';
 
         const email = document.createElement('a');
         email.className = 'link';
@@ -166,10 +167,10 @@
                     title.textContent = item.title;
                     const summary = document.createElement('div');
                     summary.className = 'summary';
-                    summary.textContent = item.summary;
+                    summary.textContent = truncateSummary(item.summary);
                     const more = document.createElement('div');
                     more.className = 'more';
-                    more.innerHTML = (isZh ? '阅读更多' : 'Read More') + ' <svg viewBox="0 0 24 24" role="img"><path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"></path></svg>';
+                    more.innerHTML = (isZh ? '阅读更多' : 'Read More');
                     a.appendChild(title);
                     a.appendChild(summary);
                     a.appendChild(more);
@@ -177,6 +178,13 @@
                 });
             })
             .catch(function() {});
+    }
+    
+    function truncateSummary(text) {
+        const limit = window.innerWidth <= 640 ? 90 : 140;
+        const t = String(text || '');
+        if (t.length <= limit) return t;
+        return t.slice(0, limit).replace(/[,.，。;；、!\s]+$/,'') + '…';
     }
 
     function initSharedComponents() {
@@ -186,9 +194,10 @@
             body.insertBefore(header, body.firstChild);
         }
 
-        if (!document.querySelector('footer')) {
+        const bio = document.querySelector('.profile .profile-bio');
+        if (bio && !bio.querySelector('.footer-inline')) {
             const footer = createSharedFooter();
-            document.body.appendChild(footer);
+            bio.appendChild(footer);
         }
         renderBgWords();
         window.addEventListener('resize', renderBgWords);
