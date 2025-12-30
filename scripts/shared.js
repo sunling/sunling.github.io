@@ -84,6 +84,67 @@
         return footer;
     }
 
+
+    function renderBgWords() {
+        let container = document.querySelector('.bg-words');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'bg-words';
+            document.body.insertBefore(container, document.body.firstChild);
+        }
+        container.innerHTML = '';
+        const isZh = window.location.pathname.includes('/zh/');
+        const phrases = isZh
+            ? ['坚持出现', '相信过程', '每天一点点', '持续迭代']
+            : ['Trust the process', 'Keep showing up', 'Small steps', 'Iterate daily'];
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const padding = 24;
+        const maxCount = w < 640 ? 8 : 12;
+        const placed = [];
+        for (let i = 0; i < maxCount; i++) {
+            const p = document.createElement('p');
+            p.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            const size = Math.round(14 + Math.random() * 8);
+            const opacity = (0.025 + Math.random() * 0.03).toFixed(3);
+            const rotate = (Math.random() - 0.5) * 10;
+            p.style.fontSize = size + 'px';
+            p.style.opacity = opacity;
+            p.style.transform = 'rotate(' + rotate + 'deg)';
+            container.appendChild(p);
+            const pw = p.offsetWidth;
+            const ph = p.offsetHeight;
+            let tries = 0;
+            let x, y;
+            const maxX = w - pw - padding;
+            const maxY = h - ph - padding;
+            if (maxX <= padding || maxY <= padding) {
+                container.removeChild(p);
+                break;
+            }
+            do {
+                x = Math.round(padding + Math.random() * maxX);
+                y = Math.round(padding + Math.random() * maxY);
+                let overlaps = false;
+                for (const r of placed) {
+                    if (!(x + pw + 6 < r.x || r.x + r.w + 6 < x || y + ph + 6 < r.y || r.y + r.h + 6 < y)) {
+                        overlaps = true;
+                        break;
+                    }
+                }
+                if (!overlaps) break;
+                tries++;
+            } while (tries < 50);
+            if (tries >= 50) {
+                container.removeChild(p);
+                continue;
+            }
+            p.style.left = x + 'px';
+            p.style.top = y + 'px';
+            placed.push({ x, y, w: pw, h: ph });
+        }
+    }
+
     function initSharedComponents() {
         if (!document.querySelector('.shared-header') && !document.querySelector('header')) {
             const body = document.body;
@@ -95,6 +156,8 @@
             const footer = createSharedFooter();
             document.body.appendChild(footer);
         }
+        renderBgWords();
+        window.addEventListener('resize', renderBgWords);
     }
 
     if (document.readyState === 'loading') {

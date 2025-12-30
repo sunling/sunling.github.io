@@ -14,6 +14,29 @@ body {
     background: #f8fafc;
 }
 
+/* 主页背景文字 */
+.home-background {
+    position: relative;
+}
+
+.bg-words {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-words p {
+    position: absolute;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: #0f172a;
+    opacity: 0.04;
+    font-size: 16px;
+}
+
 /* 基础布局（无类选择器） */
 main {
     max-width: 840px;
