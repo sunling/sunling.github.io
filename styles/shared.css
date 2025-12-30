@@ -900,3 +900,66 @@ figure iframe {
     font-size: 0.9rem;
     text-align: center;
 }
+
+/* Recent Writing */
+.recent-writing {
+    margin: 40px auto 0;
+    max-width: 840px;
+    padding: 0 20px;
+}
+
+.recent-writing h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.writing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.writing-card {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.writing-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.writing-card .title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.writing-card .summary {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.writing-card .more {
+    margin-top: 10px;
+    color: #2563eb;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.writing-card .more svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}

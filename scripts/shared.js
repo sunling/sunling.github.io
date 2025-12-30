@@ -145,6 +145,40 @@
         }
     }
 
+    function renderRecentWriting() {
+        const grid = document.querySelector('.recent-writing .writing-grid');
+        if (!grid) return;
+        const isZh = window.location.pathname.includes('/zh/');
+        const base = getBasePath();
+        fetch(base + 'data/recent-writing.json')
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                const items = isZh ? data.zh : data.en;
+                grid.innerHTML = '';
+                items.forEach(function(item) {
+                    const a = document.createElement('a');
+                    a.className = 'writing-card';
+                    a.href = item.url;
+                    a.target = '_blank';
+                    a.rel = 'noreferrer';
+                    const title = document.createElement('div');
+                    title.className = 'title';
+                    title.textContent = item.title;
+                    const summary = document.createElement('div');
+                    summary.className = 'summary';
+                    summary.textContent = item.summary;
+                    const more = document.createElement('div');
+                    more.className = 'more';
+                    more.innerHTML = (isZh ? '阅读更多' : 'Read More') + ' <svg viewBox="0 0 24 24" role="img"><path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"></path></svg>';
+                    a.appendChild(title);
+                    a.appendChild(summary);
+                    a.appendChild(more);
+                    grid.appendChild(a);
+                });
+            })
+            .catch(function() {});
+    }
+
     function initSharedComponents() {
         if (!document.querySelector('.shared-header') && !document.querySelector('header')) {
             const body = document.body;
@@ -158,6 +192,7 @@
         }
         renderBgWords();
         window.addEventListener('resize', renderBgWords);
+        renderRecentWriting();
     }
 
     if (document.readyState === 'loading') {

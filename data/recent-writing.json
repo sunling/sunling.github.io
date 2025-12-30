@@ -1,0 +1,41 @@
+{
+  "en": [
+    {
+      "title": "Self-Improvement Notes",
+      "summary": "Essays on growth, habits, and focus.",
+      "url": "https://lingsun.substack.com/"
+    },
+    {
+      "title": "Tech & Career Q&A",
+      "summary": "Long-form answers and reflections.",
+      "url": "https://www.zhihu.com/people/sunling22"
+    },
+    {
+      "title": "Weekly Insights",
+      "summary": "Chinese posts and community notes.",
+      "url": "/assets/wechat-qr.jpg"
+    }
+  ],
+  "zh": [
+    {
+      "title": "自我成长笔记",
+      "summary": "关于习惯、专注与长期迭代的随笔。",
+      "url": "https://lingsun.substack.com/"
+    },
+    {
+      "title": "技术与职业问答",
+      "summary": "长文解答与思考记录。",
+      "url": "https://www.zhihu.com/people/sunling22"
+    },
+    {
+      "title": "每周洞察",
+      "summary": "中文文章与社群记录。",
+      "url": "/assets/wechat-qr.jpg"
+    },
+    {
+      "title": "每周洞察",
+      "summary": "中文文章与社群记录。",
+      "url": "/assets/wechat-qr.jpg"
+    }
+  ]
+}
