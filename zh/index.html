@@ -1,326 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>欢迎来到 bysunling.com</title>
+    <meta
+      name="description"
+      content="孙玲的个人网站。Google Cloud 全栈软件工程师。包含我的 TEDx 演讲以及在微信公众号、知乎、Substack 和启发星球上的文章。"
+    />
+    <link rel="alternate" hreflang="en" href="../en/" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh/" />
+    <link rel="stylesheet" href="../styles/shared.css" />
+    <link rel="icon" type="image/png" href="../favicon.ico" />
+  </head>
+  <body>
+    <main>
+      <p style="text-align: left">
+        我是全栈软件工程师，供职于 Google Cloud Compute Core Experience 团队。
+        我来自中国新化县，目前居住在美国西雅图。 我在 2019
+        年做过一场关于自己经历的
+        <a
+          class="link"
+          href="https://embed.ted.com/talks/sun_ling_how_i_got_to_google_from_being_a_factory_worker"
+          target="_blank"
+          rel="noreferrer"
+          >TEDx 演讲</a
+        >。
+        我组织每周一次的线上论坛「启发星球」，并持续关注自我提升相关主题，尤其与飞盘、滑雪、跑步、AI、女性/华人在科技等相关的话题。
+      </p>
+      <p>
+        你可以在
+        <a
+          class="link"
+          href="../assets/wechat-qr.jpg"
+          target="_blank"
+          rel="noreferrer"
+          >微信公众号</a
+        >、
+        <a
+          class="link"
+          href="https://www.zhihu.com/people/sunling22"
+          target="_blank"
+          rel="noreferrer"
+          >知乎</a
+        >、
+        <a
+          class="link"
+          href="https://lingsun.substack.com/"
+          target="_blank"
+          rel="noreferrer"
+          >Substack</a
+        >
+        和
+        <a
+          class="link"
+          href="https://inspireplanet.cc/"
+          target="_blank"
+          rel="noreferrer"
+          >启发星球</a
+        >
+        网站阅读我的部分文章。
+      </p>
+    </main>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bysunling.com - 个人入口 Hub</title>
-    <meta name="description" content="孙玲的个人入口：近况、项目、写作与联系渠道，快速抵达 Inspire Planet、知乎、Substack 等。">
-    <link rel="alternate" hreflang="en" href="../en/">
-    <link rel="alternate" hreflang="zh-CN" href="../zh/">
-    <link rel="stylesheet" href="../styles/shared.css">
-    <link rel="icon" type="image/png" href="../favicon.ico">
-    <style>
-        .hub-container {
-            max-width: 960px;
-            margin: 40px auto 80px;
-            padding: 0 20px;
-        }
-
-        .section {
-            margin-top: 48px;
-        }
-
-        .section h2 {
-            margin: 0 0 16px;
-            font-size: 24px;
-        }
-
-        .section p.lead {
-            margin: 8px 0 12px;
-            color: #555;
-        }
-
-        .hero {
-            display: grid;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-
-        .hero .tagline {
-            margin: 8px 0 16px;
-            color: #444;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .hero-actions a {
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid #dcdcdc;
-            background: #f9f9f9;
-            text-decoration: none;
-            color: #222;
-        }
-
-        .hero-actions a:hover {
-            background: #eef2ff;
-            border-color: #d0d7ff;
-        }
-
-        .chips {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            color: #555;
-            margin-top: 8px;
-        }
-
-        .chip {
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: #f1f3f5;
-            border: 1px solid #e4e6eb;
-            font-size: 13px;
-        }
-
-        .list-cards {
-            display: grid;
-            gap: 14px;
-        }
-
-        .card {
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 16px;
-            background: #fff;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
-        }
-
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 18px;
-        }
-
-        .card p {
-            margin: 0;
-            color: #555;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 8px;
-            color: #3a5fff;
-            text-decoration: none;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
-
-        .inline-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .inline-links a {
-            color: #3a5fff;
-            text-decoration: none;
-        }
-
-        .inline-links a:hover {
-            text-decoration: underline;
-        }
-
-        .qr-placeholders {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .qr-box {
-            border: 1px dashed #d8d8d8;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            width: 160px;
-            background: #fafafa;
-        }
-
-        .qr-box img {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 8px;
-        }
-
-        .qr-box .label {
-            font-size: 13px;
-            color: #666;
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
-</head>
-
-<body class="home-body">
-    <script src="../scripts/site-config.js"></script>
-    <div class="hub-container">
-        <section class="hero">
-            <h1>大家好，我是 <span class="accent">孙玲</span> · Sun Ling</h1>
-            <p class="subtitle">
-                我相信真实。<br />
-                我走一步看一步，但不会停下。<br />
-                我爱分享——把经历、想法和好东西整理出来，交到你手上。
-            </p>
-
-            <div class="cta">
-                <a class="btn primary" href="https://lingsun.substack.com/" target="_blank"
-                    rel="noreferrer">订阅英文写作（Substack）</a>
-                <a class="btn" href="#writing">中文输出入口</a>
-                <a class="btn" href="#now">我在做什么（Now）</a>
-                <a class="btn" href="mailto:sunling621@gmail.com">联系我</a>
-            </div>
-
-            <div class="small">
-                这里不是博客，而是我的主入口：你能看到我在推进什么、做过什么、以及在哪里持续输出。
-            </div>
-        </section>
-
-        <section class="section" id="words">
-            <h2>三个关键词</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
-                <article class="card">
-                    <h3>真实</h3>
-                    <p>不包装，不演绎，写发生过的事，也写我当时怎么想。</p>
-                </article>
-                <article class="card">
-                    <h3>走一步看一步</h3>
-                    <p>我不着急给结论，但会持续试、持续做、持续调整。</p>
-                </article>
-                <article class="card">
-                    <h3>爱分享</h3>
-                    <p>我喜欢把输入与经历整理成可读、可用、可传递的东西。</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section" id="now">
-            <h2>Now</h2>
-            <ul class="list">
-                <li>✦ <b>社区创建</b>：主持「启发星球」，用每周的分享把观点沉淀成结构。</li>
-                <li>✦ <b>写书</b>：在写一本偏传记/成长叙事的书，慢慢写，写到自己满意。</li>
-                <li>✦ <b>分享</b>：在多个平台写作与记录，把零散的生活变成可回看的轨迹。</li>
-                <li>✦ <b>健康</b>：把运动与日常当作底座，保持体力，也保持清醒。</li>
-            </ul>
-        </section>
-
-        <section class="section" id="projects">
-            <h2>精选项目</h2>
-            <div class="grid">
-                <article class="card">
-                    <h3>启发星球 · Inspire Planet（站点开源）</h3>
-                    <p>把每期分享整理成可检索、可复用的知识资产，也欢迎更多人一起建设。</p>
-                    <div class="links">
-                        <a href="https://inspireplanet.cc/" target="_blank" rel="noreferrer">Website</a>
-                        <a href="https://github.com/sunling/inspireplanet.cc" target="_blank" rel="noreferrer">Repo</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>主持启发星球（持续运营）</h3>
-                    <p>我负责发起主题、组织对话、整理输出，让分享不是“说完就散”。</p>
-                    <div class="links">
-                        <a href="https://inspireplanet.cc/" target="_blank" rel="noreferrer">Highlights</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>当地英文社区（传记爱好者 × 故事交换）</h3>
-                    <p>发起一个英文主导的社群，用传记与故事交换练习更真实的连接，拓展我的圈子。</p>
-                    <div class="links">
-                        <a href="#contact">Join / Contact</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="section" id="writing">
-            <h2>我在哪里分享</h2>
-            <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-                <article class="card">
-                    <h3>中文</h3>
-                    <p>
-                        公众号：<b>Being 孙玲</b>（在微信内搜索）<br />
-                        小红书：<b>Being 孙玲</b>（在小红书内搜索）<br />
-                        知乎：<a href="https://www.zhihu.com/people/sunling22" target="_blank"
-                            rel="noreferrer">sunling22</a>
-                    </p>
-                    <p class="small">（可选）你可以在 assets/ 放一张公众号/小红书二维码，让这里变成可扫码入口。</p>
-                </article>
-
-                <article class="card">
-                    <h3>English</h3>
-                    <p>
-                        Substack：<a href="https://lingsun.substack.com/" target="_blank"
-                            rel="noreferrer">lingsun.substack.com</a>
-                    </p>
-                </article>
-            </div>
-
-            <p class="small">
-                同一件事，我可能会用不同形式写出来：有时是记录，有时是整理，有时只是走到哪写到哪。
-            </p>
-            <div class="qr-placeholders">
-                <div class="qr-box">
-                    <img src="../assets/wechat-qr.jpg" alt="公众号二维码：Being 孙玲">
-                    <div class="label">公众号：Being 孙玲</div>
-                </div>
-                <div class="qr-box">
-                    <img src="../assets/xhs-qr.JPG" alt="小红书二维码：Being 孙玲">
-                    <div class="label">小红书：Being 孙玲</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <h2>联系</h2>
-            <div class="contact">
-                <div><span class="k">Email</span> <a href="mailto:sunling621@gmail.com">sunling621@gmail.com</a></div>
-                <div><span class="k">GitHub</span> <a href="https://github.com/sunling" target="_blank"
-                        rel="noreferrer">github.com/sunling</a></div>
-            </div>
-            <p class="small">如果你也在“走一步看一步”，欢迎来信。</p>
-        </section>
-
-    </div>
-
-    <script>
-        (function applyLinks() {
-            if (!window.SiteLinks) return;
-            document.querySelectorAll('[data-link]').forEach(el => {
-                const key = el.dataset.link;
-                const url = SiteLinks[key];
-                if (!url) return;
-                if (el.tagName.toLowerCase() === 'a') {
-                    el.href = url;
-                    if (el.dataset.blank !== 'false') {
-                        el.target = '_blank';
-                        el.rel = 'noreferrer';
-                    }
-                } else if (el.tagName.toLowerCase() === 'img') {
-                    el.src = url;
-                }
-            });
-        })();
-    </script>
     <script src="../scripts/shared.js"></script>
-</body>
-
+  </body>
 </html>

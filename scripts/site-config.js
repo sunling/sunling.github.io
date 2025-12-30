@@ -12,7 +12,8 @@ const SiteLinks = {
     wechatName: 'Being 孙玲',
     xhsName: 'Being 孙玲',
     wechatQr: '../assets/wechat-qr.jpg',
-    xhsQr: '../assets/xhs-qr.jpg'
+    xhsQr: '../assets/xhs-qr.jpg',
+    zhihuAnswer: 'https://www.zhihu.com/question/68154951'
 };
 
 // expose globally for inline scripts
