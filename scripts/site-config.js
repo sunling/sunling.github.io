@@ -11,9 +11,14 @@ const SiteLinks = {
     tools: 'https://tools.bysunling.com',
     wechatName: 'Being 孙玲',
     xhsName: 'Being 孙玲',
-    wechatQr: '../assets/wechat-qr.png',
-    xhsQr: '../assets/xhs-qr.png'
+    wechatQr: '../assets/wechat-qr.jpg',
+    xhsQr: '../assets/xhs-qr.jpg'
 };
+
+// expose globally for inline scripts
+if (typeof window !== 'undefined') {
+    window.SiteLinks = SiteLinks;
+}
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = SiteLinks;
