@@ -172,6 +172,127 @@ section {
     line-height: 1.75;
 }
 
+.consultation-entry {
+    margin: 42px auto 0;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    text-align: left;
+}
+
+.consultation-entry .eyebrow {
+    margin: 0 0 8px;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.consultation-entry h2 {
+    margin: 0 0 14px;
+    color: #111827;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.consultation-entry p {
+    color: #4b5563;
+    line-height: 1.75;
+}
+
+.consultation-entry p + p {
+    margin-top: 10px;
+}
+
+.consultation-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.consultation-options div {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+.consultation-options strong,
+.consultation-options span {
+    display: block;
+}
+
+.consultation-options strong {
+    color: #111827;
+    font-size: 15px;
+}
+
+.consultation-options span {
+    margin-top: 4px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.consultation-options p {
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.consultation-note {
+    margin-top: 16px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.consultation-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.consultation-hint {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    color: #374151;
+    background: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.button-link:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.button-link--primary {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.button-link--primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
 
 @media (max-width: 768px) {
     .site-card {
@@ -190,6 +311,24 @@ section {
 
     .profile-bio {
         text-align: center;
+    }
+
+    .consultation-entry {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .consultation-entry h2 {
+        font-size: 22px;
+    }
+
+    .consultation-options {
+        grid-template-columns: 1fr;
+    }
+
+    .consultation-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 
