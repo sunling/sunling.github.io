@@ -4,15 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI 时代的输入输出系统：从记录到 AI Skill</title>
-    <meta
-      name="description"
-      content="孙玲的输入输出系统工作坊首期试运行报名页：7 天记录系统 + AI Skill / AI SOP 实操，帮助你从零散输入走到可复用输出。"
-    />
+    <meta name="description" content="孙玲的输入输出系统工作坊首期试运行报名页：7 天记录系统 + AI Skill / AI SOP 实操，帮助你从零散输入走到可复用输出。" />
     <meta property="og:title" content="AI 时代的输入输出系统：从记录到 AI Skill" />
-    <meta
-      property="og:description"
-      content="两阶段小规模共创：开始记录，开始复用。建立自己的最小可行记录系统，并把重复任务沉淀成 AI Skill / AI SOP。"
-    />
+    <meta property="og:description" content="两阶段小规模共创：开始记录，开始复用。建立自己的最小可行记录系统，并把重复任务沉淀成 AI Skill / AI SOP。" />
     <meta property="og:image" content="/assets/sunling.jpeg" />
     <link rel="stylesheet" href="../styles/shared.css" />
     <link rel="icon" type="image/png" href="../favicon.ico" />
@@ -27,9 +21,7 @@
       }
 
       body {
-        background:
-          radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32rem),
-          var(--workshop-bg);
+        background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32rem), var(--workshop-bg);
         color: var(--workshop-ink);
       }
 
@@ -81,11 +73,6 @@
         border: 1px solid var(--workshop-border);
         border-radius: 24px;
         box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-      }
-
-      .hero-copy,
-      .signup-card,
-      .content-card {
         padding: 28px;
       }
 
@@ -294,6 +281,41 @@
         border: 1px solid #fecaca;
       }
 
+      .success-panel {
+        display: none;
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid #bbf7d0;
+        background: #f0fdf4;
+      }
+
+      .success-panel.is-visible {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .success-panel h3 {
+        margin: 0 0 8px;
+        color: #166534;
+        font-size: 20px;
+      }
+
+      .success-panel p {
+        margin: 0;
+      }
+
+      .success-qr {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid #bbf7d0;
+      }
+
       .submit-button {
         border: 0;
         border-radius: 999px;
@@ -326,7 +348,8 @@
 
       @media (max-width: 860px) {
         .hero,
-        .section-grid {
+        .section-grid,
+        .success-panel.is-visible {
           grid-template-columns: 1fr;
         }
 
@@ -509,6 +532,14 @@
 
           <p class="form-note">报名提交成功后不会在页面公开显示。付款状态默认为 pending，我会手动确认。</p>
           <div id="form-status" class="status-message" role="status" aria-live="polite"></div>
+          <div id="success-panel" class="success-panel" aria-live="polite">
+            <div>
+              <h3>报名已提交</h3>
+              <p>请扫码加我微信，我会把你拉进工作坊群，并确认报名选项、付款方式和会议信息。</p>
+              <p class="form-note" style="margin-top: 8px;">备注：输入输出工作坊</p>
+            </div>
+            <img class="success-qr" src="../assets/wechat-qr.jpg" alt="孙玲微信二维码" />
+          </div>
           <button id="submit-button" class="submit-button" type="submit">提交报名</button>
         </form>
       </section>
@@ -534,6 +565,7 @@
       const SIGNUP_ENDPOINT = "/.netlify/functions/workshop-signup";
       const form = document.getElementById("workshop-signup-form");
       const statusBox = document.getElementById("form-status");
+      const successPanel = document.getElementById("success-panel");
       const submitButton = document.getElementById("submit-button");
 
       function showStatus(type, message) {
@@ -574,6 +606,7 @@
         submitButton.textContent = "提交中…";
         statusBox.className = "status-message";
         statusBox.textContent = "";
+        successPanel.classList.remove("is-visible");
 
         try {
           const response = await fetch(SIGNUP_ENDPOINT, {
@@ -588,7 +621,9 @@
           }
 
           form.reset();
-          showStatus("success", "报名已提交！我会通过微信联系你确认报名选项、付款方式和入群信息。");
+          showStatus("success", "报名已提交！请扫码加微信，我会拉你进群并确认后续信息。");
+          successPanel.classList.add("is-visible");
+          successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (error) {
           console.error(error);
           showStatus("error", error.message || "提交没有成功，请稍后再试，或直接加微信 sunlingcn 联系我。");
