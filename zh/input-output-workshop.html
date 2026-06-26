@@ -260,6 +260,66 @@
         color: #dc2626;
       }
 
+      .payment-card {
+        display: grid;
+        gap: 14px;
+        padding: 16px;
+        border: 1px solid #bfdbfe;
+        border-radius: 18px;
+        background: #eff6ff;
+      }
+
+      .payment-card h3 {
+        margin: 0;
+        color: var(--workshop-ink);
+        font-size: 20px;
+      }
+
+      .payment-card p {
+        margin: 0;
+        color: #475569;
+        line-height: 1.7;
+      }
+
+      .selected-payment-note {
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #dbeafe;
+        color: #1d4ed8;
+        font-weight: 800;
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .payment-method {
+        padding: 14px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid #dbeafe;
+        text-align: center;
+      }
+
+      .payment-method strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #1e293b;
+      }
+
+      .payment-qr {
+        width: 100%;
+        max-width: 220px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid #dbeafe;
+        background: #f8fafc;
+      }
+
       .status-message {
         display: none;
         padding: 12px 14px;
@@ -349,7 +409,8 @@
       @media (max-width: 860px) {
         .hero,
         .section-grid,
-        .success-panel.is-visible {
+        .success-panel.is-visible,
+        .payment-grid {
           grid-template-columns: 1fr;
         }
 
@@ -395,7 +456,7 @@
             <div class="fact"><strong>形式</strong><span>两次 1.5 小时线上工作坊 + 打卡 / 迭代</span></div>
             <div class="fact"><strong>人数</strong><span>首期小规模，建议 15 人以内</span></div>
             <div class="fact"><strong>适合谁</strong><span>想记录、想输出、想把 AI 用进真实工作流的人</span></div>
-            <div class="fact"><strong>付款</strong><span>报名后微信 / 私聊确认，主理人手动核对</span></div>
+            <div class="fact"><strong>付款</strong><span>支付宝 / 微信付款，主理人人工核对</span></div>
           </div>
         </div>
 
@@ -451,7 +512,7 @@
 
       <section class="content-card" id="signup" aria-labelledby="signup-title">
         <h2 id="signup-title">报名表</h2>
-        <p>提交后我会通过微信联系你确认报名选项、付款方式和入群信息。你的信息只用于本次工作坊沟通与统计。</p>
+        <p>提交后我会通过微信联系你确认报名选项、付款状态和入群信息。你的信息只用于本次工作坊沟通与统计。</p>
 
         <form id="workshop-signup-form">
           <div class="field field--hidden" aria-hidden="true">
@@ -487,6 +548,22 @@
               <label><input type="radio" name="stage" value="两阶段一起，199 元" /> 两阶段一起，199 元</label>
             </div>
           </fieldset>
+
+          <section class="payment-card" aria-labelledby="payment-title">
+            <h3 id="payment-title">付款方式</h3>
+            <p id="selected-payment-note" class="selected-payment-note">请选择报名选项后，根据对应金额使用支付宝或微信付款。</p>
+            <div class="payment-grid" aria-label="付款二维码">
+              <div class="payment-method">
+                <strong>支付宝</strong>
+                <img class="payment-qr" src="../assets/input-output-workshop-alipay-qr.jpg" alt="输入输出工作坊支付宝付款二维码" />
+              </div>
+              <div class="payment-method">
+                <strong>微信支付</strong>
+                <img class="payment-qr" src="../assets/input-output-workshop-wechat-pay-qr.jpg" alt="输入输出工作坊微信付款二维码" />
+              </div>
+            </div>
+            <p class="form-note">付款备注建议填写：称呼 + 微信号 + 报名阶段。例如：孙玲 sunlingcn 两阶段。提交报名后，数据库中的付款状态仍会先显示为 pending，我会人工核对后确认。</p>
+          </section>
 
           <div class="field">
             <label for="role">你现在的身份 / 主要场景（选填）</label>
@@ -535,10 +612,10 @@
           <div id="success-panel" class="success-panel" aria-live="polite">
             <div>
               <h3>报名已提交</h3>
-              <p>请扫码加我微信，我会把你拉进工作坊群，并确认报名选项、付款方式和会议信息。</p>
-              <p class="form-note" style="margin-top: 8px;">备注：输入输出工作坊</p>
+              <p>请扫码加我个人微信，我会核对付款状态，并确认入群和会议信息。</p>
+              <p id="success-stage-note" class="form-note" style="margin-top: 8px;">备注：是否已付款 + 报名阶段 + 称呼 / 微信号</p>
             </div>
-            <img class="success-qr" src="../assets/input-output-wechat-qr.jpg.jpg" alt="输入输出工作坊微信二维码" />
+            <img class="success-qr" src="../assets/wechat-qr.jpg" alt="孙玲个人微信二维码" />
           </div>
           <button id="submit-button" class="submit-button" type="submit">提交报名</button>
         </form>
@@ -556,27 +633,56 @@
         </details>
         <details>
           <summary>提交报名后怎么付款？</summary>
-          <p>我会通过微信联系你，确认报名选项、付款方式和入群信息。当前页面只负责报名收集，不做自动收款。</p>
+          <p>可以在报名表里使用支付宝或微信付款码付款。提交后请加我个人微信，并备注是否已付款、报名阶段和你的称呼 / 微信号，我会人工核对。</p>
         </details>
       </section>
     </main>
 
     <script>
       const SIGNUP_ENDPOINT = "/.netlify/functions/workshop-signup";
+      const STAGE_AMOUNTS = {
+        "阶段一：开始记录，109 元": "109 元",
+        "阶段二：开始复用，169 元": "169 元",
+        "两阶段一起，199 元": "199 元",
+      };
+
       const form = document.getElementById("workshop-signup-form");
       const statusBox = document.getElementById("form-status");
       const successPanel = document.getElementById("success-panel");
+      const successStageNote = document.getElementById("success-stage-note");
       const submitButton = document.getElementById("submit-button");
+      const selectedPaymentNote = document.getElementById("selected-payment-note");
+      const stageOptions = Array.from(form.querySelectorAll('input[name="stage"]'));
 
       function showStatus(type, message) {
         statusBox.className = `status-message ${type}`;
         statusBox.textContent = message;
       }
 
+      function getSelectedStage() {
+        return form.querySelector('input[name="stage"]:checked')?.value || "";
+      }
+
+      function updatePaymentNote() {
+        const selectedStage = getSelectedStage();
+        if (!selectedStage) {
+          selectedPaymentNote.textContent = "请选择报名选项后，根据对应金额使用支付宝或微信付款。";
+          return;
+        }
+
+        selectedPaymentNote.textContent = `当前报名选项：${selectedStage}。请使用下方支付宝或微信付款码，付款金额为 ${STAGE_AMOUNTS[selectedStage] || "对应金额"}。`;
+      }
+
+      stageOptions.forEach((option) => option.addEventListener("change", updatePaymentNote));
+      updatePaymentNote();
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(form);
+        const selectedStage = formData.get("stage");
+        const selectedName = formData.get("name")?.trim();
+        const selectedWechat = formData.get("wechat")?.trim();
         const checkedChallenges = Array.from(form.querySelectorAll('input[name="challenge"]:checked')).map(
           (item) => item.value
         );
@@ -590,12 +696,12 @@
 
         const payload = {
           website: formData.get("website")?.trim() || null,
-          name: formData.get("name")?.trim(),
-          wechat: formData.get("wechat")?.trim(),
+          name: selectedName,
+          wechat: selectedWechat,
           email: formData.get("email")?.trim() || null,
           city: formData.get("city")?.trim() || null,
           role: formData.get("role")?.trim() || null,
-          stage: formData.get("stage"),
+          stage: selectedStage,
           current_system: formData.get("current_system") || null,
           main_challenge: mainChallenge,
           desired_output: formData.get("desired_output")?.trim() || null,
@@ -621,7 +727,9 @@
           }
 
           form.reset();
-          showStatus("success", "报名已提交！请扫码加微信，我会拉你进群并确认后续信息。");
+          updatePaymentNote();
+          showStatus("success", "报名已提交！请扫码加我个人微信，并备注是否已付款和报名阶段。");
+          successStageNote.textContent = `微信备注建议：已付款 / 未付款 + ${selectedStage || "报名阶段"} + ${selectedName || "称呼"} / ${selectedWechat || "微信号"}`;
           successPanel.classList.add("is-visible");
           successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (error) {
