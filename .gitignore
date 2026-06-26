@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 
+# Local dev scripts
+scripts/dev_server.py
+
 # Local Netlify folder
 .netlify
 
