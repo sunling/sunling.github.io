@@ -57,8 +57,13 @@
       }
 
       .hero {
-        grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
         align-items: stretch;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--workshop-border);
+        border-radius: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        padding: 36px;
+        gap: 32px;
       }
 
       .section-grid {
@@ -66,8 +71,6 @@
         margin-top: 24px;
       }
 
-      .hero-copy,
-      .signup-card,
       .content-card {
         background: rgba(255, 255, 255, 0.92);
         border: 1px solid var(--workshop-border);
@@ -76,8 +79,9 @@
         padding: 28px;
       }
 
-      .hero-copy {
-        padding: 36px;
+      .hero-pricing {
+        border-top: 1px solid var(--workshop-border);
+        padding-top: 32px;
       }
 
       .eyebrow {
@@ -104,7 +108,6 @@
       }
 
       .hero-actions,
-      .facts,
       .price-list,
       .timeline,
       form,
@@ -116,7 +119,7 @@
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 28px;
+        gap: 12px;
       }
 
       .button-link--large {
@@ -124,26 +127,36 @@
         padding: 12px 18px;
       }
 
-      .facts {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 28px;
-      }
-
-      .fact {
-        padding: 14px;
+      .facts-box {
+        margin-top: 24px;
+        padding: 16px 20px;
         border-radius: 16px;
         background: var(--workshop-soft);
         border: 1px solid #dbeafe;
+        display: grid;
+        gap: 10px;
       }
 
-      .fact strong,
+      .facts-box-item {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .facts-box-item strong {
+        color: var(--workshop-ink);
+        white-space: nowrap;
+      }
+
       .price-item strong,
       .timeline-item strong {
         display: block;
         color: var(--workshop-ink);
       }
 
-      .fact span,
+      .facts-box-item span,
       .form-note {
         color: var(--workshop-muted);
         font-size: 14px;
@@ -237,6 +250,13 @@
         border: 1px solid var(--workshop-border);
         border-radius: 16px;
         padding: 14px;
+      }
+
+      .form-group {
+        display: grid;
+        gap: 16px;
+        padding: 20px;
+        margin-top: 8px;
       }
 
       .option-list {
@@ -414,19 +434,18 @@
           grid-template-columns: 1fr;
         }
 
-        .hero-copy,
-        .signup-card,
+        .hero,
         .content-card {
           border-radius: 20px;
           padding: 24px;
         }
+
+        .hero-pricing {
+          padding-top: 24px;
+        }
       }
 
       @media (max-width: 560px) {
-        .facts {
-          grid-template-columns: 1fr;
-        }
-
         .top-nav {
           align-items: flex-start;
           flex-direction: column;
@@ -442,25 +461,20 @@
       </nav>
 
       <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">首期小规模共创 · Pilot 2026/07</p>
+        <div class="hero-info">
+          <!-- <p class="eyebrow">首期小规模共创 · Pilot 2026/07</p> -->
           <h1>AI 时代的输入输出系统：从记录到 AI Skill</h1>
           <p class="lead">
             这个工作坊帮助你从“零散输入”走到“可复用输出”：先建立 7 天记录系统，再把一个重复写作 / 整理任务沉淀成自己的 AI Skill / AI SOP。
           </p>
-          <div class="hero-actions">
-            <a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a>
-            <a class="button-link button-link--large" href="#schedule">查看时间安排</a>
-          </div>
-          <div class="facts" aria-label="工作坊要点">
-            <div class="fact"><strong>形式</strong><span>两次 1.5 小时线上工作坊 + 打卡 / 迭代</span></div>
-            <div class="fact"><strong>人数</strong><span>首期小规模，建议 15 人以内</span></div>
-            <div class="fact"><strong>适合谁</strong><span>想记录、想输出、想把 AI 用进真实工作流的人</span></div>
-            <div class="fact"><strong>付款</strong><span>支付宝 / 微信付款，主理人人工核对</span></div>
+          <div class="facts-box" aria-label="工作坊要点">
+            <div class="facts-box-item"><strong>形式：</strong><span>两次 1.5 小时线上工作坊 + 打卡 / 迭代</span></div>
+            <div class="facts-box-item"><strong>适合谁：</strong><span>想记录、想输出、想把 AI 用进真实工作流的人</span></div>
+            <div class="facts-box-item"><strong>付款：</strong><span>支付宝 / 微信付款，主理人人工核对</span></div>
           </div>
         </div>
 
-        <aside class="signup-card" aria-label="价格与报名选项">
+        <div class="hero-pricing">
           <h2>报名选项</h2>
           <p>首期用共创价降低决策门槛，重点是一起跑完流程、收集反馈、打磨案例。</p>
           <div class="price-list">
@@ -471,7 +485,12 @@
           <p class="form-note" style="margin-top: 14px;">
             阶段二单独报名建议已有真实记录、草稿、工作材料或输出样本，并愿意在课上用电脑实操。
           </p>
-        </aside>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a>
+          <a class="button-link button-link--large" href="#schedule">查看时间安排</a>
+        </div>
       </section>
 
       <section class="section-grid" id="schedule">
@@ -485,10 +504,18 @@
         </article>
 
         <article class="content-card">
-          <h2>推荐时间</h2>
-          <p><strong>阶段一：</strong>西雅图 2026 年 7 月 11 日 周六 07:30–09:00；北京时间 2026 年 7 月 11 日 周六 22:30–00:00。</p>
-          <p><strong>阶段二：</strong>西雅图 2026 年 7 月 18 日 周六 07:30–09:00；北京时间 2026 年 7 月 18 日 周六 22:30–00:00。</p>
-          <p class="form-note">最终时间会根据报名者时区再确认。报名后会通过微信通知会议链接、付款方式和群信息。</p>
+          <h2>工作坊时间</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>阶段一：开始记录</strong>
+              <p>美国西部时间 2026 年 7 月 11 日 周六 07:30–09:00<br>北京时间 2026 年 7 月 11 日 周六 22:30–00:00</p>
+            </div>
+            <div class="timeline-item">
+              <strong>阶段二：开始复用</strong>
+              <p>美国西部时间 2026 年 7 月 18 日 周六 07:30–09:00<br>北京时间 2026 年 7 月 18 日 周六 22:30–00:00</p>
+            </div>
+          </div>
+          <p class="form-note" style="margin-top: 14px;">报名后会通过微信通知会议链接、付款方式和群信息。</p>
         </article>
       </section>
 
@@ -520,37 +547,89 @@
             <input id="website" name="website" autocomplete="off" tabindex="-1" />
           </div>
 
-          <div class="field">
-            <label for="name">你的称呼 <span class="required">*</span></label>
-            <input id="name" name="name" autocomplete="name" required />
-          </div>
+          <!-- 第一组：必填核心信息 -->
+          <fieldset class="form-group">
+            <legend>1. 核心报名信息（必填）</legend>
 
-          <div class="field">
-            <label for="wechat">微信号 <span class="required">*</span></label>
-            <input id="wechat" name="wechat" autocomplete="off" required />
-          </div>
+            <div class="field">
+              <label for="name">你的称呼 <span class="required">*</span></label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
 
-          <div class="field">
-            <label for="email">邮箱（选填）</label>
-            <input id="email" name="email" type="email" autocomplete="email" />
-          </div>
+            <div class="field">
+              <label for="wechat">微信号 <span class="required">*</span></label>
+              <input id="wechat" name="wechat" autocomplete="off" required />
+            </div>
 
-          <div class="field">
-            <label for="city">你现在的城市 / 时区（选填）</label>
-            <input id="city" name="city" placeholder="例如：北京 / 西雅图 / 美国东部时间" />
-          </div>
+            <div class="field">
+              <label>你想报名哪个选项？ <span class="required">*</span></label>
+              <div class="option-list">
+                <label><input type="radio" name="stage" value="阶段一：开始记录，109 元" required /> 阶段一：开始记录，109 元</label>
+                <label><input type="radio" name="stage" value="阶段二：开始复用，169 元" /> 阶段二：开始复用，169 元</label>
+                <label><input type="radio" name="stage" value="两阶段一起，199 元" /> 两阶段一起，199 元</label>
+              </div>
+            </div>
 
-          <fieldset>
-            <legend>你想报名哪个选项？ <span class="required">*</span></legend>
-            <div class="option-list">
-              <label><input type="radio" name="stage" value="阶段一：开始记录，109 元" required /> 阶段一：开始记录，109 元</label>
-              <label><input type="radio" name="stage" value="阶段二：开始复用，169 元" /> 阶段二：开始复用，169 元</label>
-              <label><input type="radio" name="stage" value="两阶段一起，199 元" /> 两阶段一起，199 元</label>
+            <div class="field" style="margin-top: 8px;">
+              <label>你最想解决的卡点是什么？ <span class="required">*</span></label>
+              <div class="option-list">
+                <label><input type="checkbox" name="challenge" value="不知道记录什么" /> 不知道记录什么</label>
+                <label><input type="checkbox" name="challenge" value="记录很散，找不到" /> 记录很散，找不到</label>
+                <label><input type="checkbox" name="challenge" value="有输入但输出不出来" /> 有输入但输出不出来</label>
+                <label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI 写出来不像自己</label>
+                <label><input type="checkbox" name="challenge" value="想把重复工作做成 Skill / SOP" /> 想把重复工作做成 Skill / SOP</label>
+              </div>
+              <div class="field" style="margin-top: 10px;">
+                <label for="main_challenge_other" style="font-weight: normal; font-size: 14px; color: #475569;">或者用自己的话补充（选填）：</label>
+                <textarea id="main_challenge_other" name="main_challenge_other" placeholder="例如：我有很多读书笔记，但很难变成文章；或者我每次写公众号都从零开始。"></textarea>
+              </div>
             </div>
           </fieldset>
 
+          <!-- 第二组：选填背景调查 -->
+          <fieldset class="form-group">
+            <legend>2. 背景与场景了解（选填，可以直接跳过）</legend>
+
+            <div class="field">
+              <label for="current_system">你现在的记录状态更接近哪一种？</label>
+              <select id="current_system" name="current_system">
+                <option value="">请选择</option>
+                <option>几乎没有记录习惯</option>
+                <option>有零散记录，但不稳定</option>
+                <option>有长期记录，但很少复用</option>
+                <option>有稳定记录，并想进一步做成 AI 工作流</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="desired_output">如果参加阶段二，你想带来的重复场景是什么？</label>
+              <textarea id="desired_output" name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="role">你现在的身份 / 主要场景</label>
+              <input id="role" name="role" placeholder="例如：工程师 / 写作者 / 留学生 / 咨询从业者 / 自由职业" />
+            </div>
+
+            <div class="field">
+              <label for="city">你现在的城市 / 时区</label>
+              <input id="city" name="city" placeholder="例如：北京 / 西雅图 / 美国东部时间" />
+            </div>
+
+            <div class="field">
+              <label for="email">邮箱</label>
+              <input id="email" name="email" type="email" autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="expectation">你对这次工作坊的期待</label>
+              <textarea id="expectation" name="expectation"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- 第三组：付款与提交 -->
           <section class="payment-card" aria-labelledby="payment-title">
-            <h3 id="payment-title">付款方式</h3>
+            <h3 id="payment-title">3. 付款方式</h3>
             <p id="selected-payment-note" class="selected-payment-note">请选择报名选项后，根据对应金额使用支付宝或微信付款。</p>
             <div class="payment-grid" aria-label="付款二维码">
               <div class="payment-method">
@@ -564,48 +643,6 @@
             </div>
             <p class="form-note">付款备注建议填写：称呼 + 微信号 + 报名阶段。例如：孙玲 sunlingcn 两阶段。提交报名后，数据库中的付款状态仍会先显示为 pending，我会人工核对后确认。</p>
           </section>
-
-          <div class="field">
-            <label for="role">你现在的身份 / 主要场景（选填）</label>
-            <input id="role" name="role" placeholder="例如：工程师 / 写作者 / 留学生 / 咨询从业者 / 自由职业" />
-          </div>
-
-          <div class="field">
-            <label for="current_system">你现在的记录状态更接近哪一种？</label>
-            <select id="current_system" name="current_system">
-              <option value="">请选择</option>
-              <option>几乎没有记录习惯</option>
-              <option>有零散记录，但不稳定</option>
-              <option>有长期记录，但很少复用</option>
-              <option>有稳定记录，并想进一步做成 AI 工作流</option>
-            </select>
-          </div>
-
-          <fieldset>
-            <legend>你最想解决的卡点是什么？ <span class="required">*</span></legend>
-            <div class="option-list">
-              <label><input type="checkbox" name="challenge" value="不知道记录什么" /> 不知道记录什么</label>
-              <label><input type="checkbox" name="challenge" value="记录很散，找不到" /> 记录很散，找不到</label>
-              <label><input type="checkbox" name="challenge" value="有输入但输出不出来" /> 有输入但输出不出来</label>
-              <label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI 写出来不像自己</label>
-              <label><input type="checkbox" name="challenge" value="想把重复工作做成 Skill / SOP" /> 想把重复工作做成 Skill / SOP</label>
-            </div>
-          </fieldset>
-
-          <div class="field">
-            <label for="main_challenge_other">也可以用自己的话补充卡点</label>
-            <textarea id="main_challenge_other" name="main_challenge_other" placeholder="例如：我有很多读书笔记，但很难变成文章；或者我每次写公众号都从零开始。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="desired_output">如果参加阶段二，你想带来的重复场景是什么？（选填）</label>
-            <textarea id="desired_output" name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="expectation">你对这次工作坊的期待（选填）</label>
-            <textarea id="expectation" name="expectation"></textarea>
-          </div>
 
           <p class="form-note">报名提交成功后不会在页面公开显示。付款状态默认为 pending，我会手动确认。</p>
           <div id="form-status" class="status-message" role="status" aria-live="polite"></div>
