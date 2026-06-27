@@ -3,9 +3,7 @@ const COHORT = "pilot-2026-07";
 const SOURCE = "sunling.github.io/zh/input-output-workshop.html";
 
 const ALLOWED_STAGES = new Set([
-  "阶段一：开始记录，109 元",
-  "阶段二：开始复用，169 元",
-  "两阶段一起，199 元",
+  "首期完整工作坊，199 元",
 ]);
 
 const MAX_LENGTHS = {
