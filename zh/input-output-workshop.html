@@ -4,875 +4,196 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI 时代的终身学习系统：从知识，到技能，到智慧</title>
-    <meta
-      name="description"
-      content="孙玲的 AI 时代终身学习系统工作坊首期报名页：从原始输入、学习记录到可迁移方法、AI Skill / SOP 和人生智慧。"
-    />
+    <meta name="description" content="2 小时线上工作坊 + 7 天打卡练习 + 群内问题回答，搭建从知识到技能到智慧的输入输出系统。" />
     <meta property="og:title" content="AI 时代的终身学习系统：从知识，到技能，到智慧" />
-    <meta
-      property="og:description"
-      content="一场非常 practical 的共创工作坊：开始记录，搭建可搜索、可迁移的记录系统，以教为学，把输入转化成能力和判断。"
-    />
+    <meta property="og:description" content="首期小规模共创：开始记录，搭建最简单、可迁移、可搜索的记录系统，以教为学，把输入转化成能力和判断。" />
     <meta property="og:image" content="/assets/sunling.jpeg" />
     <link rel="stylesheet" href="../styles/shared.css" />
     <link rel="icon" type="image/png" href="../favicon.ico" />
     <style>
-      :root {
-        --blue: #2563eb;
-        --blue-dark: #0f2a5f;
-        --ink: #0f172a;
-        --muted: #64748b;
-        --border: #dbeafe;
-        --soft: #eff6ff;
-        --warm: #fff7ed;
-        --gold: #b7791f;
-        --bg: #f8fafc;
-      }
-
-      body {
-        background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32rem), var(--bg);
-        color: var(--ink);
-      }
-
-      .workshop-page {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 28px 20px 72px;
-        text-align: left;
-      }
-
-      .top-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 32px;
-      }
-
-      .top-nav a {
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .top-nav a:hover {
-        color: var(--blue);
-      }
-
-      .hero,
-      .section-grid,
-      .ladder-grid,
-      .payment-grid {
-        display: grid;
-        gap: 22px;
-      }
-
-      .hero {
-        grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-        align-items: stretch;
-      }
-
-      .section-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 24px;
-      }
-
-      .ladder-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .payment-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .card,
-      .hero-copy,
-      .signup-card {
-        background: rgba(255, 255, 255, 0.94);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-        padding: 28px;
-      }
-
-      .hero-copy {
-        padding: 38px;
-      }
-
-      .eyebrow {
-        color: var(--blue);
-        font-weight: 900;
-        font-size: 14px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      h1 {
-        margin-bottom: 14px;
-        color: var(--blue-dark);
-        font-size: clamp(36px, 5.8vw, 62px);
-        line-height: 1.08;
-        letter-spacing: -0.045em;
-      }
-
-      h2 {
-        margin-bottom: 14px;
-        color: var(--blue-dark);
-        font-size: 28px;
-        letter-spacing: -0.02em;
-      }
-
-      h3 {
-        margin-bottom: 10px;
-        color: var(--blue-dark);
-        font-size: 21px;
-      }
-
-      .subtitle {
-        color: var(--blue-dark);
-        font-size: clamp(22px, 3vw, 34px);
-        font-weight: 900;
-        letter-spacing: 0.02em;
-      }
-
-      .lead {
-        color: #334155;
-        font-size: 19px;
-        line-height: 1.85;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 26px;
-      }
-
-      .button-link--large {
-        min-height: 48px;
-        padding: 12px 18px;
-      }
-
-      .facts,
-      .price-list,
-      .timeline,
-      form,
-      .option-list,
-      .takeaway-list,
-      .process-flow {
-        display: grid;
-        gap: 12px;
-      }
-
-      .facts {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 28px;
-      }
-
-      .fact,
-      .price-item,
-      .process-step,
-      .takeaway-item {
-        padding: 14px;
-        border-radius: 16px;
-        background: var(--soft);
-        border: 1px solid var(--border);
-      }
-
-      .fact strong,
-      .price-item strong,
-      .takeaway-item strong {
-        display: block;
-        color: var(--ink);
-      }
-
-      .fact span,
-      .form-note,
-      .small-note {
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .price-list {
-        margin-top: 16px;
-      }
-
-      .price-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        background: #f8fafc;
-      }
-
-      .price-item span {
-        color: var(--blue);
-        font-weight: 900;
-        white-space: nowrap;
-      }
-
-      .insight-card {
-        margin-top: 24px;
-        background: linear-gradient(135deg, #eff6ff, #ffffff);
-      }
-
-      .ladder-card {
-        padding: 22px;
-        border-radius: 20px;
-        border: 1px solid var(--border);
-        background: #ffffff;
-      }
-
-      .ladder-number {
-        display: inline-grid;
-        place-items: center;
-        width: 34px;
-        height: 34px;
-        border-radius: 999px;
-        background: var(--blue);
-        color: #ffffff;
-        font-weight: 900;
-        margin-bottom: 12px;
-      }
-
-      .ladder-card strong {
-        display: block;
-        color: var(--blue-dark);
-        font-size: 20px;
-        margin-bottom: 8px;
-      }
-
-      .process-flow {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        margin-top: 16px;
-      }
-
-      .process-step {
-        text-align: center;
-        font-weight: 800;
-        color: var(--blue-dark);
-        background: #ffffff;
-      }
-
-      .ai-card {
-        margin-top: 24px;
-        background: linear-gradient(135deg, #eff6ff, #f8fafc);
-      }
-
-      .timeline-item {
-        padding-left: 16px;
-        border-left: 3px solid var(--blue);
-      }
-
-      .timeline-item p {
-        color: #475569;
-        line-height: 1.7;
-      }
-
-      .takeaway-list {
-        margin-top: 14px;
-      }
-
-      .takeaway-item {
-        background: #ffffff;
-      }
-
-      form {
-        margin-top: 18px;
-      }
-
-      .field {
-        display: grid;
-        gap: 8px;
-      }
-
-      .field--hidden {
-        position: absolute;
-        left: -10000px;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-
-      label,
-      legend {
-        color: #1e293b;
-        font-weight: 800;
-      }
-
-      input,
-      select,
-      textarea {
-        width: 100%;
-        border: 1px solid #cbd5e1;
-        border-radius: 12px;
-        padding: 12px 13px;
-        font: inherit;
-        background: #ffffff;
-        color: var(--ink);
-      }
-
-      textarea {
-        min-height: 104px;
-        resize: vertical;
-      }
-
-      fieldset {
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 14px;
-      }
-
-      .option-list {
-        margin-top: 10px;
-      }
-
-      .option-list label {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-weight: 600;
-        color: #475569;
-      }
-
-      .option-list input {
-        width: auto;
-        margin-top: 5px;
-      }
-
-      .required {
-        color: #dc2626;
-      }
-
-      .payment-card {
-        display: grid;
-        gap: 14px;
-        padding: 16px;
-        border: 1px solid #bfdbfe;
-        border-radius: 18px;
-        background: #eff6ff;
-      }
-
-      .selected-payment-note {
-        padding: 12px 14px;
-        border-radius: 12px;
-        background: #ffffff;
-        border: 1px solid #dbeafe;
-        color: #1d4ed8;
-        font-weight: 900;
-      }
-
-      .payment-method {
-        padding: 14px;
-        border-radius: 16px;
-        background: #ffffff;
-        border: 1px solid #dbeafe;
-        text-align: center;
-      }
-
-      .payment-method strong {
-        display: block;
-        margin-bottom: 10px;
-        color: #1e293b;
-      }
-
-      .payment-qr {
-        width: 100%;
-        max-width: 220px;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 16px;
-        border: 1px solid #dbeafe;
-        background: #f8fafc;
-      }
-
-      .status-message {
-        display: none;
-        padding: 12px 14px;
-        border-radius: 12px;
-        line-height: 1.6;
-      }
-
-      .status-message.success {
-        display: block;
-        color: #166534;
-        background: #dcfce7;
-        border: 1px solid #bbf7d0;
-      }
-
-      .status-message.error {
-        display: block;
-        color: #991b1b;
-        background: #fee2e2;
-        border: 1px solid #fecaca;
-      }
-
-      .success-panel {
-        display: none;
-        margin-top: 18px;
-        padding: 18px;
-        border-radius: 18px;
-        border: 1px solid #bbf7d0;
-        background: #f0fdf4;
-      }
-
-      .success-panel.is-visible {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 180px;
-        gap: 18px;
-        align-items: center;
-      }
-
-      .success-panel h3 {
-        color: #166534;
-      }
-
-      .success-qr {
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 16px;
-        background: #ffffff;
-        border: 1px solid #bbf7d0;
-      }
-
-      .submit-button {
-        border: 0;
-        border-radius: 999px;
-        min-height: 50px;
-        padding: 13px 18px;
-        background: var(--blue);
-        color: #ffffff;
-        font-weight: 900;
-        cursor: pointer;
-      }
-
-      .submit-button:disabled {
-        cursor: not-allowed;
-        opacity: 0.65;
-      }
-
-      .faq {
-        margin-top: 24px;
-      }
-
-      details {
-        border-top: 1px solid var(--border);
-        padding: 16px 0;
-      }
-
-      summary {
-        cursor: pointer;
-        font-weight: 900;
-      }
-
-      @media (max-width: 900px) {
-        .hero,
-        .section-grid,
-        .ladder-grid,
-        .payment-grid,
-        .success-panel.is-visible {
-          grid-template-columns: 1fr;
-        }
-
-        .process-flow {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .hero-copy,
-        .signup-card,
-        .card {
-          border-radius: 20px;
-          padding: 24px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .facts {
-          grid-template-columns: 1fr;
-        }
-
-        .top-nav {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-      }
+      :root { --blue:#2563eb; --dark:#0f2a5f; --ink:#0f172a; --muted:#64748b; --border:#dbeafe; --soft:#eff6ff; --bg:#f8fafc; }
+      body { background: radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 32rem), var(--bg); color: var(--ink); }
+      .page { max-width:1080px; margin:0 auto; padding:28px 20px 72px; text-align:left; }
+      .top-nav { display:flex; justify-content:space-between; gap:16px; margin-bottom:32px; }
+      .top-nav a { color:var(--muted); text-decoration:none; font-weight:700; }
+      .hero,.grid,.ladder,.payment-grid,.package-grid { display:grid; gap:22px; }
+      .hero { grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr); }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:24px; }
+      .ladder { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .payment-grid,.package-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .card,.hero-copy,.side-card { background:rgba(255,255,255,.94); border:1px solid var(--border); border-radius:24px; box-shadow:0 24px 60px rgba(15,23,42,.08); padding:28px; }
+      .hero-copy { padding:38px; }
+      .eyebrow { color:var(--blue); font-weight:900; font-size:14px; letter-spacing:.08em; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { color:var(--dark); font-size:clamp(36px,5.8vw,62px); line-height:1.08; letter-spacing:-.045em; margin-bottom:14px; }
+      h2,h3 { color:var(--dark); }
+      h2 { font-size:28px; }
+      .subtitle { color:var(--dark); font-size:clamp(22px,3vw,34px); font-weight:900; }
+      .lead { color:#334155; font-size:19px; line-height:1.85; }
+      .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+      .facts,.list,form,.options,.flow { display:grid; gap:12px; }
+      .facts { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:28px; }
+      .box,.step,.item { padding:14px; border-radius:16px; background:var(--soft); border:1px solid var(--border); }
+      .box strong,.item strong { display:block; color:var(--ink); }
+      .box span,.note,.small { color:var(--muted); font-size:14px; }
+      .price { display:inline-flex; align-items:baseline; gap:4px; margin:12px 0 4px; color:var(--dark); font-size:52px; font-weight:900; }
+      .price span { font-size:20px; }
+      .ladder-card { padding:22px; border-radius:20px; border:1px solid var(--border); background:#fff; }
+      .num { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:999px; background:var(--blue); color:#fff; font-weight:900; margin-bottom:12px; }
+      .flow { grid-template-columns:repeat(6,minmax(0,1fr)); margin-top:16px; }
+      .step { text-align:center; font-weight:800; color:var(--dark); background:#fff; }
+      .timeline { padding-left:16px; border-left:3px solid var(--blue); }
+      .field { display:grid; gap:8px; }
+      .hidden-field { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+      label,legend { color:#1e293b; font-weight:800; }
+      input,select,textarea { width:100%; border:1px solid #cbd5e1; border-radius:12px; padding:12px 13px; font:inherit; background:#fff; color:var(--ink); }
+      textarea { min-height:104px; resize:vertical; }
+      fieldset { border:1px solid var(--border); border-radius:16px; padding:14px; }
+      .options label { display:flex; align-items:flex-start; gap:10px; color:#475569; font-weight:600; }
+      .options input { width:auto; margin-top:5px; }
+      .required { color:#dc2626; }
+      .payment-card { display:grid; gap:14px; padding:16px; border:1px solid #bfdbfe; border-radius:18px; background:#eff6ff; }
+      .payment-note { padding:12px 14px; border-radius:12px; background:#fff; border:1px solid #dbeafe; color:#1d4ed8; font-weight:900; }
+      .payment-method { padding:14px; border-radius:16px; background:#fff; border:1px solid #dbeafe; text-align:center; }
+      .payment-method strong { display:block; margin-bottom:10px; }
+      .payment-qr { width:100%; max-width:220px; aspect-ratio:1/1; object-fit:cover; border-radius:16px; border:1px solid #dbeafe; background:#f8fafc; }
+      .status { display:none; padding:12px 14px; border-radius:12px; line-height:1.6; }
+      .status.success { display:block; color:#166534; background:#dcfce7; border:1px solid #bbf7d0; }
+      .status.error { display:block; color:#991b1b; background:#fee2e2; border:1px solid #fecaca; }
+      .success-panel { display:none; margin-top:18px; padding:18px; border-radius:18px; border:1px solid #bbf7d0; background:#f0fdf4; }
+      .success-panel.visible { display:grid; grid-template-columns:minmax(0,1fr) 180px; gap:18px; align-items:center; }
+      .success-qr { width:180px; height:180px; object-fit:cover; border-radius:16px; background:#fff; border:1px solid #bbf7d0; }
+      .submit { border:0; border-radius:999px; min-height:50px; padding:13px 18px; background:var(--blue); color:#fff; font-weight:900; cursor:pointer; }
+      .submit:disabled { cursor:not-allowed; opacity:.65; }
+      .faq { margin-top:24px; }
+      details { border-top:1px solid var(--border); padding:16px 0; }
+      summary { cursor:pointer; font-weight:900; }
+      @media (max-width:900px) { .hero,.grid,.ladder,.payment-grid,.package-grid,.success-panel.visible { grid-template-columns:1fr; } .flow { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero-copy,.side-card,.card { border-radius:20px; padding:24px; } }
+      @media (max-width:560px) { .facts { grid-template-columns:1fr; } .top-nav { flex-direction:column; } }
     </style>
   </head>
   <body>
-    <main class="workshop-page">
-      <nav class="top-nav" aria-label="页面导航">
-        <a href="./">← 回到孙玲主页</a>
-        <a href="#signup">直接报名</a>
-      </nav>
-
+    <main class="page">
+      <nav class="top-nav"><a href="./">← 回到孙玲主页</a><a href="#signup">直接报名</a></nav>
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">首期小规模共创 · Pilot 2026/07</p>
           <h1>AI 时代的终身学习系统</h1>
           <p class="subtitle">从知识，到技能，到智慧</p>
-          <p class="lead">
-            我想分享的，不只是工具，而是一套把零散输入转化为能力、判断和人生智慧的学习系统。
-          </p>
-          <p class="lead">
-            这期会非常 practical：从开始记录、建立可搜索的记录系统，到以教为学、沉淀学习记录，再识别一个可做成 AI Skill / SOP 的重复任务。
-          </p>
-          <div class="hero-actions">
-            <a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a>
-            <a class="button-link button-link--large" href="#framework">查看学习梯子</a>
-          </div>
-          <div class="facts" aria-label="工作坊要点">
-            <div class="fact"><strong>形式</strong><span>两次 1.5 小时线上工作坊 + 打卡 / 迭代</span></div>
-            <div class="fact"><strong>人数</strong><span>首期小规模，建议 15 人以内</span></div>
-            <div class="fact"><strong>核心</strong><span>从输入、记录、应用、复盘走向自己的能力和判断</span></div>
-            <div class="fact"><strong>付款</strong><span>支付宝 / 微信付款，主理人人工核对</span></div>
+          <p class="lead">我想分享的，不只是工具，而是一套把零散输入转化为能力、判断和人生智慧的学习系统。</p>
+          <p class="lead">这期会非常 practical：2 小时线上工作坊，加上 7 天打卡练习和群内问题回答。我们会从开始记录、建立可搜索的记录系统，到以教为学、沉淀 learning records，再识别一个可做成 AI Skill / SOP 的重复任务。</p>
+          <div class="actions"><a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a><a class="button-link button-link--large" href="#framework">查看学习梯子</a></div>
+          <div class="facts">
+            <div class="box"><strong>形式</strong><span>2 小时线上工作坊 + 7 天打卡练习 + 群内答疑</span></div>
+            <div class="box"><strong>时间</strong><span>美国西部 2026/7/11 周六 07:30–09:00</span></div>
+            <div class="box"><strong>北京时间</strong><span>2026/7/11 周六 22:30–00:00</span></div>
+            <div class="box"><strong>费用</strong><span>首期小规模共创价 199 元</span></div>
           </div>
         </div>
-
-        <aside class="signup-card" aria-label="价格与报名选项">
+        <aside class="side-card">
           <h2>报名选项</h2>
-          <p>首期用小规模共创价降低决策门槛，重点是一起跑完流程、收集反馈、打磨案例。</p>
-          <div class="price-list">
-            <div class="price-item"><strong>阶段一：开始记录</strong><span>109 元</span></div>
-            <div class="price-item"><strong>阶段二：开始复用</strong><span>169 元</span></div>
-            <div class="price-item"><strong>两阶段一起参加</strong><span>199 元</span></div>
+          <p>不再拆分阶段，首期统一为一个完整的小闭环。</p>
+          <div class="price">199<span>元</span></div>
+          <p class="note">包含 2 小时线上工作坊、7 天打卡练习、群内问题回答。</p>
+          <div class="package-grid" style="margin-top:16px;">
+            <div class="box"><strong>开始记录</strong><span>把输入和思考留下来</span></div>
+            <div class="box"><strong>7 天练习</strong><span>用真实记录积累材料</span></div>
           </div>
-          <p class="form-note" style="margin-top: 14px;">
-            阶段一帮你开始记录、建立最简单的记录系统；阶段二帮你把一个重复任务沉淀成可复用的 AI Skill / SOP。
-          </p>
         </aside>
       </section>
 
-      <section class="card insight-card" id="framework">
+      <section class="card" id="framework" style="margin-top:24px;">
         <h2>为什么很多人知道了很多，还是过不好一生？</h2>
-        <p class="lead">
-          因为知识如果没有经过记录、整理、应用与复盘，就很难变成真正属于你的东西。AI 时代的学习，不是更快地囤积信息，而是更有意识地把知识转化成技能、原则和智慧。
-        </p>
-        <div class="ladder-grid">
-          <div class="ladder-card">
-            <span class="ladder-number">1</span>
-            <strong>Knowledge 知识</strong>
-            <p>我知道了什么。</p>
-          </div>
-          <div class="ladder-card">
-            <span class="ladder-number">2</span>
-            <strong>Skills 技能 / 方法</strong>
-            <p>我能不能用它做事。</p>
-          </div>
-          <div class="ladder-card">
-            <span class="ladder-number">3</span>
-            <strong>Wisdom 智慧</strong>
-            <p>它有没有改变我的判断、选择和生活方式。</p>
-          </div>
+        <p class="lead">因为知识如果没有经过记录、整理、应用与复盘，就很难变成真正属于你的东西。AI 时代的学习，不是更快地囤积信息，而是更有意识地把知识转化成技能、原则和智慧。</p>
+        <div class="ladder">
+          <div class="ladder-card"><span class="num">1</span><strong>Knowledge 知识</strong><p>我知道了什么。</p></div>
+          <div class="ladder-card"><span class="num">2</span><strong>Skills 技能 / 方法</strong><p>我能不能用它做事。</p></div>
+          <div class="ladder-card"><span class="num">3</span><strong>Wisdom 智慧</strong><p>它有没有改变我的判断、选择和生活方式。</p></div>
         </div>
-        <div class="process-flow" aria-label="从笔记到智慧的过程">
-          <div class="process-step">原始笔记</div>
-          <div class="process-step">Learning Records</div>
-          <div class="process-step">Lessons</div>
-          <div class="process-step">Skills</div>
-          <div class="process-step">Principles</div>
-          <div class="process-step">Wisdom</div>
-        </div>
-        <p class="small-note" style="margin-top: 12px;">
-          这里的 Skills 指人的能力与可迁移方法；AI Skill 指把一个重复任务沉淀成可复用的 AI 工作流 / SOP。
-        </p>
+        <div class="flow"><div class="step">原始笔记</div><div class="step">Learning Records</div><div class="step">Lessons</div><div class="step">Skills</div><div class="step">Principles</div><div class="step">Wisdom</div></div>
+        <p class="small" style="margin-top:12px;">这里的 Skills 指人的能力与可迁移方法；AI Skill 指把一个重复任务沉淀成可复用的 AI 工作流 / SOP。</p>
       </section>
 
-      <section class="card ai-card">
-        <h2>AI 可以辅助每一步</h2>
-        <p class="lead">
-          AI 可以帮你整理笔记、提炼观点、连接主题、生成 learning records、沉淀 lessons，也可以把一个重复任务整理成可复用的 AI Skill / SOP。但主导权仍然在你：你的记录、你的思考、你的实践、你的选择。
-        </p>
-      </section>
+      <section class="card" style="margin-top:24px;"><h2>AI 可以辅助每一步</h2><p class="lead">AI 可以帮你整理笔记、提炼观点、连接主题、生成 learning records、沉淀 lessons，也可以把一个重复任务整理成可复用的 AI Skill / SOP。但主导权仍然在你：你的记录、你的思考、你的实践、你的选择。</p></section>
 
-      <section class="section-grid" id="schedule">
+      <section class="grid" id="schedule">
         <article class="card">
           <h2>这是一场非常 practical 的共创工作坊</h2>
-          <div class="takeaway-list">
-            <div class="takeaway-item"><strong>开始记录</strong><span>先让经历、问题、输入和判断真正留下来。</span></div>
-            <div class="takeaway-item"><strong>一个最简单、可迁移、可搜索的记录系统</strong><span>不追求复杂工具，先建立可持续的最小系统。</span></div>
-            <div class="takeaway-item"><strong>以教为学，搭建你的学习系统</strong><span>把输入变成 learning records，把理解变成可以讲给别人听的结构。</span></div>
-            <div class="takeaway-item"><strong>识别一个可沉淀成 AI Skill / SOP 的重复任务</strong><span>让 AI 不只是聊天工具，而是进入你的真实工作流。</span></div>
+          <div class="list">
+            <div class="item"><strong>开始记录</strong><span>先让经历、问题、输入和判断真正留下来。</span></div>
+            <div class="item"><strong>一个最简单、可迁移、可搜索的记录系统</strong><span>不追求复杂工具，先建立可持续的最小系统。</span></div>
+            <div class="item"><strong>以教为学，搭建你的学习系统</strong><span>把输入变成 learning records，把理解变成可以讲给别人听的结构。</span></div>
+            <div class="item"><strong>识别一个可沉淀成 AI Skill / SOP 的重复任务</strong><span>让 AI 不只是聊天工具，而是进入你的真实工作流。</span></div>
           </div>
         </article>
-
         <article class="card">
           <h2>时间安排</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <strong>阶段一：开始记录</strong>
-              <p>西雅图 2026 年 7 月 11 日 周六 07:30–09:00<br />北京时间 2026 年 7 月 11 日 周六 22:30–00:00</p>
-            </div>
-            <div class="timeline-item">
-              <strong>阶段二：开始复用</strong>
-              <p>西雅图 2026 年 7 月 18 日 周六 07:30–09:00<br />北京时间 2026 年 7 月 18 日 周六 22:30–00:00</p>
-            </div>
-          </div>
-          <p class="form-note">最终时间会根据报名者时区再确认。报名后会通过微信通知会议链接、付款方式和群信息。</p>
+          <div class="timeline"><strong>2 小时线上工作坊</strong><p>美国西部时间 2026 年 7 月 11 日 周六 07:30–09:00<br />北京时间 2026 年 7 月 11 日 周六 22:30–00:00</p></div>
+          <div class="timeline" style="margin-top:16px;"><strong>7 天打卡练习 + 群内问题回答</strong><p>工作坊结束后开始 7 天练习，在群里继续记录、提问和调整自己的系统。</p></div>
+          <p class="note">报名后会通过微信通知会议链接、付款确认和入群信息。</p>
         </article>
       </section>
 
-      <section class="section-grid">
-        <article class="card">
-          <h2>适合谁</h2>
-          <p>适合想记录、想输出、想把 AI 用进真实工作流的人。尤其适合这些状态：</p>
-          <ul>
-            <li>每天看很多东西，但最后没有留下什么。</li>
-            <li>有很多笔记，但很少真的复用。</li>
-            <li>想写东西，但每次都像从零开始。</li>
-            <li>用 AI 写作，但总觉得不像自己。</li>
-            <li>想把重复工作整理成一套流程，但不知道怎么开始。</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>这期不追求“大而全”</h2>
-          <p>它不是纯工具课，也不是教大家追热点。Obsidian、Notion、飞书、本地 Markdown 都可以。</p>
-          <p>主线是：先记录下来，再谈系统化；先形成人的能力和判断，再把适合自动化的部分沉淀成 AI Skill / SOP。</p>
-        </article>
+      <section class="grid">
+        <article class="card"><h2>适合谁</h2><p>适合想记录、想输出、想把 AI 用进真实工作流的人。尤其适合：看很多但没有留下、笔记很少复用、想写但总像从零开始、AI 写出来不像自己、想把重复工作整理成流程的人。</p></article>
+        <article class="card"><h2>这期不追求“大而全”</h2><p>它不是纯工具课，也不是教大家追热点。主线是：先记录下来，再谈系统化；先形成人的能力和判断，再把适合自动化的部分沉淀成 AI Skill / SOP。</p></article>
       </section>
 
-      <section class="card" id="signup" aria-labelledby="signup-title">
-        <h2 id="signup-title">报名表</h2>
-        <p>提交后我会通过微信联系你确认报名选项、付款状态和入群信息。你的信息只用于本次工作坊沟通与统计。</p>
-
+      <section class="card" id="signup">
+        <h2>报名表</h2>
+        <p>提交后我会通过微信联系你确认付款状态和入群信息。你的信息只用于本次工作坊沟通与统计。</p>
         <form id="workshop-signup-form">
-          <div class="field field--hidden" aria-hidden="true">
-            <label for="website">请不要填写这个字段</label>
-            <input id="website" name="website" autocomplete="off" tabindex="-1" />
-          </div>
-
-          <div class="field">
-            <label for="name">你的称呼 <span class="required">*</span></label>
-            <input id="name" name="name" autocomplete="name" required />
-          </div>
-
-          <div class="field">
-            <label for="wechat">微信号 <span class="required">*</span></label>
-            <input id="wechat" name="wechat" autocomplete="off" required />
-          </div>
-
-          <div class="field">
-            <label for="email">邮箱（选填）</label>
-            <input id="email" name="email" type="email" autocomplete="email" />
-          </div>
-
-          <div class="field">
-            <label for="city">你现在的城市 / 时区（选填）</label>
-            <input id="city" name="city" placeholder="例如：北京 / 西雅图 / 美国东部时间" />
-          </div>
-
-          <fieldset>
-            <legend>你想报名哪个选项？ <span class="required">*</span></legend>
-            <div class="option-list">
-              <label><input type="radio" name="stage" value="阶段一：开始记录，109 元" required /> 阶段一：开始记录，109 元</label>
-              <label><input type="radio" name="stage" value="阶段二：开始复用，169 元" /> 阶段二：开始复用，169 元</label>
-              <label><input type="radio" name="stage" value="两阶段一起，199 元" /> 两阶段一起，199 元</label>
-            </div>
-          </fieldset>
-
-          <section class="payment-card" aria-labelledby="payment-title">
-            <h3 id="payment-title">付款方式</h3>
-            <p id="selected-payment-note" class="selected-payment-note">请选择报名选项后，根据对应金额使用支付宝或微信付款。</p>
-            <div class="payment-grid" aria-label="付款二维码">
-              <div class="payment-method">
-                <strong>支付宝</strong>
-                <img class="payment-qr" src="../assets/input-output-workshop-alipay-qr.jpg" alt="终身学习系统工作坊支付宝付款二维码" />
-              </div>
-              <div class="payment-method">
-                <strong>微信支付</strong>
-                <img class="payment-qr" src="../assets/input-output-workshop-wechat-pay-qr.jpg" alt="终身学习系统工作坊微信付款二维码" />
-              </div>
-            </div>
-            <p class="form-note">付款备注建议填写：称呼 + 微信号 + 报名阶段。例如：孙玲 sunlingcn 两阶段。提交报名后，数据库中的付款状态仍会先显示为 pending，我会人工核对后确认。</p>
-          </section>
-
-          <div class="field">
-            <label for="role">你现在的身份 / 主要场景（选填）</label>
-            <input id="role" name="role" placeholder="例如：工程师 / 写作者 / 留学生 / 咨询从业者 / 自由职业" />
-          </div>
-
-          <div class="field">
-            <label for="current_system">你现在的记录状态更接近哪一种？</label>
-            <select id="current_system" name="current_system">
-              <option value="">请选择</option>
-              <option>几乎没有记录习惯</option>
-              <option>有零散记录，但不稳定</option>
-              <option>有长期记录，但很少复用</option>
-              <option>有稳定记录，并想进一步做成 AI 工作流</option>
-            </select>
-          </div>
-
-          <fieldset>
-            <legend>你最想解决的卡点是什么？ <span class="required">*</span></legend>
-            <div class="option-list">
-              <label><input type="checkbox" name="challenge" value="不知道记录什么" /> 不知道记录什么</label>
-              <label><input type="checkbox" name="challenge" value="记录很散，找不到" /> 记录很散，找不到</label>
-              <label><input type="checkbox" name="challenge" value="有输入但输出不出来" /> 有输入但输出不出来</label>
-              <label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI 写出来不像自己</label>
-              <label><input type="checkbox" name="challenge" value="想把重复工作做成 Skill / SOP" /> 想把重复工作做成 Skill / SOP</label>
-            </div>
-          </fieldset>
-
-          <div class="field">
-            <label for="main_challenge_other">也可以用自己的话补充卡点</label>
-            <textarea id="main_challenge_other" name="main_challenge_other" placeholder="例如：我有很多读书笔记，但很难变成文章；或者我每次写公众号都从零开始。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="desired_output">如果参加阶段二，你想带来的重复场景是什么？（选填）</label>
-            <textarea id="desired_output" name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="expectation">你对这次工作坊的期待（选填）</label>
-            <textarea id="expectation" name="expectation"></textarea>
-          </div>
-
-          <p class="form-note">报名提交成功后不会在页面公开显示。付款状态默认为 pending，我会手动确认。</p>
-          <div id="form-status" class="status-message" role="status" aria-live="polite"></div>
-          <div id="success-panel" class="success-panel" aria-live="polite">
-            <div>
-              <h3>报名已提交</h3>
-              <p>请扫码加我个人微信，我会核对付款状态，并确认入群和会议信息。</p>
-              <p id="success-stage-note" class="form-note" style="margin-top: 8px;">备注：是否已付款 + 报名阶段 + 称呼 / 微信号</p>
-            </div>
-            <img class="success-qr" src="../assets/wechat-qr.jpg" alt="孙玲个人微信二维码" />
-          </div>
-          <button id="submit-button" class="submit-button" type="submit">提交报名</button>
+          <div class="hidden-field" aria-hidden="true"><label for="website">请不要填写这个字段</label><input id="website" name="website" autocomplete="off" tabindex="-1" /></div>
+          <input type="hidden" name="stage" value="首期完整工作坊，199 元" />
+          <div class="field"><label for="name">你的称呼 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" required /></div>
+          <div class="field"><label for="wechat">微信号 <span class="required">*</span></label><input id="wechat" name="wechat" autocomplete="off" required /></div>
+          <div class="field"><label for="email">邮箱（选填）</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+          <div class="field"><label for="city">你现在的城市 / 时区（选填）</label><input id="city" name="city" placeholder="例如：北京 / 西雅图 / 美国东部时间" /></div>
+          <section class="payment-card"><h3>付款方式</h3><p class="payment-note">首期完整工作坊：199 元。可以使用下方支付宝或微信付款码付款。</p><div class="payment-grid"><div class="payment-method"><strong>支付宝</strong><img class="payment-qr" src="../assets/input-output-workshop-alipay-qr.jpg" alt="支付宝付款二维码" /></div><div class="payment-method"><strong>微信支付</strong><img class="payment-qr" src="../assets/input-output-workshop-wechat-pay-qr.jpg" alt="微信付款二维码" /></div></div><p class="note">付款备注建议填写：称呼 + 微信号 + 工作坊。例如：孙玲 sunlingcn 工作坊。</p></section>
+          <div class="field"><label for="role">你现在的身份 / 主要场景（选填）</label><input id="role" name="role" placeholder="例如：工程师 / 写作者 / 留学生 / 咨询从业者 / 自由职业" /></div>
+          <div class="field"><label for="current_system">你现在的记录状态更接近哪一种？</label><select id="current_system" name="current_system"><option value="">请选择</option><option>几乎没有记录习惯</option><option>有零散记录，但不稳定</option><option>有长期记录，但很少复用</option><option>有稳定记录，并想进一步做成 AI 工作流</option></select></div>
+          <fieldset><legend>你最想解决的卡点是什么？ <span class="required">*</span></legend><div class="options"><label><input type="checkbox" name="challenge" value="不知道记录什么" /> 不知道记录什么</label><label><input type="checkbox" name="challenge" value="记录很散，找不到" /> 记录很散，找不到</label><label><input type="checkbox" name="challenge" value="有输入但输出不出来" /> 有输入但输出不出来</label><label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI 写出来不像自己</label><label><input type="checkbox" name="challenge" value="想把重复工作做成 AI Skill / SOP" /> 想把重复工作做成 AI Skill / SOP</label></div></fieldset>
+          <div class="field"><label for="main_challenge_other">也可以用自己的话补充卡点</label><textarea id="main_challenge_other" name="main_challenge_other" placeholder="例如：我有很多读书笔记，但很难变成文章；或者我每次写公众号都从零开始。"></textarea></div>
+          <div class="field"><label for="desired_output">你想识别或沉淀的重复任务是什么？（选填）</label><textarea id="desired_output" name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea></div>
+          <div class="field"><label for="expectation">你对这次工作坊的期待（选填）</label><textarea id="expectation" name="expectation"></textarea></div>
+          <p class="note">报名提交成功后不会在页面公开显示。付款状态默认为 pending，我会手动确认。</p>
+          <div id="form-status" class="status" role="status" aria-live="polite"></div>
+          <div id="success-panel" class="success-panel" aria-live="polite"><div><h3>报名已提交</h3><p>请扫码加我个人微信，我会核对付款状态，并确认入群和会议信息。</p><p id="success-stage-note" class="note" style="margin-top:8px;">备注：是否已付款 + 工作坊 + 称呼 / 微信号</p></div><img class="success-qr" src="../assets/wechat-qr.jpg" alt="孙玲个人微信二维码" /></div>
+          <button id="submit-button" class="submit" type="submit">提交报名</button>
         </form>
       </section>
 
-      <section class="card faq" aria-labelledby="faq-title">
-        <h2 id="faq-title">FAQ</h2>
-        <details>
-          <summary>完全没有记录习惯，可以参加吗？</summary>
-          <p>可以。阶段一就是为“还没开始 / 很零散”的状态设计的，目标是建立最小可行系统，而不是一开始就追求完美工具。</p>
-        </details>
-        <details>
-          <summary>阶段二一定要会写代码或 MCP 吗？</summary>
-          <p>不需要。阶段二主线是把重复任务写成 AI 可执行的 Skill / AI SOP。MCP 会作为进阶可能出现，但不是所有人的必修目标。</p>
-        </details>
-        <details>
-          <summary>Skills 和 AI Skill 是一回事吗？</summary>
-          <p>不是。Skills 指人的能力、方法和判断；AI Skill 指把一个重复任务沉淀成可复用的 AI 工作流 / SOP。这个工作坊会把两者区分开。</p>
-        </details>
-        <details>
-          <summary>提交报名后怎么付款？</summary>
-          <p>可以在报名表里使用支付宝或微信付款码付款。提交后请加我个人微信，并备注是否已付款、报名阶段和你的称呼 / 微信号，我会人工核对。</p>
-        </details>
-      </section>
+      <section class="card faq"><h2>FAQ</h2><details><summary>完全没有记录习惯，可以参加吗？</summary><p>可以。这期就是为“还没开始 / 很零散”的状态设计的，目标是建立最小可行系统。</p></details><details><summary>需要会写代码或 MCP 吗？</summary><p>不需要。主线是把记录、学习和重复任务整理成可复用流程，不要求编程基础。</p></details><details><summary>Skills 和 AI Skill 是一回事吗？</summary><p>不是。Skills 指人的能力、方法和判断；AI Skill 指把一个重复任务沉淀成可复用的 AI 工作流 / SOP。</p></details></section>
     </main>
-
     <script>
-      const SIGNUP_ENDPOINT = "/.netlify/functions/workshop-signup";
-      const STAGE_AMOUNTS = {
-        "阶段一：开始记录，109 元": "109 元",
-        "阶段二：开始复用，169 元": "169 元",
-        "两阶段一起，199 元": "199 元",
-      };
-
+      const ENDPOINT = "/.netlify/functions/workshop-signup";
+      const STAGE = "首期完整工作坊，199 元";
       const form = document.getElementById("workshop-signup-form");
       const statusBox = document.getElementById("form-status");
       const successPanel = document.getElementById("success-panel");
       const successStageNote = document.getElementById("success-stage-note");
       const submitButton = document.getElementById("submit-button");
-      const selectedPaymentNote = document.getElementById("selected-payment-note");
-      const stageOptions = Array.from(form.querySelectorAll('input[name="stage"]'));
-
-      function showStatus(type, message) {
-        statusBox.className = `status-message ${type}`;
-        statusBox.textContent = message;
-      }
-
-      function getSelectedStage() {
-        return form.querySelector('input[name="stage"]:checked')?.value || "";
-      }
-
-      function updatePaymentNote() {
-        const selectedStage = getSelectedStage();
-        if (!selectedStage) {
-          selectedPaymentNote.textContent = "请选择报名选项后，根据对应金额使用支付宝或微信付款。";
-          return;
-        }
-
-        selectedPaymentNote.textContent = `当前报名选项：${selectedStage}。请使用下方支付宝或微信付款码，付款金额为 ${STAGE_AMOUNTS[selectedStage] || "对应金额"}。`;
-      }
-
-      stageOptions.forEach((option) => option.addEventListener("change", updatePaymentNote));
-      updatePaymentNote();
-
+      function showStatus(type, message) { statusBox.className = `status ${type}`; statusBox.textContent = message; }
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
-
         const formData = new FormData(form);
-        const selectedStage = formData.get("stage");
-        const selectedName = formData.get("name")?.trim();
-        const selectedWechat = formData.get("wechat")?.trim();
-        const checkedChallenges = Array.from(form.querySelectorAll('input[name="challenge"]:checked')).map(
-          (item) => item.value
-        );
-        const challengeOther = formData.get("main_challenge_other")?.trim();
-        const mainChallenge = [checkedChallenges.join("、"), challengeOther].filter(Boolean).join("｜");
-
-        if (!mainChallenge) {
-          showStatus("error", "请至少选择或填写一个你最想解决的卡点。");
-          return;
-        }
-
-        const payload = {
-          website: formData.get("website")?.trim() || null,
-          name: selectedName,
-          wechat: selectedWechat,
-          email: formData.get("email")?.trim() || null,
-          city: formData.get("city")?.trim() || null,
-          role: formData.get("role")?.trim() || null,
-          stage: selectedStage,
-          current_system: formData.get("current_system") || null,
-          main_challenge: mainChallenge,
-          desired_output: formData.get("desired_output")?.trim() || null,
-          expectation: formData.get("expectation")?.trim() || null,
-        };
-
-        submitButton.disabled = true;
-        submitButton.textContent = "提交中…";
-        statusBox.className = "status-message";
-        statusBox.textContent = "";
-        successPanel.classList.remove("is-visible");
-
+        const name = formData.get("name")?.trim();
+        const wechat = formData.get("wechat")?.trim();
+        const checked = Array.from(form.querySelectorAll('input[name="challenge"]:checked')).map((item) => item.value);
+        const other = formData.get("main_challenge_other")?.trim();
+        const mainChallenge = [checked.join("、"), other].filter(Boolean).join("｜");
+        if (!mainChallenge) { showStatus("error", "请至少选择或填写一个你最想解决的卡点。"); return; }
+        const payload = { website: formData.get("website")?.trim() || null, name, wechat, email: formData.get("email")?.trim() || null, city: formData.get("city")?.trim() || null, role: formData.get("role")?.trim() || null, stage: STAGE, current_system: formData.get("current_system") || null, main_challenge: mainChallenge, desired_output: formData.get("desired_output")?.trim() || null, expectation: formData.get("expectation")?.trim() || null };
+        submitButton.disabled = true; submitButton.textContent = "提交中…"; statusBox.className = "status"; statusBox.textContent = ""; successPanel.classList.remove("visible");
         try {
-          const response = await fetch(SIGNUP_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
+          const response = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
           const result = await response.json().catch(() => ({}));
-
-          if (!response.ok) {
-            throw new Error(result.error || "提交没有成功，请稍后再试。");
-          }
-
-          form.reset();
-          updatePaymentNote();
-          showStatus("success", "报名已提交！请扫码加我个人微信，并备注是否已付款和报名阶段。");
-          successStageNote.textContent = `微信备注建议：已付款 / 未付款 + ${selectedStage || "报名阶段"} + ${selectedName || "称呼"} / ${selectedWechat || "微信号"}`;
-          successPanel.classList.add("is-visible");
-          successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-        } catch (error) {
-          console.error(error);
-          showStatus("error", error.message || "提交没有成功，请稍后再试，或直接加微信 sunlingcn 联系我。");
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "提交报名";
-        }
+          if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
+          form.reset(); showStatus("success", "报名已提交！请扫码加我个人微信，并备注是否已付款和工作坊。");
+          successStageNote.textContent = `微信备注建议：已付款 / 未付款 + 工作坊 + ${name || "称呼"} / ${wechat || "微信号"}`;
+          successPanel.classList.add("visible"); successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch (error) { console.error(error); showStatus("error", error.message || "提交没有成功，请稍后再试，或直接加微信 sunlingcn 联系我。"); }
+        finally { submitButton.disabled = false; submitButton.textContent = "提交报名"; }
       });
     </script>
   </body>
