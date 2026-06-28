@@ -1,3 +1,15 @@
 [build]
 publish = "."
 functions = "netlify/functions"
+
+[[redirects]]
+from = "/zh/learning-system"
+to = "/zh/input-output-workshop"
+status = 200
+force = true
+
+[[redirects]]
+from = "/zh/learning-system/"
+to = "/zh/input-output-workshop"
+status = 200
+force = true
