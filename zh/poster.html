@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高转化海报 - AI 时代的个人输入输出系统</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --text: #1e293b;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: #0f172a;
+      /* 外围深色背景突出海报 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* 海报主体：现代、高级、吸睛的渐变风格 */
+    .poster {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 顶部引人注目的视觉焦点 */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+      padding: 3rem 2.5rem 2rem;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 光效点缀 */
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pain-point {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .main-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .main-title span {
+      color: #fbbf24;
+      /* 金黄色强调色，极具吸引力 */
+    }
+
+    .sub-title {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* 主体内文区 */
+    .content-area {
+      padding: 2rem 2.5rem 1rem;
+      background: #ffffff;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* 痛点直击：让你感同身受 */
+    .struggle-list {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .struggle-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #475569;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 12px;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .struggle-item.highlight {
+      border-left-color: var(--primary);
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    /* 获得什么：高价值展示 */
+    .value-props {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 10px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+
+    .value-icon {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .value-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* 稀缺性与行动号召 (CTA) 区域 */
+    .action-zone {
+      background: #f8fafc;
+      border-top: 2px dashed #e2e8f0;
+      padding: 1.2rem 2.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .scarcity {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      color: #dc2626;
+      /* 红色激发行动力 */
+      font-weight: 900;
+    }
+
+    .price-tag .symbol {
+      font-size: 1.2rem;
+    }
+
+    .price-tag .amount {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .urgency-badge {
+      background: #fee2e2;
+      color: #991b1b;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .qr-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .qr-code {
+      width: 85px;
+      height: 85px;
+      padding: 5px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .qr-hint {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+      }
+
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+
+    /* 学习路径 (知识->智识->智慧) */
+    .philosophy-card {
+      background: linear-gradient(to right, #f8fafc, #eff6ff);
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .journey-path {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .journey-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .journey-step strong {
+      color: var(--primary);
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .journey-step span {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .journey-arrow {
+      color: #94a3b8;
+      font-size: 1.2rem;
+      margin: 0 4px;
+    }
+
+    .diary-share {
+      font-size: 0.85rem;
+      color: #334155;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 3px solid #fbbf24;
+      line-height: 1.5;
+    }
+
+    /* 作者签名档 */
+    .author-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 海报主体，直接截图即可 -->
+  <div class="poster" id="poster">
+
+    <!-- 头部：抛出痛点，给出承诺 -->
+    <div class="hero-banner">
+      <div class="hero-top">
+        <div class="pain-point">👉 看过、听过、想过很多，却总写不出来？</div>
+        <div class="author-badge">主理人: 孙玲</div>
+      </div>
+      <h1 class="main-title">AI 时代的个人<br><span>输入输出系统</span></h1>
+      <p class="sub-title">2小时线上实战 + 7天陪伴打卡<br>从记录开始，用输出整理自己，用分享连接他人。</p>
+    </div>
+
+    <div class="content-area">
+      <!-- 痛点共鸣 -->
+      <h2 class="section-title">你是否也常常感到内耗？</h2>
+      <div class="struggle-list" style="margin-bottom: 1.5rem;">
+        <div class="struggle-item">
+          <span>❌</span>
+          <div><strong>输入很多，却留不下判断：</strong>看文章、听播客囤了一堆灵感，过后全忘光，很少沉淀为自己的经验。</div>
+        </div>
+        <div class="struggle-item">
+          <span>❌</span>
+          <div><strong>想去表达，每次却像从零开始：</strong>哪怕平时想法很多，但真要写点什么，总是无从下笔。</div>
+        </div>
+      </div>
+
+      <!-- 核心理念与独家分享 -->
+      <div class="philosophy-card">
+        <div class="journey-path">
+          <div class="journey-step">
+            <strong>知识</strong>
+            <span>信息的堆肥</span>
+          </div>
+          <div class="journey-arrow">→</div>
+          <div class="journey-step">
+            <strong>智识</strong>
+            <span>提炼自己的理解</span>
+          </div>
+          <div class="journey-arrow">→</div>
+          <div class="journey-step">
+            <strong>智慧</strong>
+            <span>输出与复用</span>
+          </div>
+        </div>
+        <div class="diary-share">
+          <strong>💡 独家拆解：</strong>从输入到输出的每一步，我将全盘拆解我的“私人日记”与“终身学习”系统。带你看我是如何用 AI Skill 清晰化思考、沉淀真实想法的。
+        </div>
+      </div>
+
+      <!-- 价值交付：你将带走什么 -->
+      <h2 class="section-title">参加本次工作坊，你将带走：</h2>
+      <div class="value-props">
+        <div class="value-card">
+          <div class="value-icon">🧠</div>
+          <div class="value-text">输出为导向的输入思维<br><span
+              style="font-size:0.7rem; color:#64748b; font-weight:normal;">唤醒记录意识，摆脱无意义的囤积</span></div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🪜</div>
+          <div class="value-text">学习系统的三层进化<br><span
+              style="font-size:0.7rem; color:#64748b; font-weight:normal;">看透各层级该如何用 AI 来强化</span></div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚙️</div>
+          <div class="value-text">跑得通的真实工作流<br><span style="font-size:0.7rem; color:#64748b; font-weight:normal;">复制实战
+              SOP，从今天开始实践</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部：促单、稀缺性、CTA -->
+    <div class="action-zone">
+      <div class="scarcity">
+        <!-- <div class="urgency-badge">首期为保质量，仅限 25 人</div> -->
+        <div class="price-tag">
+          <span class="symbol">¥</span>
+          <span class="amount">199</span>
+        </div>
+        <div style="font-size: 0.8rem; color: #64748b; font-weight: 600; margin-top: 4px;">
+          📅 7月11日 周六 (北京/美西时间)
+        </div>
+      </div>
+
+      <div class="qr-container">
+        <!-- 扫码二维码 -->
+        <img class="qr-code"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://bysunling.com/zh/input-output-workshop&margin=0"
+          alt="扫码报名">
+        <div class="qr-hint">扫码报名</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
