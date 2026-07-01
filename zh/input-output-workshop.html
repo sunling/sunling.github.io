@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,110 +12,532 @@
   <link rel="stylesheet" href="../styles/shared.css" />
   <link rel="icon" type="image/png" href="../favicon.ico" />
   <style>
-    :root { --blue:#2563eb; --dark:#0f2a5f; --ink:#0f172a; --muted:#64748b; --border:#dbeafe; --soft:#eff6ff; --bg:#f8fafc; }
-    body { background: radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 32rem), var(--bg); color:var(--ink); }
-    .page { max-width:1080px; margin:0 auto; padding:28px 20px 72px; text-align:left; }
-    .top-nav { display:flex; justify-content:space-between; gap:16px; margin-bottom:32px; }
-    .top-nav a { color:var(--muted); text-decoration:none; font-weight:700; }
-    .grid,.facts,.fact-summary,.list,form,.options,.flow,.examples,.beliefs,.takeaways { display:grid; gap:12px; }
-    .grid { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:24px; gap:22px; }
-    .pyramid-wrapper { display:flex; flex-direction:column; align-items:center; margin:32px auto 16px; width:100%; max-width:720px; filter:drop-shadow(0 12px 24px rgba(15,23,42,0.08)); }
-    .pyramid-level { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; text-align:center; min-height:180px; }
-    .pyramid-top { width:33.33%; background:var(--blue); color:#fff; clip-path:polygon(50% 0, 100% 100%, 0 100%); padding:20px 8px 12px; }
-    .pyramid-middle { width:66.66%; background:#eff6ff; color:var(--dark); clip-path:polygon(25% 0, 75% 0, 100% 100%, 0 100%); padding:20px 16px; margin-top:-1px; }
-    .pyramid-bottom { width:100%; background:#f8fafc; color:var(--dark); clip-path:polygon(16.66% 0, 83.33% 0, 100% 100%, 0 100%); padding:20px 16px; margin-top:-1px; }
-    .pyramid-level strong { display:block; font-size:18px; margin-bottom:6px; }
-    .pyramid-top strong { color:#fff; font-size:16px; }
-    .pyramid-middle strong, .pyramid-bottom strong { color:var(--blue); }
-    .pyramid-level p { margin:0; font-size:14px; line-height:1.6; }
-    .pyramid-top p { color:rgba(255,255,255,.95); font-size:13px; line-height:1.4; }
-    .pyramid-middle p, .pyramid-bottom p { color:#475569; }
-    .pyramid-caption { text-align:center; color:var(--muted); font-size:15px; margin-top:12px; font-weight:800; }
-    .examples,.takeaways { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:20px; }
-    .beliefs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:18px; }
-    .flow { grid-template-columns:repeat(5,minmax(0,1fr)); margin-top:16px; }
-    .card,.hero-copy { background:rgba(255,255,255,.94); border:1px solid var(--border); border-radius:24px; box-shadow:0 24px 60px rgba(15,23,42,.08); padding:28px; }
-    .hero-copy { padding:32px; }
-    h1,h2,h3,p { margin-top:0; }
-    h1 { color:var(--dark); font-size:clamp(36px,5.8vw,62px); line-height:1.08; letter-spacing:-.045em; margin-bottom:14px; }
-    h2,h3 { color:var(--dark); }
-    h2 { font-size:28px; }
-    .subtitle { color:var(--dark); font-size:clamp(22px,3vw,34px); font-weight:900; }
-    .lead { color:#334155; font-size:19px; line-height:1.85; }
-    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
-    .button-link--large { min-height:50px; padding:13px 18px; font-weight:900; }
-    .facts { grid-template-columns:1fr; margin-top:22px; }
-    .fact-summary { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    .box,.step,.item,.mini-card,.belief { padding:14px; border-radius:16px; background:var(--soft); border:1px solid var(--border); }
-    .mini-card,.belief { background:#fff; }
-    .box strong,.fact-summary strong,.item strong,.mini-card strong,.belief strong { display:block; color:var(--ink); }
-    .box span,.time-lines,.note,.item span,.mini-card span,.belief span { color:var(--muted); font-size:14px; line-height:1.7; }
-    .step { text-align:center; font-weight:800; color:var(--dark); background:#fff; }
-    .timeline { padding-left:16px; border-left:3px solid var(--blue); }
-    .time-lines { display:grid; gap:4px; margin-top:4px; }
-    .timeline .time-lines { margin-top:12px; }
-    .field { display:grid; gap:8px; }
-    .hidden-field { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
-    label,legend { color:#1e293b; font-weight:800; }
-    input,select,textarea { width:100%; border:1px solid #cbd5e1; border-radius:12px; padding:12px 13px; font:inherit; background:#fff; color:var(--ink); }
-    textarea { min-height:104px; resize:vertical; }
-    fieldset { border:1px solid var(--border); border-radius:16px; padding:14px; }
-    .options label { display:flex; align-items:flex-start; gap:10px; color:#475569; font-weight:600; }
-    .options input { width:auto; margin-top:5px; }
-    .required { color:#dc2626; }
-    .status { display:none; padding:12px 14px; border-radius:12px; line-height:1.6; }
-    .status.success { display:block; color:#166534; background:#dcfce7; border:1px solid #bbf7d0; }
-    .status.error { display:block; color:#991b1b; background:#fee2e2; border:1px solid #fecaca; }
-    .submit { border:0; border-radius:999px; min-height:50px; padding:13px 18px; background:var(--blue); color:#fff; font-weight:900; cursor:pointer; }
-    .submit:disabled { cursor:not-allowed; opacity:.65; }
-    .faq { margin-top:24px; }
-    details { border-top:1px solid var(--border); padding:16px 0; }
-    summary { cursor:pointer; font-weight:900; }
-    @media (max-width:900px) { .grid,.fact-summary,.examples,.beliefs,.takeaways { grid-template-columns:1fr; } .flow { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero-copy,.card { border-radius:20px; padding:24px; } }
-    @media (max-width:500px) {
-      .pyramid-level { min-height: 120px; padding: 16px 12px; }
-      .pyramid-top { width: 50%; min-height: 240px; padding: 30px 12px 12px; }
-      .pyramid-middle { width: 75%; clip-path: polygon(16.66% 0, 83.33% 0, 100% 100%, 0 100%); }
-      .pyramid-bottom { width: 100%; clip-path: polygon(12.5% 0, 87.5% 0, 100% 100%, 0 100%); }
-      .pyramid-top p { font-size: 12px; line-height: 1.4; }
-      .pyramid-level p { font-size: 13px; }
+    :root {
+      --blue: #2563eb;
+      --dark: #0f2a5f;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --border: #dbeafe;
+      --soft: #eff6ff;
+      --bg: #f8fafc;
     }
-    @media (max-width:560px) { .top-nav { flex-direction:column; } }
+
+    body {
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, .12), transparent 32rem), var(--bg);
+      color: var(--ink);
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+      text-align: left;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .top-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .grid,
+    .facts,
+    .fact-summary,
+    .list,
+    form,
+    .options,
+    .flow,
+    .examples,
+    .beliefs,
+    .takeaways {
+      display: grid;
+      gap: 12px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+      gap: 22px;
+    }
+
+    .pyramid-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 32px auto 16px;
+      width: 100%;
+      max-width: 720px;
+      filter: drop-shadow(0 12px 24px rgba(15, 23, 42, 0.08));
+    }
+
+    .pyramid-level {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      min-height: 180px;
+    }
+
+    .pyramid-top {
+      width: 33.33%;
+      background: var(--blue);
+      color: #fff;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      padding: 20px 8px 12px;
+    }
+
+    .pyramid-middle {
+      width: 66.66%;
+      background: #eff6ff;
+      color: var(--dark);
+      clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+      padding: 20px 16px;
+      margin-top: -1px;
+    }
+
+    .pyramid-bottom {
+      width: 100%;
+      background: #f8fafc;
+      color: var(--dark);
+      clip-path: polygon(16.66% 0, 83.33% 0, 100% 100%, 0 100%);
+      padding: 20px 16px;
+      margin-top: -1px;
+    }
+
+    .pyramid-level strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .pyramid-top strong {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .pyramid-middle strong,
+    .pyramid-bottom strong {
+      color: var(--blue);
+    }
+
+    .pyramid-level p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .pyramid-top p {
+      color: rgba(255, 255, 255, .95);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .pyramid-middle p,
+    .pyramid-bottom p {
+      color: #475569;
+    }
+
+    .pyramid-caption {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 12px;
+      font-weight: 800;
+    }
+
+    .examples,
+    .takeaways {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .beliefs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .flow {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .card,
+    .hero-copy {
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, .08);
+      padding: 28px;
+    }
+
+    .hero-copy {
+      padding: 32px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      color: var(--dark);
+      font-size: clamp(36px, 5.8vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      margin-bottom: 14px;
+    }
+
+    h2,
+    h3 {
+      color: var(--dark);
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: var(--dark);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900;
+    }
+
+    .lead {
+      color: #334155;
+      font-size: 19px;
+      line-height: 1.85;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button-link--large {
+      min-height: 50px;
+      padding: 13px 18px;
+      font-weight: 900;
+    }
+
+    .facts {
+      grid-template-columns: 1fr;
+      margin-top: 22px;
+    }
+
+    .fact-summary {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .box,
+    .step,
+    .item,
+    .mini-card,
+    .belief {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+    }
+
+    .mini-card,
+    .belief {
+      background: #fff;
+    }
+
+    .box strong,
+    .fact-summary strong,
+    .item strong,
+    .mini-card strong,
+    .belief strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .box span,
+    .time-lines,
+    .note,
+    .item span,
+    .mini-card span,
+    .belief span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .step {
+      text-align: center;
+      font-weight: 800;
+      color: var(--dark);
+      background: #fff;
+    }
+
+    .timeline {
+      padding-left: 16px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .time-lines {
+      display: grid;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .timeline .time-lines {
+      margin-top: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .hidden-field {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    label,
+    legend {
+      color: #1e293b;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 13px;
+      font: inherit;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .options input {
+      width: auto;
+      margin-top: 5px;
+    }
+
+    .required {
+      color: #dc2626;
+    }
+
+    .status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+
+    .status.success {
+      display: block;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+    }
+
+    .status.error {
+      display: block;
+      color: #991b1b;
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+    }
+
+    .submit {
+      border: 0;
+      border-radius: 999px;
+      min-height: 50px;
+      padding: 13px 18px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .submit:disabled {
+      cursor: not-allowed;
+      opacity: .65;
+    }
+
+    .faq {
+      margin-top: 24px;
+    }
+
+    details {
+      border-top: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    @media (max-width:900px) {
+
+      .grid,
+      .fact-summary,
+      .examples,
+      .beliefs,
+      .takeaways {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy,
+      .card {
+        border-radius: 20px;
+        padding: 24px;
+      }
+    }
+
+    @media (max-width:500px) {
+      .pyramid-level {
+        min-height: 120px;
+        padding: 16px 12px;
+      }
+
+      .pyramid-top {
+        width: 50%;
+        min-height: 240px;
+        padding: 30px 12px 12px;
+      }
+
+      .pyramid-middle {
+        width: 75%;
+        clip-path: polygon(16.66% 0, 83.33% 0, 100% 100%, 0 100%);
+      }
+
+      .pyramid-bottom {
+        width: 100%;
+        clip-path: polygon(12.5% 0, 87.5% 0, 100% 100%, 0 100%);
+      }
+
+      .pyramid-top p {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .pyramid-level p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width:560px) {
+      .top-nav {
+        flex-direction: column;
+      }
+    }
+
+    .floating-cta {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translate(-50%, 100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .floating-cta.visible {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .floating-cta a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+      font-size: 17px;
+      white-space: nowrap;
+    }
   </style>
 </head>
+
 <body>
   <main class="page">
     <nav class="top-nav"><a href="./">← 回到孙玲主页</a><a href="#signup">直接报名</a></nav>
 
-    <section class="hero"><div class="hero-copy">
-      <h1>AI 时代的个人输入输出系统工作坊</h1>
-      <p class="subtitle">从记录开始，用输出整理自己，用分享连接他人。</p>
-      <p class="lead">这是一场从真实生活出发的系统搭建：我们会练习如何把每天听到的播客、看过的文章、经历和思考留下来，告别无意义的囤积，整理成可以复用的素材和你的私人 AI
-        Skill。<br><br><strong>你将带走：输出为导向的输入思维、学习系统三层进化法（知识→智识→智慧），以及一套跑得通的真实工作流 SOP。</strong></p>
-      <div class="actions"><a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a><a
-          class="button-link button-link--large" href="#examples">看具体例子</a></div>
-      <div class="facts">
-        <div class="box fact-summary">
-          <div><strong>形式</strong><span>2 小时线上工作坊 + 7 天打卡练习 + 群内答疑</span></div>
-          <div><strong>时间</strong>
-            <div class="time-lines">
-              <div>美西 2026/7/11 周六 07:30–09:30</div>
-              <div>北京 2026/7/11 周六 22:30–00:30</div>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>AI 时代的个人输入输出系统工作坊</h1>
+        <p class="subtitle">从记录开始，用输出整理自己，用分享连接他人。</p>
+        <p class="lead">这是一场从真实生活出发的系统搭建：我们会练习如何把每天听到的播客、看过的文章、经历和思考留下来，告别无意义的囤积，整理成可以复用的素材和你的私人 AI
+          Skill。<br><br><strong>你将带走：输出为导向的输入思维、学习系统三层进化法（知识→智识→智慧），以及一套跑得通的真实工作流 SOP。</strong></p>
+        <div class="actions"><a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a><a
+            class="button-link button-link--large" href="#examples">看具体例子</a></div>
+        <div class="facts">
+          <div class="box fact-summary">
+            <div><strong>形式</strong><span>2 小时线上工作坊 + 7 天打卡练习 + 群内答疑</span></div>
+            <div><strong>时间</strong>
+              <div class="time-lines">
+                <div>美西 2026/7/11 周六 07:30–09:30</div>
+                <div>北京 2026/7/11 周六 22:30–00:30</div>
+              </div>
             </div>
+            <div><strong>费用与名额</strong><span>199 元</span></div>
           </div>
-          <div><strong>费用与名额</strong><span>199 元</span></div>
         </div>
       </div>
-    </div></section>
+    </section>
 
     <section class="card" style="margin-top:24px;">
       <h2>你可能也有这样的感觉</h2>
       <div class="list">
         <div class="item"><strong>没有记录习惯，也不知道从哪里开始</strong><span>你可能想记录，却卡在第一条：写什么、用什么工具、怎样记录才算有用。</span></div>
-        <div class="item"><strong>已经有工具，但系统没有跑起来</strong><span>Notion、石墨文档、飞书、Obsidian、备忘录、微信收藏里都有一些东西，却很难形成稳定的整理和输出流程。</span></div>
+        <div class="item">
+          <strong>已经有工具，但系统没有跑起来</strong><span>Notion、石墨文档、飞书、Obsidian、备忘录、微信收藏里都有一些东西，却很难形成稳定的整理和输出流程。</span></div>
         <div class="item"><strong>输入很多，却留不下判断</strong><span>看文章、听播客、刷到有启发的内容，囤了一堆灵感，过后全忘光，很少沉淀为自己的真实经验。</span></div>
         <div class="item"><strong>记录很多，但很少复用</strong><span>日记、笔记、截图、聊天记录、工作想法散在不同地方，需要的时候找不到。</span></div>
-        <div class="item"><strong>想表达，每次却像从零开始</strong><span>哪怕平时想法很多，但想写公众号、小红书、复盘或分享稿时，总是无从下笔，很难从已有记录里长出来。</span></div>
+        <div class="item"><strong>想表达，每次却像从零开始</strong><span>哪怕平时想法很多，但想写公众号、小红书、复盘或分享稿时，总是无从下笔，很难从已有记录里长出来。</span>
+        </div>
         <div class="item"><strong>会用 AI，但写出来不像自己</strong><span>AI 可以很快生成文字，但你真正想表达的语气、判断和生活经验没有被带进去。</span></div>
       </div>
       <p class="lead" style="margin-top:18px;">这次工作坊会带你从第一条记录或已有的零散工具开始，搭一个轻量的系统：让输入不再散掉，让思考可以沉淀，让输出不总是从零开始。</p>
@@ -122,7 +545,8 @@
 
     <section class="card" style="margin-top:24px;">
       <h2>我是谁，以及我为什么要办这个工作坊</h2>
-      <p class="lead">我是孙玲。过去很长一段时间，我也总觉得自己看了很多，但最后什么都没留下。直到我开始搭建属于自己的“记录-整理-输出”系统，我不仅理清了自己的生活和学习脉络，还把重复的工作沉淀成了可以随时复用的经验和 AI
+      <p class="lead">
+        我是孙玲。过去很长一段时间，我也总觉得自己看了很多，但最后什么都没留下。直到我开始搭建属于自己的“记录-整理-输出”系统，我不仅理清了自己的生活和学习脉络，还把重复的工作沉淀成了可以随时复用的经验和 AI
         Skill。<br><br>我深知从“零散”到“系统”中间的卡点在哪。这套方法切实地改变了我的工作和生活方式，这也是我办这个工作坊的初衷——我希望能手把手陪你一起把它搭起来。</p>
     </section>
 
@@ -130,17 +554,26 @@
       <h2>我将全盘拆解我的真实系统</h2>
       <p class="lead">从输入到输出的每一步，我将现场拆解我的“私人日记”与“终身学习”系统。带你看我是如何用 AI 清晰化思考、沉淀真实想法的。</p>
       <div class="examples">
-        <div class="mini-card"><strong>私人日记系统</strong><span>Daily Entries → 月度整理 → 月度文章。每天不需要写完整文章，先把生活留下来，再在月底整理出脉络。</span>
+        <div class="mini-card"><strong>私人日记系统</strong><span>Daily Entries → 月度整理 →
+            月度文章。每天不需要写完整文章，先把生活留下来，再在月底整理出脉络。</span>
         </div>
-        <div class="mini-card"><strong>输入系统</strong><span>播客、阅读、对话、工作观察 → 笔记 → 可复用表达。重点不是收藏知识，而是让输入和自己的问题发生关系。</span></div>
-        <div class="mini-card"><strong>AI 工作流系统</strong><span>重复任务 → SOP → Prompt → Skill。比如公众号转小红书、咨询复盘、会议记录、月度文章整理。</span></div>
+        <div class="mini-card"><strong>输入系统</strong><span>播客、阅读、对话、工作观察 → 笔记 → 可复用表达。重点不是收藏知识，而是让输入和自己的问题发生关系。</span>
+        </div>
+        <div class="mini-card"><strong>AI 工作流系统</strong><span>重复任务 → SOP → Prompt →
+            Skill。比如公众号转小红书、咨询复盘、会议记录、月度文章整理。</span></div>
       </div>
     </section>
 
     <section class="card" id="framework" style="margin-top:24px;">
       <h2>我们会一起跑完一个最小闭环</h2>
       <p class="lead">我们会从一个最小、真实、能持续的流程开始：记录 → 整理 → 输出 → 分享 → 复用。</p>
-      <div class="flow"><div class="step">记录</div><div class="step">整理</div><div class="step">输出</div><div class="step">分享</div><div class="step">复用</div></div>
+      <div class="flow">
+        <div class="step">记录</div>
+        <div class="step">整理</div>
+        <div class="step">输出</div>
+        <div class="step">分享</div>
+        <div class="step">复用</div>
+      </div>
       <div class="takeaways">
         <div class="mini-card"><strong>🧠 输出为导向的输入思维</strong><span>唤醒记录意识，摆脱无意义的囤积，哪怕只会用备忘录，也能让碎片想法不再流失。</span></div>
         <div class="mini-card"><strong>🪜 学习系统的三层进化</strong><span>看透知识、智识、智慧各层级，该如何利用 AI 来强化，而不是被 AI 代替思考。</span></div>
@@ -175,14 +608,37 @@
     </section>
 
     <section class="grid" id="schedule">
-      <article class="card"><h2>2 小时里我们会做什么</h2><div class="list"><div class="item"><strong>找到你的第一条记录</strong><span>从你当下的生活、问题、输入或重复任务里找到一个入口。</span></div><div class="item"><strong>看见自己的输入</strong><span>梳理你已经在接收的内容、正在经历的问题、已经存在的记录。</span></div><div class="item"><strong>搭一个最小系统</strong><span>可以从你已经在用的 Notion、石墨文档、飞书、Obsidian、备忘录开始，也可以从一个全新的简单入口开始。</span></div><div class="item"><strong>把记录变成输出</strong><span>练习从一段真实记录里提炼问题、观点和可分享的表达。</span></div><div class="item"><strong>识别可沉淀的工作流</strong><span>把一个重复任务整理成 SOP / Prompt / AI Skill 的雏形。</span></div></div></article>
-      <article class="card"><h2>时间安排</h2><div class="timeline"><strong>2 小时线上工作坊</strong><div class="time-lines"><div>美国西部时间 2026 年 7 月 11 日 周六 07:30–09:30</div><div>北京时间 2026 年 7 月 11 日 周六 22:30–00:30</div></div></div><div class="timeline" style="margin-top:16px;"><strong>7 天打卡练习 + 群内问题回答</strong><p>工作坊结束后开始 7 天轻量练习，在群里继续记录、提问和调整自己的系统。</p></div><p class="note">报名后会通过微信通知会议链接、确认信息和入群安排。</p></article>
+      <article class="card">
+        <h2>2 小时里我们会做什么</h2>
+        <div class="list">
+          <div class="item"><strong>找到你的第一条记录</strong><span>从你当下的生活、问题、输入或重复任务里找到一个入口。</span></div>
+          <div class="item"><strong>看见自己的输入</strong><span>梳理你已经在接收的内容、正在经历的问题、已经存在的记录。</span></div>
+          <div class="item"><strong>搭一个最小系统</strong><span>可以从你已经在用的
+              Notion、石墨文档、飞书、Obsidian、备忘录开始，也可以从一个全新的简单入口开始。</span></div>
+          <div class="item"><strong>把记录变成输出</strong><span>练习从一段真实记录里提炼问题、观点和可分享的表达。</span></div>
+          <div class="item"><strong>识别可沉淀的工作流</strong><span>把一个重复任务整理成 SOP / Prompt / AI Skill 的雏形。</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <h2>时间安排</h2>
+        <div class="timeline"><strong>2 小时线上工作坊</strong>
+          <div class="time-lines">
+            <div>美国西部时间 2026 年 7 月 11 日 周六 07:30–09:30</div>
+            <div>北京时间 2026 年 7 月 11 日 周六 22:30–00:30</div>
+          </div>
+        </div>
+        <div class="timeline" style="margin-top:16px;"><strong>7 天打卡练习 + 群内问题回答</strong>
+          <p>工作坊结束后开始 7 天轻量练习，在群里继续记录、提问和调整自己的系统。</p>
+        </div>
+        <p class="note">报名后会通过微信通知会议链接、确认信息和入群安排。</p>
+      </article>
     </section>
 
     <section class="card" style="margin-top:24px;">
       <h2>7 天打卡会做什么</h2>
       <div class="list">
-        <div class="item"><strong>第 1–2 天：建立入口，留下一个真实输入</strong><span>可以是一篇文章、一集播客、一次聊天、一个工作问题，或者一段日常记录。重点先放在知道从哪里开始。</span></div>
+        <div class="item"><strong>第 1–2
+            天：建立入口，留下一个真实输入</strong><span>可以是一篇文章、一集播客、一次聊天、一个工作问题，或者一段日常记录。重点先放在知道从哪里开始。</span></div>
         <div class="item"><strong>第 3–4 天：从记录里提炼问题和表达</strong><span>先把一段记录整理成一小段可复用的话，不急着追求完整文章。</span></div>
         <div class="item"><strong>第 5–6 天：让 AI 参与整理，识别重复任务</strong><span>学习如何让 AI 帮忙，但保留你的判断、语气和边界。</span></div>
         <div class="item"><strong>第 7 天：整理一个小 SOP</strong><span>跑完一次记录 → 整理 → 输出 → 复用，作为未来系统的起点。</span></div>
@@ -190,8 +646,15 @@
     </section>
 
     <section class="grid">
-      <article class="card"><h2>适合谁</h2><p>适合想记录、想输出、想把 AI 用进真实工作流的人。尤其适合：不知道从哪里开始记录、已经在 Notion / 石墨文档 / 飞书 / Obsidian / 备忘录里有零散记录、看很多但没有留下、笔记很少复用、想写但总像从零开始、AI 写出来不像自己、想把重复工作整理成流程的人。完全没有记录习惯也可以来。</p></article>
-      <article class="card"><h2>这期不追求“大而全”</h2><p>这期不做知识库工具大比拼，也不是编程课。主线是：先记录下来，再谈系统化；先形成人的能力和判断，再把适合自动化的部分沉淀成 AI Skill / SOP。</p></article>
+      <article class="card">
+        <h2>适合谁</h2>
+        <p>适合想记录、想输出、想把 AI 用进真实工作流的人。尤其适合：不知道从哪里开始记录、已经在 Notion / 石墨文档 / 飞书 / Obsidian /
+          备忘录里有零散记录、看很多但没有留下、笔记很少复用、想写但总像从零开始、AI 写出来不像自己、想把重复工作整理成流程的人。完全没有记录习惯也可以来。</p>
+      </article>
+      <article class="card">
+        <h2>这期不追求“大而全”</h2>
+        <p>这期不做知识库工具大比拼，也不是编程课。主线是：先记录下来，再谈系统化；先形成人的能力和判断，再把适合自动化的部分沉淀成 AI Skill / SOP。</p>
+      </article>
     </section>
 
     <section class="card" id="signup">
@@ -203,8 +666,8 @@
           value="首期完整工作坊，199 元" />
         <div class="field"><label for="name">你的称呼 <span class="required">*</span></label><input id="name" name="name"
             autocomplete="name" required /></div>
-        <div class="field"><label for="wechat">微信号 <span class="required">*</span></label><input id="wechat" name="wechat"
-            autocomplete="off" required /></div>
+        <div class="field"><label for="wechat">微信号 <span class="required">*</span></label><input id="wechat"
+            name="wechat" autocomplete="off" required /></div>
         <div class="field"><label for="email">邮箱（选填）</label><input id="email" name="email" type="email"
             autocomplete="email" /></div>
         <div class="field"><label for="city">你现在的城市 / 时区（选填）</label><input id="city" name="city"
@@ -227,7 +690,8 @@
               已经有工具，但系统没有跑起来</label><label><input type="checkbox" name="challenge" value="记录很散，找不到" />
               记录很散，找不到</label><label><input type="checkbox" name="challenge" value="有输入但输出不出来" />
               有输入但输出不出来</label><label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI
-              写出来不像自己</label><label><input type="checkbox" name="challenge" value="想把重复工作做成 AI Skill / SOP" /> 想把重复工作做成 AI
+              写出来不像自己</label><label><input type="checkbox" name="challenge" value="想把重复工作做成 AI Skill / SOP" /> 想把重复工作做成
+              AI
               Skill / SOP</label></div>
         </fieldset>
         <div class="field"><label for="main_challenge_other">也可以用自己的话补充卡点</label><textarea id="main_challenge_other"
@@ -242,9 +706,64 @@
       </form>
     </section>
 
-    <section class="card faq"><h2>FAQ</h2><details><summary>完全没有记录习惯，可以参加吗？</summary><p>可以。这期就是为“还没开始 / 很零散”的状态设计的，会从第一条记录和一个最小入口开始，不要求你已经有稳定笔记或知识库。</p></details><details><summary>需要统一使用某个工具吗？</summary><p>不需要。你可以继续用自己熟悉的工具，比如 Notion、石墨文档、飞书、Obsidian、备忘录、微信收藏，也可以从一个最简单的新入口开始。重点是先跑通记录、整理、输出和复用的流程。</p></details><details><summary>需要会写代码或 MCP 吗？</summary><p>不需要。主线是把记录、输出和重复任务整理成可复用流程，不要求编程基础。</p></details><details><summary>这是日记课吗？</summary><p>日记只是一个低门槛入口。我们最终要搭的是个人输入输出系统，它也可以服务阅读、写作、工作复盘、咨询、会议记录和 AI 工作流。</p></details><details><summary>AI Skill 和人的能力是什么关系？</summary><p>AI Skill 不是替代人的思考，而是把你已经想清楚、经常重复做的流程沉淀下来。人的记录、判断和表达仍然是系统的核心。</p></details></section>
+    <section class="card faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>完全没有记录习惯，可以参加吗？</summary>
+        <p>可以。这期就是为“还没开始 / 很零散”的状态设计的，会从第一条记录和一个最小入口开始，不要求你已经有稳定笔记或知识库。</p>
+      </details>
+      <details>
+        <summary>需要统一使用某个工具吗？</summary>
+        <p>不需要。你可以继续用自己熟悉的工具，比如 Notion、石墨文档、飞书、Obsidian、备忘录、微信收藏，也可以从一个最简单的新入口开始。重点是先跑通记录、整理、输出和复用的流程。</p>
+      </details>
+      <details>
+        <summary>需要会写代码或 MCP 吗？</summary>
+        <p>不需要。主线是把记录、输出和重复任务整理成可复用流程，不要求编程基础。</p>
+      </details>
+      <details>
+        <summary>这是日记课吗？</summary>
+        <p>日记只是一个低门槛入口。我们最终要搭的是个人输入输出系统，它也可以服务阅读、写作、工作复盘、咨询、会议记录和 AI 工作流。</p>
+      </details>
+      <details>
+        <summary>AI Skill 和人的能力是什么关系？</summary>
+        <p>AI Skill 不是替代人的思考，而是把你已经想清楚、经常重复做的流程沉淀下来。人的记录、判断和表达仍然是系统的核心。</p>
+      </details>
+    </section>
   </main>
+  <div class="floating-cta" id="floating-cta">
+    <a href="#signup">立刻报名</a>
+  </div>
+
   <script>
+    // 浮动按钮逻辑
+    const cta = document.getElementById('floating-cta');
+    const hero = document.querySelector('.hero');
+    const signupForm = document.getElementById('signup');
+
+    const observer = new IntersectionObserver((entries) => {
+      // 当 hero 离开视口并且 signup form 还没完全进入视口时，显示悬浮按钮
+      const heroRect = hero.getBoundingClientRect();
+      const formRect = signupForm.getBoundingClientRect();
+
+      // 简单逻辑：如果英雄区在屏幕上方（不可见），且表单区域还没有到屏幕中间，就显示
+      if (heroRect.bottom < 0 && formRect.top > window.innerHeight / 2) {
+        cta.classList.add('visible');
+      } else {
+        cta.classList.remove('visible');
+      }
+    });
+
+    // 监听滚动来触发检查
+    window.addEventListener('scroll', () => {
+      const heroRect = hero.getBoundingClientRect();
+      const formRect = signupForm.getBoundingClientRect();
+      if (heroRect.bottom < 0 && formRect.top > window.innerHeight / 2) {
+        cta.classList.add('visible');
+      } else {
+        cta.classList.remove('visible');
+      }
+    }, { passive: true });
+
     const ENDPOINT = "/.netlify/functions/workshop-signup";
     const STAGE = "首期完整工作坊，199 元";
     const form = document.getElementById("workshop-signup-form");
@@ -270,4 +789,5 @@
     });
   </script>
 </body>
+
 </html>

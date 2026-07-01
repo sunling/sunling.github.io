@@ -424,8 +424,9 @@
           <span class="symbol">¥</span>
           <span class="amount">199</span>
         </div>
-        <div style="font-size: 0.8rem; color: #64748b; font-weight: 600; margin-top: 4px;">
-          📅 7月11日 周六 (北京/美西时间)
+        <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; margin-top: 6px; line-height: 1.4;">
+          📅 7月11日 (周六)<br>
+          美西 07:30-09:30 | 北京 22:30-00:30
         </div>
       </div>
 
@@ -439,7 +440,46 @@
     </div>
 
   </div>
+  <div style="text-align: center; margin-top: 24px; padding-bottom: 40px;">
+    <button id="download-btn" style="padding: 12px 24px; font-size: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(37,99,235,0.2); transition: transform 0.2s;">⬇️ 一键保存海报图</button>
+    <div style="font-size: 0.8rem; color: #64748b; margin-top: 8px;">(支持直接下载高清图片)</div>
+  </div>
 
+  <!-- 引入 html2canvas 库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('download-btn').addEventListener('click', function() {
+      const btn = this;
+      const originalText = btn.innerText;
+      btn.innerText = "生成中...";
+      btn.style.opacity = "0.7";
+      
+      const poster = document.getElementById('poster');
+      
+      // 使用 html2canvas 截图，scale: 2 保证高清，useCORS: true 允许加载外部二维码图片
+      html2canvas(poster, { scale: 2, useCORS: true, backgroundColor: null }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'AI输入输出系统工作坊_海报.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        btn.innerText = "✅ 保存成功！";
+        btn.style.backgroundColor = "#16a34a";
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.backgroundColor = "#2563eb";
+          btn.style.opacity = "1";
+        }, 2000);
+      }).catch(err => {
+        console.error("截图失败:", err);
+        btn.innerText = "❌ 生成失败";
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.opacity = "1";
+        }, 2000);
+      });
+    });
+  </script>
 </body>
 
 </html>
