@@ -359,6 +359,52 @@
       color: #dc2626;
     }
 
+    .payment-panel {
+      display: grid;
+      gap: 14px;
+      margin: 6px 0 4px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+    }
+
+    .payment-panel h3 {
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .payment-method {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .payment-method strong {
+      color: var(--ink);
+    }
+
+    .payment-qr {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1;
+      justify-self: start;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
     .status {
       display: none;
       padding: 12px 14px;
@@ -432,6 +478,7 @@
 
       .grid,
       .fact-summary,
+      .payment-grid,
       .examples,
       .beliefs,
       .takeaways {
@@ -718,7 +765,21 @@
             name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea></div>
         <div class="field"><label for="expectation">你对这次工作坊的期待（选填）</label><textarea id="expectation"
             name="expectation"></textarea></div>
-        <p class="note">报名提交成功后不会在页面公开显示。我会手动确认并联系你。</p>
+        <div class="payment-panel" aria-labelledby="payment-title">
+          <h3 id="payment-title">扫码付款</h3>
+          <p class="note">费用：199 元。请先填写报名信息，再扫码付款并提交报名表。</p>
+          <div class="payment-grid">
+            <div class="payment-method">
+              <strong>微信支付</strong>
+              <img class="payment-qr" src="../assets/lingsun-wechat-pay-qr.jpg" alt="微信支付收款二维码" />
+            </div>
+            <div class="payment-method">
+              <strong>支付宝</strong>
+              <img class="payment-qr" src="../assets/lingsun-alipay-qr.jpg" alt="支付宝收款二维码" />
+            </div>
+          </div>
+        </div>
+        <p class="note">支付成功后，请提交报名表。报名提交成功后，可以扫码申请加入工作坊微信群。</p>
         <div id="form-status" class="status" role="status" aria-live="polite"></div><button id="submit-button"
           class="submit" type="submit">提交报名，开启系统搭建</button>
       </form>
@@ -790,7 +851,7 @@
     function showStatus(type, message) { statusBox.className = `status ${type}`; statusBox.textContent = message; }
     function showSignupSuccess() {
       statusBox.className = "status success";
-      statusBox.innerHTML = '<p>报名已提交！请扫码申请加入工作坊微信群，我会在群里同步后续信息。</p><img class="group-qr" src="../assets/input-output-group-qr.jpg" alt="输入输出系统工作坊微信群二维码" /><p>微信群需要审核通过后才能进入。申请入群时，请在备注里填写报名姓名和是否已支付。</p><p>如果加群出现问题，请联系微信 sunlingcn。</p>';
+      statusBox.innerHTML = '<p>报名已提交！如果还没有付款，请先扫码完成 199 元付款，再申请加入工作坊微信群。</p><img class="group-qr" src="../assets/input-output-group-qr.jpg" alt="输入输出系统工作坊微信群二维码" /><p>微信群需要审核通过后才能进入。申请入群时，请在备注里填写报名姓名和是否已支付。</p><p>如果加群出现问题，请联系微信 sunlingcn。</p>';
     }
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
