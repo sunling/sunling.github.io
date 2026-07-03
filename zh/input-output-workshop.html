@@ -373,6 +373,24 @@
       border: 1px solid #bbf7d0;
     }
 
+    .status.success p {
+      margin: 0 0 10px;
+    }
+
+    .status.success p:last-child {
+      margin-bottom: 0;
+    }
+
+    .group-qr {
+      display: block;
+      width: min(220px, 100%);
+      height: auto;
+      margin: 12px 0;
+      border-radius: 12px;
+      border: 1px solid #bbf7d0;
+      background: #fff;
+    }
+
     .status.error {
       display: block;
       color: #991b1b;
@@ -770,6 +788,10 @@
     const statusBox = document.getElementById("form-status");
     const submitButton = document.getElementById("submit-button");
     function showStatus(type, message) { statusBox.className = `status ${type}`; statusBox.textContent = message; }
+    function showSignupSuccess() {
+      statusBox.className = "status success";
+      statusBox.innerHTML = '<p>报名已提交！请扫码申请加入工作坊微信群，我会在群里同步后续信息。</p><img class="group-qr" src="../assets/input-output-group-qr.jpg" alt="输入输出系统工作坊微信群二维码" /><p>微信群需要审核通过后才能进入。申请入群时，请在备注里填写报名姓名和是否已支付。</p><p>如果加群出现问题，请联系微信 sunlingcn。</p>';
+    }
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -783,7 +805,7 @@
         const response = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
-        form.reset(); showStatus("success", "报名已提交！我会通过微信联系你确认后续信息。");
+        form.reset(); showSignupSuccess();
       } catch (error) { console.error(error); showStatus("error", error.message || "提交没有成功，请稍后再试，或直接加微信 sunlingcn 联系我。"); }
       finally { submitButton.disabled = false; submitButton.textContent = "提交报名，开启系统搭建"; }
     });
