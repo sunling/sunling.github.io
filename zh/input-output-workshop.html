@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 时代的个人输入输出系统工作坊</title>
-  <meta name="description" content="从记录开始，用输出整理自己，用分享连接他人。一起搭建一个轻量、真实、可复用的个人输入输出系统。" />
+  <title>AI 时代的个人输入输出系统工作坊｜首期记录</title>
+  <meta name="description" content="AI 时代的个人输入输出系统工作坊首期记录：从记录开始，用输出整理自己，用分享连接他人。" />
   <meta property="og:title" content="AI 时代的个人输入输出系统工作坊" />
   <meta property="og:description" content="从记录开始，用输出整理自己，用分享连接他人。一起搭建一个轻量、真实、可复用的个人输入输出系统。" />
   <meta property="og:image" content="/assets/sunling.jpeg" />
@@ -218,6 +218,23 @@
       color: #334155;
       font-size: 19px;
       line-height: 1.85;
+    }
+
+    .archive-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      background: #f0fdf4;
+      color: #166534;
+      font-size: 14px;
+    }
+
+    .archive-status span {
+      color: #4b5563;
     }
 
     .actions {
@@ -568,26 +585,27 @@
 
 <body>
   <main class="page">
-    <nav class="top-nav"><a href="./">← 回到孙玲主页</a><a href="#signup">直接报名</a></nav>
+    <nav class="top-nav"><a href="./">← 回到孙玲主页</a><a href="./workshops.html">查看全部工作坊</a></nav>
 
     <section class="hero">
       <div class="hero-copy">
         <h1>AI 时代的个人输入输出系统工作坊</h1>
+        <p class="archive-status"><strong>首期已完成</strong><span>2026 年 7 月 11 日 · 线上</span></p>
         <p class="subtitle">从记录开始，用输出整理自己，用分享连接他人。</p>
-        <p class="lead">这是一场从真实生活出发的系统搭建：我们会练习如何把每天听到的播客、看过的文章、经历和思考留下来，告别无意义的囤积，整理成可以复用的素材和你的私人 AI
-          Skill。<br><br><strong>你将带走：输出为导向的输入思维、学习系统三层进化法（知识→智识→智慧），以及一套跑得通的真实工作流 SOP。</strong></p>
-        <div class="actions"><a class="button-link button-link--primary button-link--large" href="#signup">填写报名表</a><a
+        <p class="lead">首期从真实生活出发，练习如何把每天听到的播客、看过的文章、经历和思考留下来，告别无意义的囤积，整理成可以复用的素材和自己的 AI
+          工作流。这个页面保留当时的设计与内容，不再接受报名。</p>
+        <div class="actions"><a class="button-link button-link--primary button-link--large" href="./workshops.html">查看全部工作坊</a><a
             class="button-link button-link--large" href="#examples">看具体例子</a></div>
         <div class="facts">
           <div class="box fact-summary">
-            <div><strong>形式</strong><span>2 小时线上工作坊 + 7 天打卡练习 + 群内答疑</span></div>
-            <div><strong>时间</strong>
+            <div><strong>首期形式</strong><span>2 小时线上工作坊 + 7 天打卡练习 + 群内答疑</span></div>
+            <div><strong>首期时间</strong>
               <div class="time-lines">
                 <div>美西 2026/7/11 周六 07:00–09:00</div>
                 <div>北京 2026/7/11 周六 22:00–00:00</div>
               </div>
             </div>
-            <div><strong>费用与名额</strong><span>199 元</span></div>
+            <div><strong>首期费用</strong><span>199 元</span></div>
           </div>
         </div>
       </div>
@@ -695,7 +713,7 @@
         <div class="timeline" style="margin-top:16px;"><strong>7 天打卡练习 + 群内问题回答</strong>
           <p>工作坊结束后开始 7 天轻量练习，在群里继续记录、提问和调整自己的系统。</p>
         </div>
-        <p class="note">报名后会通过微信通知会议链接、确认信息和入群安排。</p>
+        <p class="note">以上是 2026 年 7 月首期真实使用的安排，作为历史记录保留。</p>
       </article>
     </section>
 
@@ -722,70 +740,6 @@
       </article>
     </section>
 
-    <section class="card" id="signup">
-      <h2>报名表</h2>
-      <p>提交后我会通过微信联系你确认入群信息。你的信息只用于本次工作坊沟通与统计。</p>
-      <form id="workshop-signup-form">
-        <div class="hidden-field" aria-hidden="true"><label for="website">请不要填写这个字段</label><input id="website"
-            name="website" autocomplete="off" tabindex="-1" /></div><input type="hidden" name="stage"
-          value="首期完整工作坊，199 元" />
-        <div class="field"><label for="name">你的称呼 <span class="required">*</span></label><input id="name" name="name"
-            autocomplete="name" required /></div>
-        <div class="field"><label for="wechat">微信号 <span class="required">*</span></label><input id="wechat"
-            name="wechat" autocomplete="off" required /></div>
-        <div class="field"><label for="email">邮箱（选填）</label><input id="email" name="email" type="email"
-            autocomplete="email" /></div>
-        <div class="field"><label for="city">你现在的城市 / 时区（选填）</label><input id="city" name="city"
-            placeholder="例如：北京 / 西雅图 / 美国东部时间" /></div>
-        <div class="field"><label for="role">你现在的身份 / 主要场景（选填）</label><input id="role" name="role"
-            placeholder="例如：工程师 / 写作者 / 留学生 / 咨询从业者 / 自由职业" /></div>
-        <div class="field"><label for="current_system">你现在的记录状态更接近哪一种？</label><select id="current_system"
-            name="current_system">
-            <option value="">请选择</option>
-            <option>几乎没有记录习惯</option>
-            <option>有零散记录，但不稳定</option>
-            <option>有长期记录，但很少复用</option>
-            <option>有稳定记录，并想进一步做成 AI 工作流</option>
-          </select></div>
-        <fieldset>
-          <legend>你最想解决的卡点是什么？ <span class="required">*</span></legend>
-          <div class="options"><label><input type="checkbox" name="challenge" value="不知道记录什么" />
-              不知道记录什么</label><label><input type="checkbox" name="challenge" value="不知道从哪里开始记录" />
-              不知道从哪里开始记录</label><label><input type="checkbox" name="challenge" value="已经有工具，但系统没有跑起来" />
-              已经有工具，但系统没有跑起来</label><label><input type="checkbox" name="challenge" value="记录很散，找不到" />
-              记录很散，找不到</label><label><input type="checkbox" name="challenge" value="有输入但输出不出来" />
-              有输入但输出不出来</label><label><input type="checkbox" name="challenge" value="AI 写出来不像自己" /> AI
-              写出来不像自己</label><label><input type="checkbox" name="challenge" value="想把重复工作做成 AI Skill / SOP" /> 想把重复工作做成
-              AI
-              Skill / SOP</label></div>
-        </fieldset>
-        <div class="field"><label for="main_challenge_other">也可以用自己的话补充卡点</label><textarea id="main_challenge_other"
-            name="main_challenge_other" placeholder="例如：我不知道第一条记录该写什么；或者我在 Notion/飞书里存了很多东西，但很少真的用起来。"></textarea></div>
-        <div class="field"><label for="desired_output">你想识别或沉淀的重复任务是什么？（选填）</label><textarea id="desired_output"
-            name="desired_output" placeholder="例如：月度复盘、公众号文章、小红书笔记、咨询回复、会议纪要、读书笔记转文章。"></textarea></div>
-        <div class="field"><label for="expectation">你对这次工作坊的期待（选填）</label><textarea id="expectation"
-            name="expectation"></textarea></div>
-        <div class="payment-panel" aria-labelledby="payment-title">
-          <h3 id="payment-title">扫码付款</h3>
-          <p class="note">费用：199 元。请先填写报名信息，再扫码付款并提交报名表。如果你是学生，或费用对你来说有压力，可以发邮件到 <a href="mailto:sunling621@gmail.com">sunling621@gmail.com</a> 申请优惠。</p>
-          <p class="note"><strong>付款失败提示：</strong>如果微信支付提示风险控制、付款码不支持或无法完成付款，请先尝试下方的支付宝付款；如果仍然不方便，可以添加我的个人微信 <strong>sunlingcn</strong>，备注“工作坊付款”，我会手动确认。</p>
-          <div class="payment-grid">
-            <div class="payment-method">
-              <strong>微信支付</strong>
-              <img class="payment-qr" src="../assets/lingsun-wechat-pay-qr.jpg" alt="微信支付收款二维码" />
-            </div>
-            <div class="payment-method">
-              <strong>支付宝</strong>
-              <img class="payment-qr" src="../assets/lingsun-alipay-qr.jpg" alt="支付宝收款二维码" />
-            </div>
-          </div>
-        </div>
-        <p class="note">支付成功后，请提交报名表。报名提交成功后，可以扫码申请加入工作坊微信群。若你正在申请优惠，也可以先提交报名并申请入群，入群备注写“优惠申请 + 报名姓名”。</p>
-        <div id="form-status" class="status" role="status" aria-live="polite"></div><button id="submit-button"
-          class="submit" type="submit">提交报名，开启系统搭建</button>
-      </form>
-    </section>
-
     <section class="card faq">
       <h2>FAQ</h2>
       <details>
@@ -810,68 +764,6 @@
       </details>
     </section>
   </main>
-  <div class="floating-cta" id="floating-cta">
-    <a href="#signup">立刻报名</a>
-  </div>
-
-  <script>
-    // 浮动按钮逻辑
-    const cta = document.getElementById('floating-cta');
-    const hero = document.querySelector('.hero');
-    const signupForm = document.getElementById('signup');
-
-    const observer = new IntersectionObserver((entries) => {
-      // 当 hero 离开视口并且 signup form 还没完全进入视口时，显示悬浮按钮
-      const heroRect = hero.getBoundingClientRect();
-      const formRect = signupForm.getBoundingClientRect();
-
-      // 简单逻辑：如果英雄区在屏幕上方（不可见），且表单区域还没有到屏幕中间，就显示
-      if (heroRect.bottom < 0 && formRect.top > window.innerHeight / 2) {
-        cta.classList.add('visible');
-      } else {
-        cta.classList.remove('visible');
-      }
-    });
-
-    // 监听滚动来触发检查
-    window.addEventListener('scroll', () => {
-      const heroRect = hero.getBoundingClientRect();
-      const formRect = signupForm.getBoundingClientRect();
-      if (heroRect.bottom < 0 && formRect.top > window.innerHeight / 2) {
-        cta.classList.add('visible');
-      } else {
-        cta.classList.remove('visible');
-      }
-    }, { passive: true });
-
-    const ENDPOINT = "/.netlify/functions/workshop-signup";
-    const STAGE = "首期完整工作坊，199 元";
-    const form = document.getElementById("workshop-signup-form");
-    const statusBox = document.getElementById("form-status");
-    const submitButton = document.getElementById("submit-button");
-    function showStatus(type, message) { statusBox.className = `status ${type}`; statusBox.textContent = message; }
-    function showSignupSuccess() {
-      statusBox.className = "status success";
-      statusBox.innerHTML = '<p>报名已提交！如果还没有付款，请先扫码完成 199 元付款，再申请加入工作坊微信群。</p><img class="group-qr" src="../assets/input-output-group-qr.jpg" alt="输入输出系统工作坊微信群二维码" /><p>微信群需要审核通过后才能进入。申请入群时，请在备注里填写报名姓名和是否已支付。</p><p>如果加群出现问题，请联系微信 sunlingcn。</p>';
-    }
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const checked = Array.from(form.querySelectorAll('input[name="challenge"]:checked')).map((item) => item.value);
-      const other = formData.get("main_challenge_other")?.trim();
-      const mainChallenge = [checked.join("、"), other].filter(Boolean).join("｜");
-      if (!mainChallenge) { showStatus("error", "请至少选择或填写一个你最想解决的卡点。"); return; }
-      const payload = { website: formData.get("website")?.trim() || null, name: formData.get("name")?.trim(), wechat: formData.get("wechat")?.trim(), email: formData.get("email")?.trim() || null, city: formData.get("city")?.trim() || null, role: formData.get("role")?.trim() || null, stage: STAGE, current_system: formData.get("current_system") || null, main_challenge: mainChallenge, desired_output: formData.get("desired_output")?.trim() || null, expectation: formData.get("expectation")?.trim() || null };
-      submitButton.disabled = true; submitButton.textContent = "提交中…"; statusBox.className = "status"; statusBox.textContent = "";
-      try {
-        const response = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
-        form.reset(); showSignupSuccess();
-      } catch (error) { console.error(error); showStatus("error", error.message || "提交没有成功，请稍后再试，或直接加微信 sunlingcn 联系我。"); }
-      finally { submitButton.disabled = false; submitButton.textContent = "提交报名，开启系统搭建"; }
-    });
-  </script>
 </body>
 
 </html>
