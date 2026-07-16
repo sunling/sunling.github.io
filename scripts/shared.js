@@ -187,6 +187,77 @@
         return t.slice(0, limit).replace(/[,.，。;；、!\s]+$/, '') + '…';
     }
 
+    function createWechatFollow() {
+        const isZh = window.location.pathname.includes('/zh/');
+        if (!isZh || document.querySelector('.wechat-follow')) return;
+
+        const basePath = getBasePath();
+        const wrapper = document.createElement('aside');
+        wrapper.className = 'wechat-follow';
+        wrapper.setAttribute('aria-label', '关注公众号');
+
+        const panel = document.createElement('div');
+        panel.className = 'wechat-follow-panel';
+        panel.id = 'wechat-follow-panel';
+        panel.hidden = true;
+
+        const closeButton = document.createElement('button');
+        closeButton.className = 'wechat-follow-close';
+        closeButton.type = 'button';
+        closeButton.setAttribute('aria-label', '关闭公众号二维码');
+        closeButton.textContent = '×';
+
+        const heading = document.createElement('strong');
+        heading.textContent = '欢迎关注我的公众号';
+
+        const description = document.createElement('p');
+        description.textContent = '微信扫码关注「Being 孙玲」，继续读我的生活、学习与实践记录。';
+
+        const qr = document.createElement('img');
+        qr.src = basePath + 'assets/wechat-qr.jpg';
+        qr.alt = '公众号 Being 孙玲二维码';
+        qr.loading = 'lazy';
+
+        panel.appendChild(closeButton);
+        panel.appendChild(heading);
+        panel.appendChild(description);
+        panel.appendChild(qr);
+
+        const trigger = document.createElement('button');
+        trigger.className = 'wechat-follow-trigger';
+        trigger.type = 'button';
+        trigger.setAttribute('aria-controls', panel.id);
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.textContent = '关注公众号';
+
+        function setOpen(isOpen) {
+            panel.hidden = !isOpen;
+            trigger.setAttribute('aria-expanded', String(isOpen));
+            if (isOpen) closeButton.focus();
+        }
+
+        trigger.addEventListener('click', function () {
+            setOpen(panel.hidden);
+        });
+        closeButton.addEventListener('click', function () {
+            setOpen(false);
+            trigger.focus();
+        });
+        document.addEventListener('click', function (event) {
+            if (!panel.hidden && !wrapper.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !panel.hidden) {
+                setOpen(false);
+                trigger.focus();
+            }
+        });
+
+        wrapper.appendChild(panel);
+        wrapper.appendChild(trigger);
+        document.body.appendChild(wrapper);
+    }
+
     function initSharedComponents() {
         if (!document.querySelector('.shared-header') && !document.querySelector('header')) {
             const body = document.body;
@@ -202,6 +273,7 @@
         renderBgWords();
         window.addEventListener('resize', renderBgWords);
         renderRecentWriting();
+        createWechatFollow();
     }
 
     if (document.readyState === 'loading') {
@@ -211,6 +283,6 @@
     }
 
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = { createSharedHeader, createSharedFooter, initSharedComponents };
+        module.exports = { createSharedHeader, createSharedFooter, createWechatFollow, initSharedComponents };
     }
 })();
