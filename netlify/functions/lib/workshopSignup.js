@@ -1,6 +1,6 @@
 const SIGNUP_TABLE = "input_output_workshop_signups";
 const COHORT = "pilot-2026-07";
-const SOURCE = "sunling.github.io/zh/input-output-workshop.html";
+const SOURCE = "bysunling.com/input-output-workshop.html";
 
 const ALLOWED_STAGES = new Set([
   "首期完整工作坊，199 元",
