@@ -1,6 +1,6 @@
 # bysunling.com
 
-孙玲的中文个人站点，可直接托管到 GitHub Pages。
+孙玲的中文个人站点，由 Netlify 自动部署。
 
 ## 本地预览
 
@@ -8,22 +8,20 @@
 python -m http.server 8000
 ```
 
-然后浏览器访问 http://localhost:8000/ 。根地址会直接进入中文站点 `/zh/`；原英文地址 `/en/` 会跳转到中文站点，不再单独维护英文内容。
+然后浏览器访问 http://localhost:8000/ 。
 
-## 部署到 GitHub Pages
+## 部署
 
-1. 将仓库推送到 GitHub。
-2. 在仓库 Settings → Pages 中，选择部署来源为 `Deploy from a branch`，分支 `main`（或你的默认分支），目录 `/(root)`。
-3. 保存后等待 GitHub Pages 构建完成（通常 1–2 分钟）。
+生产站点：<https://bysunling.com/>
 
-## 自定义域名
+Netlify 已连接本仓库。推送到 `main` 后会自动触发部署，发布目录为仓库根目录。
 
-1. 在 Pages 设置中填写你的自定义域名。
-2. 按提示配置 DNS（通常是 CNAME 记录指向 `<username>.github.io`）。
-3. 本仓库已预留 `CNAME` 文件占位符（TODO），填写域名后即可生效。
+## URL 结构
 
-## 兼容性说明
+站点以中文内容为准，首页和各内容页面都直接位于根路径：
 
-- 使用相对路径加载资源，适配 GitHub Pages 根路径或自定义域名。
-- `.nojekyll` 已添加，避免被 Jekyll 处理。
-- 站点以中文内容为准；需要其他语言时，可以使用浏览器自带的翻译功能。
+- 首页：`/`
+- 工作坊记录：`/workshops.html`
+- 输入输出系统工作坊：`/input-output-workshop.html`
+
+旧的 `/zh/*` 和 `/en/*` 地址由 Netlify 永久跳转到新的无语言前缀地址。
