@@ -3,7 +3,7 @@
     'use strict';
 
     function getBasePath() {
-        return window.location.pathname.includes('/zh/') ? '../' : '';
+        return '';
     }
 
     function createSharedFooter() {
@@ -141,8 +141,7 @@
     }
 
     function createWechatFollow() {
-        const isZh = window.location.pathname.includes('/zh/');
-        if (!isZh || document.querySelector('.wechat-follow')) return;
+        if (document.querySelector('.wechat-follow')) return;
 
         const basePath = getBasePath();
         const wrapper = document.createElement('aside');
