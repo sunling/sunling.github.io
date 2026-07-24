@@ -2,14 +2,64 @@
 publish = "."
 functions = "netlify/functions"
 
+# Legacy language-prefixed URLs
+[[redirects]]
+from = "/zh"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/zh/"
+to = "/"
+status = 301
+force = true
+
 [[redirects]]
 from = "/zh/learning-system"
-to = "/zh/input-output-workshop"
-status = 200
+to = "/input-output-workshop.html"
+status = 301
 force = true
 
 [[redirects]]
 from = "/zh/learning-system/"
-to = "/zh/input-output-workshop"
-status = 200
+to = "/input-output-workshop.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/zh/*"
+to = "/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/en"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/en/"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/en/*"
+to = "/"
+status = 301
+force = true
+
+# Previous workshop alias
+[[redirects]]
+from = "/learning-system"
+to = "/input-output-workshop.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/learning-system/"
+to = "/input-output-workshop.html"
+status = 301
 force = true
