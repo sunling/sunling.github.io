@@ -13,7 +13,6 @@
     function createSharedHeader() {
         const basePath = getBasePath();
         const isZh = window.location.pathname.includes('/zh/');
-        const isEn = window.location.pathname.includes('/en/');
 
         const header = document.createElement('header');
         header.className = 'shared-header';
@@ -28,22 +27,9 @@
         homeLink.textContent = isZh ? '孙玲' : 'Sun Ling';
         title.appendChild(homeLink);
 
-        const nav = document.createElement('nav');
-        nav.setAttribute('aria-label', isZh ? '语言' : 'Language');
-        const enLink = document.createElement('a');
-        enLink.href = isEn ? `${basePath}zh/` : `${basePath}en/`;
-        enLink.textContent = 'English';
-        if (isEn) enLink.setAttribute('aria-current', 'true');
-        const zhLink = document.createElement('a');
-        zhLink.href = isZh ? `${basePath}en/` : `${basePath}zh/`;
-        zhLink.textContent = '普通话';
-        if (isZh) zhLink.setAttribute('aria-current', 'true');
-
-        nav.appendChild(enLink);
-        nav.appendChild(zhLink);
+        homeLink.href = `${basePath}zh/`;
 
         container.appendChild(title);
-        container.appendChild(nav);
         header.appendChild(container);
 
         return header;
