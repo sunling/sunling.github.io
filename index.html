@@ -1,58 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose your language - bysunling.com</title>
-    <link rel="stylesheet" href="styles/shared.css">
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <style>
-        .language-chooser {
-            max-width: 520px;
-            margin: 120px auto;
-            text-align: center;
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            background: #fff;
-        }
-        .language-chooser h1 { margin: 0 0 16px; }
-        .language-chooser p { margin: 0 0 24px; color: #555; }
-        .lang-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .lang-buttons a {
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            border: 1px solid #d8d8d8;
-            color: #1f1f1f;
-            background: #f7f7f7;
-            min-width: 120px;
-        }
-        .lang-buttons a:hover { background: #eef2ff; border-color: #d0d7ff; }
-        .hint { margin-top: 12px; font-size: 14px; color: #777; }
-    </style>
-</head>
-<body>
-    <div class="language-chooser">
-        <h1>选择语言 / Choose language</h1>
-        <p>若浏览器语言检测成功，将自动跳转；否则请选择进入。</p>
-        <div class="lang-buttons">
-            <a href="zh/">进入中文站</a>
-            <a href="en/">Enter English</a>
-        </div>
-        <div class="hint">如果没有自动跳转，请手动点击上方按钮。</div>
-    </div>
-
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>孙玲</title>
+    <meta http-equiv="refresh" content="0; url=zh/" />
+    <link rel="canonical" href="https://bysunling.com/zh/" />
     <script>
-        (function() {
-            const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            const prefersZh = userLang.startsWith('zh');
-            const target = prefersZh ? 'zh/' : 'en/';
-            // Delay a tick so users still see buttons; skip if hash forces manual
-            if (!window.location.hash.includes('no-redirect')) {
-                window.location.href = target;
-            }
-        })();
+      window.location.replace('zh/' + window.location.search + window.location.hash);
     </script>
-</body>
+  </head>
+  <body>
+    <p>正在进入<a href="zh/">中文站点</a>…</p>
+  </body>
 </html>
