@@ -3,36 +3,7 @@
     'use strict';
 
     function getBasePath() {
-        const path = window.location.pathname;
-        if (path.includes('/zh/') || path.includes('/en/')) {
-            return '../';
-        }
-        return '';
-    }
-
-    function createSharedHeader() {
-        const basePath = getBasePath();
-        const isZh = window.location.pathname.includes('/zh/');
-
-        const header = document.createElement('header');
-        header.className = 'shared-header';
-
-        const container = document.createElement('div');
-
-        const title = document.createElement('h1');
-        title.className = 'title';
-        title.style.marginLeft = '22px';
-        const homeLink = document.createElement('a');
-        homeLink.className = 'link';
-        homeLink.textContent = isZh ? '孙玲' : 'Sun Ling';
-        title.appendChild(homeLink);
-
-        homeLink.href = `${basePath}zh/`;
-
-        container.appendChild(title);
-        header.appendChild(container);
-
-        return header;
+        return window.location.pathname.includes('/zh/') ? '../' : '';
     }
 
     function createSharedFooter() {
@@ -80,10 +51,7 @@
             document.body.insertBefore(container, document.body.firstChild);
         }
         container.innerHTML = '';
-        const isZh = window.location.pathname.includes('/zh/');
-        const phrases = isZh
-            ? ['坚持出现', '相信过程', '每天一点点', '持续迭代']
-            : ['Trust the process', 'Keep showing up', 'Small steps', 'Iterate daily'];
+        const phrases = ['坚持出现', '相信过程', '每天一点点', '持续迭代'];
         const w = window.innerWidth;
         const h = window.innerHeight;
         const padding = 24;
@@ -135,12 +103,11 @@
     function renderRecentWriting() {
         const grid = document.querySelector('.recent-writing .writing-grid');
         if (!grid) return;
-        const isZh = window.location.pathname.includes('/zh/');
         const base = getBasePath();
         fetch(base + 'data/recent-writing.json')
             .then(function (res) { return res.json(); })
             .then(function (data) {
-                const items = (isZh ? data.zh : data.en).slice(0, 3);
+                const items = data.zh.slice(0, 3);
                 grid.innerHTML = '';
                 items.forEach(function (item) {
                     const a = document.createElement('a');
@@ -156,7 +123,7 @@
                     summary.textContent = truncateSummary(item.summary);
                     const more = document.createElement('div');
                     more.className = 'more';
-                    more.innerHTML = (isZh ? '阅读更多' : 'Read More');
+                    more.textContent = '阅读更多';
                     a.appendChild(title);
                     a.appendChild(summary);
                     a.appendChild(more);
@@ -245,12 +212,6 @@
     }
 
     function initSharedComponents() {
-        if (!document.querySelector('.shared-header') && !document.querySelector('header')) {
-            const body = document.body;
-            const header = createSharedHeader();
-            body.insertBefore(header, body.firstChild);
-        }
-
         const bio = document.querySelector('.profile .profile-bio');
         if (bio && !bio.querySelector('.footer-inline')) {
             const footer = createSharedFooter();
@@ -269,6 +230,6 @@
     }
 
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = { createSharedHeader, createSharedFooter, createWechatFollow, initSharedComponents };
+        module.exports = { createSharedFooter, createWechatFollow, initSharedComponents };
     }
 })();
