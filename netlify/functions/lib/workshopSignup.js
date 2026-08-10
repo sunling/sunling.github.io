@@ -2,8 +2,12 @@ const SIGNUP_TABLE = "input_output_workshop_signups";
 const COHORT = "pilot-2026-07";
 const SOURCE = "bysunling.com/input-output-workshop.html";
 
-const ALLOWED_STAGES = new Set([
-  "首期完整工作坊，199 元",
+const SIGNUP_OPTIONS = new Map([
+  ["首期完整工作坊，199 元", { cohort: COHORT, source: SOURCE }],
+  ["第二期报名意向｜时间待定", {
+    cohort: "second-2026-08",
+    source: "bysunling.com/input-output-workshop-second.html",
+  }],
 ]);
 
 const MAX_LENGTHS = {
@@ -77,21 +81,24 @@ function cleanMultiline(value, fieldName) {
 function validateSignup(input = {}, event = {}) {
   const errors = [];
 
+  const stage = cleanString(input.stage, "stage");
+  const signupOption = SIGNUP_OPTIONS.get(stage);
+
   const payload = {
     name: cleanString(input.name, "name"),
     wechat: cleanString(input.wechat, "wechat"),
     email: cleanString(input.email, "email"),
     city: cleanString(input.city, "city"),
     role: cleanString(input.role, "role"),
-    stage: cleanString(input.stage, "stage"),
+    stage,
     current_system: cleanString(input.current_system, "current_system"),
     main_challenge: cleanMultiline(input.main_challenge, "main_challenge"),
     desired_output: cleanMultiline(input.desired_output, "desired_output"),
     expectation: cleanMultiline(input.expectation, "expectation"),
-    cohort: COHORT,
+    cohort: signupOption?.cohort || null,
     payment_status: "pending",
     status: "submitted",
-    source: SOURCE,
+    source: signupOption?.source || null,
     user_agent: cleanString(
       event.headers?.["user-agent"] || event.headers?.["User-Agent"] || input.user_agent,
       "user_agent"
@@ -110,7 +117,7 @@ function validateSignup(input = {}, event = {}) {
     errors.push("请填写微信号。");
   }
 
-  if (!payload.stage || !ALLOWED_STAGES.has(payload.stage)) {
+  if (!payload.stage || !signupOption) {
     errors.push("请选择有效的报名选项。");
   }
 
@@ -179,6 +186,7 @@ async function handleWorkshopSignup(event, env = process.env) {
 module.exports = {
   COHORT,
   SOURCE,
+  SIGNUP_OPTIONS,
   validateSignup,
   insertSignup,
   handleWorkshopSignup,
