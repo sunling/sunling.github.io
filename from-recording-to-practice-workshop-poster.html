@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>从记录到实践｜工作坊海报</title>
+  <script>if (new URLSearchParams(location.search).has("render")) document.documentElement.classList.add("render-mode");</script>
   <style>
     :root { --blue:#2563eb; --navy:#102452; --ink:#172033; --muted:#64748b; --line:#dbe7f6; --soft:#f4f8ff; }
     * { box-sizing:border-box; }
-    body { margin:0; min-height:100vh; display:grid; place-items:center; background:#eaf0f8; font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); }
+    body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; gap:16px; padding:24px; background:#eaf0f8; font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); }
+    .render-mode body { display:grid; place-items:center; padding:0; }
     .poster { position:relative; width:720px; height:960px; overflow:hidden; padding:56px 62px; background:linear-gradient(155deg,#fff 0%,#f8fbff 58%,#edf4ff 100%); }
     .poster::before { content:""; position:absolute; width:430px; height:430px; border:82px solid rgba(37,99,235,.065); border-radius:50%; right:-235px; top:-225px; }
     .poster::after { content:""; position:absolute; width:170px; height:170px; border-radius:50%; left:-105px; bottom:125px; background:rgba(37,99,235,.045); }
@@ -37,6 +39,10 @@
     .meta .price { color:#7c3f00; font-weight:800; }
     .qr { flex:0 0 auto; text-align:center; color:#52637c; font-size:12px; font-weight:800; }
     .qr img { display:block; width:122px; height:122px; margin-bottom:7px; padding:7px; border:1px solid #cbdaf0; border-radius:12px; background:#fff; }
+    .poster-actions { display:flex; justify-content:center; width:720px; }
+    .poster-actions a { display:inline-flex; min-height:46px; align-items:center; justify-content:center; padding:0 20px; border-radius:12px; background:var(--blue); color:#fff; font-weight:800; text-decoration:none; box-shadow:0 10px 24px rgba(37,99,235,.2); }
+    .poster-actions a:hover { background:#1d4ed8; }
+    .render-mode .poster-actions { display:none; }
   </style>
 </head>
 <body>
@@ -62,5 +68,6 @@
       <div class="qr"><img src="assets/from-recording-to-practice-workshop-qr.png" alt="从记录到实践工作坊报名页面二维码" />扫码了解并报名</div>
     </div>
   </main>
+  <div class="poster-actions"><a href="assets/from-recording-to-practice-workshop-poster.png" download="从记录到实践-工作坊海报.png">下载海报 PNG</a></div>
 </body>
 </html>
