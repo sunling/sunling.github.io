@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>个人生活实践系统工作坊｜第二期</title>
-  <meta name="description" content="从最近一件真实发生的事开始，连续记录七天，找到一个反复卡住的地方，做出一个马上能用的小方法。第二期时间待定。" />
+  <meta name="description" content="从最近一件真实发生的事开始，连续记录七天，找到一个反复卡住的地方，做出一个马上能用的小方法。8 月 22 日与 29 日线上见。" />
   <meta property="og:title" content="个人生活实践系统工作坊｜第二期" />
   <meta property="og:description" content="把每天发生的事记下来，找到一个反复卡住的地方，做出一个马上能用的小方法。" />
   <meta property="og:image" content="/assets/input-output-workshop-second-poster.png" />
@@ -22,8 +22,13 @@
     h1 { max-width:760px; margin-bottom:22px; color:var(--navy); font-size:clamp(42px,7vw,72px); line-height:1.06; letter-spacing:-.05em; }
     .belief { max-width:700px; margin-bottom:20px; color:var(--navy); font-size:clamp(23px,3.5vw,32px); font-weight:850; line-height:1.45; }
     .lead { max-width:700px; color:#46556d; font-size:18px; line-height:1.85; }
-    .facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0; }
+    .facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 16px; }
     .facts span { padding:9px 12px; border-radius:10px; background:#eaf2ff; color:#264b87; font-size:14px; font-weight:750; }
+    .schedule { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:760px; margin:0 0 28px; }
+    .schedule article { padding:18px 20px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .schedule .number { margin-bottom:10px; }
+    .schedule strong { display:block; color:var(--navy); line-height:1.55; }
+    .schedule p { margin:5px 0; color:#52637c; font-size:14px; line-height:1.6; }
     .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border:0; border-radius:12px; background:var(--blue); color:#fff; font:inherit; font-weight:800; text-decoration:none; cursor:pointer; }
     section { margin-top:88px; }
     section>h2 { margin-bottom:12px; color:var(--navy); font-size:clamp(28px,4vw,38px); letter-spacing:-.03em; }
@@ -58,7 +63,7 @@
     #form-status.success { color:#15803d; }
     #form-status.error { color:#b91c1c; }
     footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
-    @media(max-width:720px){ .page{width:min(100% - 28px,920px)} nav{margin-bottom:44px}.steps,.takeaways,.problems,.demo,.signup{grid-template-columns:1fr}.demo{padding:26px}section{margin-top:64px}.card{padding:20px} }
+    @media(max-width:720px){ .page{width:min(100% - 28px,920px)} nav{margin-bottom:44px}.steps,.takeaways,.problems,.schedule,.demo,.signup{grid-template-columns:1fr}.demo{padding:26px}section{margin-top:64px}.card{padding:20px} }
   </style>
 </head>
 <body>
@@ -71,7 +76,21 @@
       <p class="belief">把每天发生的事记下来，找到一个反复卡住的地方，做出一个马上能用的小方法。</p>
       <p class="lead">两次线上工作坊，中间连续记录七天。你不需要先换工具，也不用先搭一套完整系统。我们就从最近一件真实发生的事开始。</p>
       <div class="facts" aria-label="工作坊信息">
-        <span>第一场 60 分钟</span><span>7 天真实记录</span><span>第二场 60–90 分钟</span><span>线上 · 时间待定</span>
+        <span>第一场 60 分钟</span><span>7 天真实记录</span><span>第二场 60–90 分钟</span><span>线上进行</span>
+      </div>
+      <div class="schedule" aria-label="工作坊时间">
+        <article>
+          <span class="number">第一场</span>
+          <strong>美国：8 月 22 日（周六）</strong>
+          <p>西部 17:30 · 中部 19:30 · 东部 20:30</p>
+          <strong>北京：8 月 23 日（周日）08:30</strong>
+        </article>
+        <article>
+          <span class="number">第二场</span>
+          <strong>美国：8 月 29 日（周六）</strong>
+          <p>西部 17:30 · 中部 19:30 · 东部 20:30</p>
+          <strong>北京：8 月 30 日（周日）08:30</strong>
+        </article>
       </div>
       <a class="button" href="#signup">留下报名意向</a>
     </header>
@@ -127,7 +146,7 @@
     <section class="signup" id="signup" aria-labelledby="signup-title">
       <div class="signup-copy">
         <h2 id="signup-title">留下报名意向</h2>
-        <p>第二期时间暂定。留下信息后，时间和具体安排确认时，我会通过微信或邮箱联系你。</p>
+        <p>两场时间已经确定。提交后，我会通过微信或邮箱联系你，发送后续安排。</p>
         <p>这不是付款页，也不会因为填写就产生报名费用。</p>
       </div>
       <form id="signup-form" novalidate>
@@ -143,7 +162,7 @@
         </label>
         <label>你最近最想改变的一件具体事情是什么？ <span>*</span><textarea name="main_challenge" required maxlength="1500" placeholder="比如：每天记了很多但从不回看；有想法却很难写下来；同一件工作每次都要从头处理。"></textarea></label>
         <label>还有什么想告诉我？ <span>选填</span><textarea name="expectation" maxlength="1500" placeholder="如果你愿意参与第二场的现场共创，也可以写下现在使用的工具和想解决的问题。"></textarea></label>
-        <input type="hidden" name="stage" value="第二期报名意向｜时间待定" />
+        <input type="hidden" name="stage" value="第二期工作坊｜2026-08-22" />
         <label class="honeypot" aria-hidden="true">网站<input name="website" tabindex="-1" autocomplete="off" /></label>
         <button class="button" type="submit">提交报名意向</button>
         <p class="form-note">你的信息只用于本次工作坊联络。</p>

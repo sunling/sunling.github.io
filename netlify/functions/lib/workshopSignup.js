@@ -8,6 +8,10 @@ const SIGNUP_OPTIONS = new Map([
     cohort: "second-2026-08",
     source: "bysunling.com/input-output-workshop-second.html",
   }],
+  ["第二期工作坊｜2026-08-22", {
+    cohort: "second-2026-08",
+    source: "bysunling.com/input-output-workshop-second.html",
+  }],
 ]);
 
 const MAX_LENGTHS = {
