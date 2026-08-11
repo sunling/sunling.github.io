@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>从记录到实践｜搭建个人生活系统工作坊</title>
+  <meta name="description" content="从一个低阻力的记录入口开始，用七天真实记录，做出一套能接住你生活的最小系统，并看见 AI 怎样贯穿记录、整理、表达与复用。8 月 22 日与 29 日线上见。" />
+  <meta property="og:title" content="从记录到实践｜个人生活系统工作坊" />
+  <meta property="og:description" content="用七天真实记录，做出一套能接住你生活的最小系统，并看见 AI 怎样贯穿记录、整理、表达与复用。" />
+  <meta property="og:image" content="/assets/from-recording-to-practice-workshop-poster.png" />
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    :root { --blue:#2563eb; --navy:#102452; --ink:#172033; --muted:#64748b; --line:#dbe7f6; --soft:#f4f8ff; }
+    body { background:linear-gradient(180deg,#f5f9ff 0,#fff 34rem); color:var(--ink); }
+    .page { width:min(920px,calc(100% - 40px)); margin:auto; padding:24px 0 72px; text-align:left; }
+    nav { display:flex; justify-content:space-between; gap:16px; margin-bottom:60px; }
+    nav a { color:var(--muted); text-decoration:none; font-weight:700; }
+    .hero { max-width:800px; }
+    .badge { display:inline-block; margin-bottom:22px; padding:8px 13px; border:1px solid #b9d4ff; border-radius:999px; background:#fff; color:#1d4ed8; font-size:14px; font-weight:800; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:760px; margin-bottom:22px; color:var(--navy); font-size:clamp(42px,7vw,72px); line-height:1.06; letter-spacing:-.05em; }
+    .workshop-type { margin:-8px 0 18px; color:var(--blue); font-size:18px; font-weight:800; }
+    .belief { max-width:700px; margin-bottom:20px; color:var(--navy); font-size:clamp(23px,3.5vw,32px); font-weight:850; line-height:1.45; }
+    .lead { max-width:700px; color:#46556d; font-size:18px; line-height:1.85; }
+    .facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 16px; }
+    .facts span { padding:9px 12px; border-radius:10px; background:#eaf2ff; color:#264b87; font-size:14px; font-weight:750; }
+    .facts .price-fact { background:#fff4dd; color:#8a4b07; }
+    .schedule { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:760px; margin:0 0 28px; }
+    .schedule article { padding:18px 20px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .schedule .number { margin-bottom:10px; }
+    .schedule strong { display:block; color:var(--navy); line-height:1.55; }
+    .schedule p { margin:5px 0; color:#52637c; font-size:14px; line-height:1.6; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border:0; border-radius:12px; background:var(--blue); color:#fff; font:inherit; font-weight:800; text-decoration:none; cursor:pointer; }
+    section { margin-top:88px; }
+    section>h2 { margin-bottom:12px; color:var(--navy); font-size:clamp(28px,4vw,38px); letter-spacing:-.03em; }
+    .section-intro { max-width:680px; color:var(--muted); font-size:17px; line-height:1.75; }
+    .steps,.takeaways { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:26px; }
+    .problems { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:26px 0 0; padding:0; list-style:none; }
+    .problems li { padding:18px 20px; border-left:3px solid var(--blue); border-radius:0 12px 12px 0; background:var(--soft); color:#40516b; line-height:1.65; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff; box-shadow:0 12px 34px rgba(30,64,175,.05); }
+    .number { display:block; margin-bottom:24px; color:var(--blue); font-size:13px; font-weight:850; letter-spacing:.08em; }
+    .card h3 { margin-bottom:9px; color:var(--navy); font-size:20px; }
+    .card p { margin-bottom:0; color:#5b687c; line-height:1.7; }
+    .demo { display:grid; grid-template-columns:.9fr 1.1fr; gap:34px; align-items:start; padding:34px; border-radius:24px; background:var(--navy); color:#fff; }
+    .demo h2 { color:#fff; }
+    .demo p { color:#cbd8ee; line-height:1.75; }
+    .demo ol { margin:0; padding-left:22px; }
+    .demo li { padding:7px 0 7px 6px; line-height:1.65; }
+    .note { margin-top:22px; padding-left:16px; border-left:3px solid #93c5fd; color:#cbd8ee; font-size:14px; }
+    .tools { margin-top:32px; padding:24px; border:1px solid #bfdbfe; border-radius:20px; background:var(--soft); }
+    .tools strong { color:var(--navy); }
+    .tools p { margin-bottom:0; color:#52637c; line-height:1.8; }
+    .signup { display:grid; grid-template-columns:.78fr 1.22fr; gap:40px; align-items:start; }
+    .signup-copy p { color:var(--muted); line-height:1.75; }
+    .signup-price { padding:14px 16px; border-radius:12px; background:#fff7e8; color:#75430a !important; }
+    .signup-price strong { display:block; margin-bottom:3px; color:#7c3f00; font-size:18px; }
+    form { display:grid; gap:16px; padding:28px; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 18px 44px rgba(15,42,95,.08); }
+    label,legend { color:#263754; font-weight:750; }
+    label span,legend span { color:var(--muted); font-weight:500; }
+    input,select,textarea { width:100%; margin-top:7px; padding:12px 13px; border:1px solid #cbd5e1; border-radius:10px; background:#fff; color:var(--ink); font:inherit; line-height:1.5; }
+    textarea { min-height:112px; resize:vertical; }
+    input:focus,select:focus,textarea:focus { outline:3px solid #dbeafe; border-color:var(--blue); }
+    .honeypot { position:absolute; left:-9999px; }
+    .form-note { margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
+    #form-status { min-height:24px; margin:0; font-weight:700; }
+    #form-status.success { color:#15803d; }
+    #form-status.error { color:#b91c1c; }
+    .checkout { display:grid; gap:12px; margin-top:4px; padding:16px; border:1px solid #bfdbfe; border-radius:16px; background:var(--soft); }
+    .checkout-heading { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; align-items:baseline; }
+    .checkout-heading h3 { margin:0; color:var(--navy); font-size:18px; }
+    .checkout-price { color:#7c3f00; font-size:14px; font-weight:800; }
+    .checkout-intro { margin:0; color:#52637c; font-size:13px; line-height:1.6; }
+    .checkout-methods { display:flex; gap:10px; overflow-x:auto; padding-bottom:2px; scroll-snap-type:x proximity; }
+    .checkout-method { flex:1 0 125px; padding:11px; border:1px solid var(--line); border-radius:12px; background:#fff; text-align:center; scroll-snap-align:start; }
+    .checkout-method h4 { margin:0 0 4px; color:var(--navy); font-size:15px; }
+    .checkout-method p { margin:5px 0 0; color:var(--muted); font-size:12px; line-height:1.45; }
+    .checkout-qr { display:block; width:100%; height:108px; margin:auto; object-fit:contain; border-radius:8px; background:#fff; }
+    .checkout-discount { margin:0; color:#684516; font-size:13px; line-height:1.55; }
+    .checkout-discount a { color:#9a4d00; font-weight:800; }
+    .payment-panel { margin-top:32px; padding:34px; border:1px solid #bfdbfe; border-radius:24px; background:#f7faff; box-shadow:0 18px 44px rgba(15,42,95,.08); }
+    .payment-panel[hidden] { display:none; }
+    .payment-panel:focus { outline:3px solid #bfdbfe; outline-offset:4px; }
+    .payment-heading { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 24px; align-items:end; margin-bottom:22px; }
+    .payment-heading h2 { margin-bottom:6px; color:var(--navy); }
+    .payment-heading p { max-width:620px; margin:0; color:#52637c; line-height:1.7; }
+    .review-grid { display:grid; grid-template-columns:minmax(0,230px) 1fr; gap:28px; align-items:center; }
+    .review-qr { display:block; width:100%; max-width:230px; border-radius:14px; background:#fff; }
+    .review-copy h3 { color:var(--navy); }
+    .review-copy p { color:#52637c; line-height:1.75; }
+    footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+    @media(max-width:720px){ .page{width:min(100% - 28px,920px)} nav{margin-bottom:44px}.steps,.takeaways,.problems,.schedule,.demo,.signup,.review-grid{grid-template-columns:1fr}.demo,.payment-panel{padding:26px}section{margin-top:64px}.tools{margin-top:28px}.card{padding:20px} }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav><a href="./">孙玲</a><a href="./workshops.html">查看工作坊记录 →</a></nav>
+
+    <header class="hero">
+      <span class="badge">8 月工作坊 · 报名开放</span>
+      <h1>从记录到实践</h1>
+      <p class="workshop-type">搭建你的个人生活系统</p>
+      <p class="belief">从一个低阻力的记录入口开始，用七天真实记录，做出一套能接住你生活的最小系统。</p>
+      <p class="lead">两次线上工作坊，中间连续记录七天。第一场搞清楚为什么记录、怎样无阻力地继续；第二场带着真实材料回来，参考我的实践，也现场拆解参与者的案例。你会看到 AI 怎样贯穿记录、找回、整理、表达与复用，而不是只在最后替你生成一段内容。</p>
+      <div class="facts" aria-label="工作坊信息">
+        <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact" id="price-fact">早鸟价 249 元 / 39 美元 · 北京时间 8 月 17 日 00:00 前</span>
+      </div>
+      <div class="schedule" aria-label="工作坊时间">
+        <article>
+          <span class="number">第一场</span>
+          <strong>美国：8 月 22 日（周六）</strong>
+          <p>西部 17:30 · 中部 19:30 · 东部 20:30 · 60–90 分钟</p>
+          <strong>北京：8 月 23 日（周日）08:30</strong>
+        </article>
+        <article>
+          <span class="number">第二场</span>
+          <strong>美国：8 月 29 日（周六）</strong>
+          <p>西部 17:30 · 中部 19:30 · 东部 20:30 · 75–90 分钟</p>
+          <strong>北京：8 月 30 日（周日）08:30</strong>
+        </article>
+      </div>
+      <a class="button" href="#signup">报名参加</a>
+    </header>
+
+    <section aria-labelledby="problems-title">
+      <h2 id="problems-title">如果你的记录也卡在这些地方</h2>
+      <p class="section-intro">下面这些都是很常见的现象。它们往往会同时出现，也不只是换一个工具就能解决。</p>
+      <ul class="problems">
+        <li>记录要在不同工具和设备之间来回搬运，常被同步、格式和重复操作打断；想做自动化，又不知道从哪里开始。</li>
+        <li>内容散在微信、备忘录、Notion、纸笔和不同设备里；记过，却很难在需要时重新找到。</li>
+        <li>积累了很多记录和想法，却很少真正走向一篇表达、一个决定，或一次具体行动。</li>
+        <li>收藏和输入越来越多，却来不及消化；相似的问题再次出现时，仍然没有可复用的方法。</li>
+      </ul>
+      <p class="section-intro" style="margin-top:20px">这次不会试着一次解决所有问题。我们会先看清内容停在了哪里，再为你最需要的一步做出一个最小版本。</p>
+    </section>
+
+    <section aria-labelledby="process-title">
+      <h2 id="process-title">这次会怎样进行</h2>
+      <p class="section-intro">不是听完一套方法，而是先理解记录如何接住生活，再亲自实践七天，最后带着真实材料回来一起梳理。</p>
+      <div class="steps">
+        <article class="card"><span class="number">01 · 第一场</span><h3>找到接住生活的入口</h3><p>理解为什么要记录，以及一条记录以后可以走向哪里。用你已经有的工具选定一个低阻力入口，也看看 AI 怎样降低记录阻力，而不替你判断什么值得留下。</p></article>
+        <article class="card"><span class="number">02 · 中间七天</span><h3>留下七天真实生活</h3><p>每天记录自己的生活，也可以加入当天的阅读、播客或随笔输入。不要求写长日记，不公开打卡；只留下真实材料，并观察哪里顺、哪里会中断。</p></article>
+        <article class="card"><span class="number">03 · 第二场</span><h3>搭出你的最小系统</h3><p>我会完整展示自己目前的实践方式，包括可复用的 AI 工作流（Skills）；也会邀请参与者现场拆解真实案例，一起梳理路径、断点和最需要的最小版本。</p></article>
+      </div>
+    </section>
+
+    <section class="demo" aria-labelledby="demo-title">
+      <div>
+        <h2 id="demo-title">现场我会具体演示这些</h2>
+        <p>不是只展示最后整理好的文件，而是把一条真实记录怎样进入系统、AI 在哪里参与、人的判断又在哪里发生都打开。</p>
+        <p class="note">参与现场共创的案例会在课前简单沟通，保证我们处理的是一个具体、能完成的问题。</p>
+      </div>
+      <ol>
+        <li>走路时冒出来的一段想法，怎样先用手机和 AI 降低记录阻力，进入日记，同时保留当时真实的语气和处境。</li>
+        <li>一条日记怎样通过“启发星球” Skill 被重新找到和整理，最后走向一次真实分享，而不是直接生成一篇看似完整的文章。</li>
+        <li>记录怎样进入实践、获得反馈，再回到下一次记录和调整——也就是我目前理解的 Loop Engineering。</li>
+        <li>邀请一位参与者，直接使用他现在的工具和真实材料，现场梳理一个具体的不顺。</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="takeaway-title">
+      <h2 id="takeaway-title">你会带走什么</h2>
+      <div class="takeaways">
+        <article class="card"><h3>一个低阻力的记录入口</h3><p>知道自己愿意从哪里开始，怎样接住每天的生活和输入，并让这件事继续发生。</p></article>
+        <article class="card"><h3>一条看得见的真实路径</h3><p>知道记录怎样保存、回来和走向行动，也知道自己目前真正卡在哪一步。</p></article>
+        <article class="card"><h3>一套最小的生活实践系统</h3><p>它不需要完整或复杂，只需要能接住现在的你，并带着一个明确的下一步继续实践。</p></article>
+      </div>
+    </section>
+
+    <section class="tools" aria-label="记录方式说明">
+      <p><strong>一个入口，先接住一切。</strong>第一场会简单介绍我目前的 All in One 做法：记录时先不急着分类，回来以后再判断什么继续留在日记，什么值得进入写作、工作坊或其他“练习场”。AI 会贯穿接住、找回、整理和进入实践的过程，但什么值得继续，仍然由人判断。</p>
+    </section>
+
+    <section class="signup" id="signup" aria-labelledby="signup-title">
+      <div class="signup-copy">
+        <h2 id="signup-title">填写报名信息</h2>
+        <p>请先填写报名信息，再在点击提交前完成付款。我会核对报名与付款记录；核对完成后，通过微信邀请你进入工作坊群。</p>
+        <p class="signup-price"><strong><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></strong><span data-price-note>北京时间 8 月 17 日 00:00 前；之后为 299 元 / 45 美元。</span></p>
+      </div>
+      <form id="signup-form" novalidate>
+        <label>你的称呼 <span>*</span><input name="name" autocomplete="name" required maxlength="80" /></label>
+        <label>微信 ID <span>* · 不是微信昵称</span><input name="wechat" autocomplete="off" required maxlength="120" placeholder="请填写可以被搜索添加的微信 ID" /></label>
+        <label>邮箱 <span>选填</span><input name="email" type="email" autocomplete="email" maxlength="160" /></label>
+        <label>最接近你现在的状态 <span>* · 请选择一项</span>
+          <select name="current_system" required>
+            <option value="">请选择</option>
+            <option>还没有稳定记录，想找到一个容易开始的入口</option>
+            <option>偶尔会记录，但很难稳定持续</option>
+            <option>已经经常记录，但内容散落、很难找回</option>
+            <option>会记录和回看，但很难走向表达或行动</option>
+            <option>已经有自己的系统，想进一步加入 AI 或可复用流程</option>
+          </select>
+        </label>
+        <label>你最近最想改变的一件具体事情是什么？ <span>*</span><textarea name="main_challenge" required maxlength="1500" placeholder="比如：记录散在很多地方；保存后很难找回；有很多输入，却走不到表达或行动。"></textarea></label>
+        <label>还有什么想告诉我？ <span>选填</span><textarea name="expectation" maxlength="1500" placeholder="如果你愿意参与第二场的现场共创，也可以写下现在使用的工具和想解决的问题。"></textarea></label>
+        <div class="checkout" id="payment" aria-labelledby="payment-title">
+          <div class="checkout-heading">
+            <h3 id="payment-title">提交前完成付款</h3>
+            <span class="checkout-price"><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></span>
+          </div>
+          <p class="checkout-intro">付款时请备注“报名称呼 + 微信号”。点击二维码可以打开大图。</p>
+          <div class="checkout-methods">
+            <article class="checkout-method">
+              <h4>微信支付</h4>
+              <a href="assets/lingsun-wechat-pay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大微信支付二维码"><img class="checkout-qr" src="assets/lingsun-wechat-pay-qr.jpg" alt="孙玲的微信支付收款码" /></a>
+              <p>支付 <strong data-rmb-price>249 元</strong></p>
+            </article>
+            <article class="checkout-method">
+              <h4>支付宝</h4>
+              <a href="assets/lingsun-alipay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大支付宝二维码"><img class="checkout-qr" src="assets/lingsun-alipay-qr.jpg" alt="孙玲的支付宝收款码" /></a>
+              <p>支付 <strong data-rmb-price>249 元</strong></p>
+            </article>
+            <article class="checkout-method">
+              <h4>Venmo</h4>
+              <a href="assets/lingsun-venmo-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大 Venmo 二维码"><img class="checkout-qr" src="assets/lingsun-venmo-qr.jpg" alt="孙玲的 Venmo 收款二维码，用户名 @susbob" /></a>
+              <p>支付 <strong data-usd-price>39 美元</strong></p>
+            </article>
+          </div>
+          <p class="checkout-discount">如果费用会带来压力，可以在付款前发邮件至 <a href="mailto:sunling621@gmail.com?subject=%E5%B7%A5%E4%BD%9C%E5%9D%8A%E4%BC%98%E6%83%A0%E7%94%B3%E8%AF%B7">sunling621@gmail.com</a> 申请优惠，不需要详细解释。</p>
+        </div>
+        <input type="hidden" name="stage" value="从记录到实践｜2026-08-22" />
+        <label class="honeypot" aria-hidden="true">网站<input name="website" tabindex="-1" autocomplete="off" /></label>
+        <button class="button" type="submit">提交报名信息</button>
+        <p class="form-note">你的信息只用于本次工作坊联络。</p>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="payment-panel" id="confirmation" tabindex="-1" hidden aria-labelledby="confirmation-title">
+      <div class="payment-heading">
+        <div>
+          <h2 id="confirmation-title">报名信息已收到，扫码申请入群</h2>
+          <p>请使用微信扫描下方二维码申请加入工作坊群。群管理员会核对报名信息和付款记录，通过审核后即可入群。</p>
+        </div>
+      </div>
+      <div class="review-grid">
+        <a href="assets/recording-to-practice-group-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大工作坊微信群二维码"><img class="review-qr" src="assets/recording-to-practice-group-qr.jpg" alt="从记录到实践工作坊微信群二维码" /></a>
+        <div class="review-copy">
+          <h3>加入工作坊群</h3>
+          <p>扫码后请提交入群申请。二维码有有效期；如果无法加入，我会通过报名时填写的微信 ID 联系你。</p>
+          <p><strong>提交报名不等于自动入群。</strong>群聊只向已经完成报名和付款核对的参与者开放。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>主理人：孙玲</footer>
+  </main>
+  <script>
+    const form = document.querySelector("#signup-form");
+    const status = document.querySelector("#form-status");
+    const confirmationPanel = document.querySelector("#confirmation");
+    const earlyBirdDeadline = new Date("2026-08-16T16:00:00Z");
+    const isEarlyBird = new Date() < earlyBirdDeadline;
+    const price = isEarlyBird
+      ? { label: "早鸟价", rmb: "249 元", usd: "39 美元", note: "北京时间 8 月 17 日 00:00 前；之后为 299 元 / 45 美元。" }
+      : { label: "费用", rmb: "299 元", usd: "45 美元", note: "早鸟优惠已结束。" };
+    document.querySelectorAll("[data-price-label]").forEach((element) => { element.textContent = price.label; });
+    document.querySelectorAll("[data-rmb-price]").forEach((element) => { element.textContent = price.rmb; });
+    document.querySelectorAll("[data-usd-price]").forEach((element) => { element.textContent = price.usd; });
+    document.querySelectorAll("[data-price-note]").forEach((element) => { element.textContent = price.note; });
+    if (!isEarlyBird) document.querySelector("#price-fact").textContent = "费用 299 元 / 45 美元";
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.className = "";
+      if (!form.reportValidity()) return;
+      const button = form.querySelector("button[type='submit']");
+      button.disabled = true;
+      button.textContent = "正在提交…";
+      status.textContent = "";
+      try {
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch("/.netlify/functions/workshop-signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
+        form.reset();
+        status.className = "success";
+        status.textContent = "报名信息已收到，请等待核对和入群邀请。";
+        confirmationPanel.hidden = false;
+        confirmationPanel.focus();
+        confirmationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (error) {
+        status.className = "error";
+        status.textContent = error.message || "提交没有成功，请稍后再试。";
+      } finally {
+        button.disabled = false;
+        button.textContent = "提交报名信息";
+      }
+    });
+  </script>
+</body>
+</html>

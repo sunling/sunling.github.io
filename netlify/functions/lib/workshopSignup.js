@@ -6,11 +6,11 @@ const SIGNUP_OPTIONS = new Map([
   ["首期完整工作坊，199 元", { cohort: COHORT, source: SOURCE }],
   ["第二期报名意向｜时间待定", {
     cohort: "second-2026-08",
-    source: "bysunling.com/input-output-workshop-second.html",
+    source: "bysunling.com/from-recording-to-practice-workshop.html",
   }],
-  ["第二期工作坊｜2026-08-22", {
+  ["从记录到实践｜2026-08-22", {
     cohort: "second-2026-08",
-    source: "bysunling.com/input-output-workshop-second.html",
+    source: "bysunling.com/from-recording-to-practice-workshop.html",
   }],
 ]);
 
