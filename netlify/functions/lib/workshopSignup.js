@@ -1,4 +1,5 @@
 const SIGNUP_TABLE = "input_output_workshop_signups";
+const { normalizeReferralCode } = require("./referralCode");
 const COHORT = "pilot-2026-07";
 const SOURCE = "bysunling.com/input-output-workshop.html";
 
@@ -82,11 +83,16 @@ function cleanMultiline(value, fieldName) {
   return normalized.slice(0, maxLength);
 }
 
+function cleanReferralCode(value) {
+  return normalizeReferralCode(value);
+}
+
 function validateSignup(input = {}, event = {}) {
   const errors = [];
 
   const stage = cleanString(input.stage, "stage");
   const signupOption = SIGNUP_OPTIONS.get(stage);
+  const referralCode = cleanReferralCode(input.referral_code);
 
   const payload = {
     name: cleanString(input.name, "name"),
@@ -103,6 +109,7 @@ function validateSignup(input = {}, event = {}) {
     payment_status: "pending",
     status: "submitted",
     source: signupOption?.source || null,
+    referral_code: referralCode,
     user_agent: cleanString(
       event.headers?.["user-agent"] || event.headers?.["User-Agent"] || input.user_agent,
       "user_agent"
@@ -123,6 +130,10 @@ function validateSignup(input = {}, event = {}) {
 
   if (!payload.stage || !signupOption) {
     errors.push("请选择有效的报名选项。");
+  }
+
+  if (input.referral_code && !referralCode) {
+    errors.push("报名来源链接无效，请使用原始报名链接重试。");
   }
 
   if (!payload.main_challenge) {
@@ -191,6 +202,7 @@ module.exports = {
   COHORT,
   SOURCE,
   SIGNUP_OPTIONS,
+  cleanReferralCode,
   validateSignup,
   insertSignup,
   handleWorkshopSignup,
