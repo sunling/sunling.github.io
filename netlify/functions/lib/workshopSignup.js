@@ -1,4 +1,5 @@
 const SIGNUP_TABLE = "input_output_workshop_signups";
+const { normalizeReferralCode } = require("./referralCode");
 const COHORT = "pilot-2026-07";
 const SOURCE = "bysunling.com/input-output-workshop.html";
 
@@ -83,16 +84,7 @@ function cleanMultiline(value, fieldName) {
 }
 
 function cleanReferralCode(value) {
-  if (value === undefined || value === null) {
-    return null;
-  }
-
-  const normalized = String(value).trim().toLowerCase();
-  if (!normalized) {
-    return null;
-  }
-
-  return /^[a-z0-9][a-z0-9_-]{0,63}$/.test(normalized) ? normalized : null;
+  return normalizeReferralCode(value);
 }
 
 function validateSignup(input = {}, event = {}) {
