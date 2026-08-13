@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>从记录到实践｜搭建个人生活系统工作坊</title>
-  <meta name="description" content="从一个低阻力的记录入口开始，用七天真实记录，做出一套能接住你生活的最小系统，并看见 AI 怎样贯穿记录、整理、表达与复用。8 月 22 日与 29 日线上见。" />
-  <meta property="og:title" content="从记录到实践｜个人生活系统工作坊" />
-  <meta property="og:description" content="用七天真实记录，做出一套能接住你生活的最小系统，并看见 AI 怎样贯穿记录、整理、表达与复用。" />
+  <title>从记录到实践｜把自己记录下来，并让记录继续被用起来</title>
+  <meta name="description" content="想记录，却常卡在记什么、放哪里、以后怎么用？两次线上工作坊，中间实践七天：先用一个入口接住每天的生活和输入，再从持续发生的事情里长出自己的练习场，并看看 AI 怎样参与回顾、整理与创作。" />
+  <meta property="og:title" content="从记录到实践｜个人记录实践工作坊" />
+  <meta property="og:description" content="先按时间接住生活，不急着分类；再从持续发生的实践里长出自己的结构。两次线上工作坊，中间连续记录七天。" />
   <meta property="og:image" content="/assets/from-recording-to-practice-workshop-poster.png" />
   <link rel="stylesheet" href="styles/shared.css" />
   <link rel="icon" type="image/png" href="favicon.ico" />
@@ -21,8 +21,8 @@
     h1,h2,h3,p { margin-top:0; }
     h1 { max-width:760px; margin-bottom:22px; color:var(--navy); font-size:clamp(42px,7vw,72px); line-height:1.06; letter-spacing:-.05em; }
     .workshop-type { margin:-8px 0 18px; color:var(--blue); font-size:18px; font-weight:800; }
-    .belief { max-width:700px; margin-bottom:20px; color:var(--navy); font-size:clamp(23px,3.5vw,32px); font-weight:850; line-height:1.45; }
-    .lead { max-width:700px; color:#46556d; font-size:18px; line-height:1.85; }
+    .belief { max-width:720px; margin-bottom:20px; color:var(--navy); font-size:clamp(23px,3.5vw,32px); font-weight:850; line-height:1.45; }
+    .lead { max-width:720px; color:#46556d; font-size:18px; line-height:1.85; }
     .facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 16px; }
     .facts span { padding:9px 12px; border-radius:10px; background:#eaf2ff; color:#264b87; font-size:14px; font-weight:750; }
     .facts .price-fact { background:#fff4dd; color:#8a4b07; }
@@ -34,7 +34,7 @@
     .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border:0; border-radius:12px; background:var(--blue); color:#fff; font:inherit; font-weight:800; text-decoration:none; cursor:pointer; }
     section { margin-top:88px; }
     section>h2 { margin-bottom:12px; color:var(--navy); font-size:clamp(28px,4vw,38px); letter-spacing:-.03em; }
-    .section-intro { max-width:680px; color:var(--muted); font-size:17px; line-height:1.75; }
+    .section-intro { max-width:700px; color:var(--muted); font-size:17px; line-height:1.75; }
     .steps,.takeaways { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:26px; }
     .problems { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:26px 0 0; padding:0; list-style:none; }
     .problems li { padding:18px 20px; border-left:3px solid var(--blue); border-radius:0 12px 12px 0; background:var(--soft); color:#40516b; line-height:1.65; }
@@ -48,9 +48,9 @@
     .demo ol { margin:0; padding-left:22px; }
     .demo li { padding:7px 0 7px 6px; line-height:1.65; }
     .note { margin-top:22px; padding-left:16px; border-left:3px solid #93c5fd; color:#cbd8ee; font-size:14px; }
-    .tools { margin-top:32px; padding:24px; border:1px solid #bfdbfe; border-radius:20px; background:var(--soft); }
-    .tools strong { color:var(--navy); }
-    .tools p { margin-bottom:0; color:#52637c; line-height:1.8; }
+    .principle { margin-top:32px; padding:26px; border:1px solid #bfdbfe; border-radius:20px; background:var(--soft); }
+    .principle strong { display:block; margin-bottom:8px; color:var(--navy); font-size:21px; }
+    .principle p { margin-bottom:0; color:#52637c; line-height:1.8; }
     .signup { display:grid; grid-template-columns:.78fr 1.22fr; gap:40px; align-items:start; }
     .signup-copy p { color:var(--muted); line-height:1.75; }
     .signup-price { padding:14px 16px; border-radius:12px; background:#fff7e8; color:#75430a !important; }
@@ -89,7 +89,7 @@
     .review-copy h3 { color:var(--navy); }
     .review-copy p { color:#52637c; line-height:1.75; }
     footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
-    @media(max-width:720px){ .page{width:min(100% - 28px,920px)} nav{margin-bottom:44px}.steps,.takeaways,.problems,.schedule,.demo,.signup,.review-grid{grid-template-columns:1fr}.demo,.payment-panel{padding:26px}section{margin-top:64px}.tools{margin-top:28px}.card{padding:20px} }
+    @media(max-width:720px){ .page{width:min(100% - 28px,920px)} nav{margin-bottom:44px}.steps,.takeaways,.problems,.schedule,.demo,.signup,.review-grid{grid-template-columns:1fr}.demo,.payment-panel{padding:26px}section{margin-top:64px}.principle{margin-top:28px}.card{padding:20px} }
   </style>
 </head>
 <body>
@@ -99,76 +99,67 @@
     <header class="hero">
       <span class="badge">8 月工作坊 · 报名开放</span>
       <h1>从记录到实践</h1>
-      <p class="workshop-type">搭建你的个人生活系统</p>
-      <p class="belief">从一个低阻力的记录入口开始，用七天真实记录，做出一套能接住你生活的最小系统。</p>
-      <p class="lead">两次线上工作坊，中间连续记录七天。第一场搞清楚为什么记录、怎样无阻力地继续；第二场带着真实材料回来，参考我的实践，也现场拆解参与者的案例。你会看到 AI 怎样贯穿记录、找回、整理、表达与复用，而不是只在最后替你生成一段内容。</p>
+      <p class="workshop-type">一个关于「怎么把自己记录下来，并让记录继续被用起来」的实践工作坊</p>
+      <p class="belief">想记录，却总卡在「记什么、放哪里、以后怎么用」？先别急着设计一套完美系统。我们从一个入口开始，把每天真实发生的事情接住。</p>
+      <p class="lead">两次线上工作坊，中间连续记录七天。第一场一起聊清楚为什么记录、可以记录什么，以及怎样减少记录时的犹豫和分类负担；七天后带着真实材料回来，我会打开自己正在使用的记录方式，也一起拆解参与者遇到的具体卡点。你也会看到，我怎样借助 AI 回看、整理、连接和继续创作。</p>
       <div class="facts" aria-label="工作坊信息">
         <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact" id="price-fact">早鸟价 249 元 / 39 美元 · 北京时间 8 月 17 日 00:00 前</span>
       </div>
       <div class="schedule" aria-label="工作坊时间">
-        <article>
-          <span class="number">第一场</span>
-          <strong>美国：8 月 22 日（周六）</strong>
-          <p>西部 17:30 · 中部 19:30 · 东部 20:30 · 60–90 分钟</p>
-          <strong>北京：8 月 23 日（周日）08:30</strong>
-        </article>
-        <article>
-          <span class="number">第二场</span>
-          <strong>美国：8 月 29 日（周六）</strong>
-          <p>西部 17:30 · 中部 19:30 · 东部 20:30 · 75–90 分钟</p>
-          <strong>北京：8 月 30 日（周日）08:30</strong>
-        </article>
+        <article><span class="number">第一场</span><strong>美国：8 月 22 日（周六）</strong><p>西部 17:30 · 中部 19:30 · 东部 20:30 · 60–90 分钟</p><strong>北京：8 月 23 日（周日）08:30</strong></article>
+        <article><span class="number">第二场</span><strong>美国：8 月 29 日（周六）</strong><p>西部 17:30 · 中部 19:30 · 东部 20:30 · 75–90 分钟</p><strong>北京：8 月 30 日（周日）08:30</strong></article>
       </div>
       <a class="button" href="#signup">报名参加</a>
     </header>
 
     <section aria-labelledby="problems-title">
-      <h2 id="problems-title">如果你的记录也卡在这些地方</h2>
-      <p class="section-intro">下面这些都是很常见的现象。它们往往会同时出现，也不只是换一个工具就能解决。</p>
+      <h2 id="problems-title">你是不是也遇到过这些情况？</h2>
+      <p class="section-intro">很多时候，我们并不是没有东西想记，而是在真正写下之前就多了太多判断。</p>
       <ul class="problems">
-        <li>记录要在不同工具和设备之间来回搬运，常被同步、格式和重复操作打断；想做自动化，又不知道从哪里开始。</li>
-        <li>内容散在微信、备忘录、Notion、纸笔和不同设备里；记过，却很难在需要时重新找到。</li>
-        <li>积累了很多记录和想法，却很少真正走向一篇表达、一个决定，或一次具体行动。</li>
-        <li>收藏和输入越来越多，却来不及消化；相似的问题再次出现时，仍然没有可复用的方法。</li>
+        <li>读一本书、听一场播客、和朋友聊出一个想法，第一反应却是：这到底应该放哪个文件夹、哪一个 App？</li>
+        <li>微信、备忘录、Notion、纸笔里都留过东西，但真正想找的时候，又记不起自己到底放在哪里。</li>
+        <li>很想开始写日记，却觉得每天好像没有什么「值得记录」；或者一想到要写完整，就干脆没有开始。</li>
+        <li>已经积累了很多记录，但很少重新看见它们，更不知道怎样把它们带回写作、工作、关系或长期实践里。</li>
       </ul>
-      <p class="section-intro" style="margin-top:20px">这次不会试着一次解决所有问题。我们会先看清内容停在了哪里，再为你最需要的一步做出一个最小版本。</p>
+      <p class="section-intro" style="margin-top:20px">这次不会试着一次解决所有问题。我们先找到你真正卡住的一步，然后用七天生活去验证一个更轻的做法。</p>
     </section>
 
     <section aria-labelledby="process-title">
       <h2 id="process-title">这次会怎样进行</h2>
-      <p class="section-intro">不是听完一套方法，而是先理解记录如何接住生活，再亲自实践七天，最后带着真实材料回来一起梳理。</p>
+      <p class="section-intro">不是先学一套工具，而是先从自己的生活开始：理解、记录、实践，再回来梳理。</p>
       <div class="steps">
-        <article class="card"><span class="number">01 · 第一场</span><h3>找到接住生活的入口</h3><p>理解为什么要记录，以及一条记录以后可以走向哪里。用你已经有的工具选定一个低阻力入口，也看看 AI 怎样降低记录阻力，而不替你判断什么值得留下。</p></article>
-        <article class="card"><span class="number">02 · 中间七天</span><h3>留下七天真实生活</h3><p>每天记录自己的生活，也可以加入当天的阅读、播客或随笔输入。不要求写长日记，不公开打卡；只留下真实材料，并观察哪里顺、哪里会中断。</p></article>
-        <article class="card"><span class="number">03 · 第二场</span><h3>搭出你的最小系统</h3><p>我会完整展示自己目前的实践方式，包括可复用的 AI 工作流（Skills）；也会邀请参与者现场拆解真实案例，一起梳理路径、断点和最需要的最小版本。</p></article>
+        <article class="card"><span class="number">01 · 第一场</span><h3>找到一个愿意开始的入口</h3><p>一起想清楚：为什么记录、什么值得记录、现在为什么总是没有记下来。选一个你已经会用的入口，先让「想到就能记」发生，而不是先研究应该怎么分类。</p></article>
+        <article class="card"><span class="number">02 · 中间七天</span><h3>按时间接住七天生活</h3><p>当天发生了什么、经历了什么、读到了什么、和谁聊了什么、有什么触动，就先留在当天。可以很短，不要求写完整日记，也不需要公开打卡。</p></article>
+        <article class="card"><span class="number">03 · 第二场</span><h3>从记录里长出自己的实践</h3><p>带着七天材料回来，看哪些事情只是经过，哪些事情正在持续发生、值得长期练习。再决定它们是否需要一个名字、一个项目或一个更稳定的空间。</p></article>
       </div>
+    </section>
+
+    <section class="principle" aria-label="核心方法">
+      <strong>先按时间接住，再从持续实践里长出结构。</strong>
+      <p>记录发生的那一刻，不急着判断「这是什么类别」。阅读、对话、当天的情绪和触动，都可以先进入同一条时间轴。等某件事持续发生——比如写作、启发星球、一对一对话、一个长期工作项目——它才慢慢成为一个可以命名、可以回看、可以精进的练习场。不是先设计好分类，再开始生活；而是先把生活接住，再让结构从实践里长出来。</p>
     </section>
 
     <section class="demo" aria-labelledby="demo-title">
       <div>
-        <h2 id="demo-title">现场我会具体演示这些</h2>
-        <p>不是只展示最后整理好的文件，而是把一条真实记录怎样进入系统、AI 在哪里参与、人的判断又在哪里发生都打开。</p>
-        <p class="note">参与现场共创的案例会在课前简单沟通，保证我们处理的是一个具体、能完成的问题。</p>
+        <h2 id="demo-title">我也会打开自己的真实做法</h2>
+        <p>这不是要求大家照搬，而是让你看到：当这些问题落到一个真实的人身上，可以怎样一步一步实现。</p>
+        <p class="note">GitHub、Markdown、Codex 和可复用的 AI 工作流，是我的实现方式，不是参加这次工作坊的前置要求。</p>
       </div>
       <ol>
-        <li>走路时冒出来的一段想法，怎样先用手机和 AI 降低记录阻力，进入日记，同时保留当时真实的语气和处境。</li>
-        <li>一条日记怎样通过“启发星球” Skill 被重新找到和整理，最后走向一次真实分享，而不是直接生成一篇看似完整的文章。</li>
-        <li>记录怎样进入实践、获得反馈，再回到下一次记录和调整——也就是我目前理解的 Loop Engineering。</li>
-        <li>邀请一位参与者，直接使用他现在的工具和真实材料，现场梳理一个具体的不顺。</li>
+        <li>我在电脑里怎样组织日记、输入和长期实践，而不是每接触一种信息都先新建一个分类。</li>
+        <li>记录怎样同步到 GitHub，再让 Codex 直接读取这些真实材料，帮助我找回、整理和继续思考。</li>
+        <li>当一件事持续发生时，我怎样把它变成一个练习场，并用可重复的工作流支持回顾、写作或分享。</li>
+        <li>邀请参与者拿出自己正在使用的工具和真实材料，现场拆解一个具体的不顺。</li>
       </ol>
     </section>
 
     <section aria-labelledby="takeaway-title">
       <h2 id="takeaway-title">你会带走什么</h2>
       <div class="takeaways">
-        <article class="card"><h3>一个低阻力的记录入口</h3><p>知道自己愿意从哪里开始，怎样接住每天的生活和输入，并让这件事继续发生。</p></article>
-        <article class="card"><h3>一条看得见的真实路径</h3><p>知道记录怎样保存、回来和走向行动，也知道自己目前真正卡在哪一步。</p></article>
-        <article class="card"><h3>一套最小的生活实践系统</h3><p>它不需要完整或复杂，只需要能接住现在的你，并带着一个明确的下一步继续实践。</p></article>
+        <article class="card"><h3>一个更容易开始的记录方式</h3><p>知道自己可以记录什么、从哪里记，并减少「到底应该放哪里」带来的阻力。</p></article>
+        <article class="card"><h3>七天属于自己的真实材料</h3><p>不是模板里的示例，而是你自己的生活、输入、对话和触动。它们会成为第二场真正可以拿来工作的材料。</p></article>
+        <article class="card"><h3>一个继续实践的下一步</h3><p>看见哪些事情值得长期留下和精进，也知道自己的记录接下来可以怎样回到行动、表达和创作里。</p></article>
       </div>
-    </section>
-
-    <section class="tools" aria-label="记录方式说明">
-      <p><strong>一个入口，先接住一切。</strong>第一场会简单介绍我目前的 All in One 做法：记录时先不急着分类，回来以后再判断什么继续留在日记，什么值得进入写作、工作坊或其他“练习场”。AI 会贯穿接住、找回、整理和进入实践的过程，但什么值得继续，仍然由人判断。</p>
     </section>
 
     <section class="signup" id="signup" aria-labelledby="signup-title">
@@ -191,30 +182,15 @@
             <option>已经有自己的系统，想进一步加入 AI 或可复用流程</option>
           </select>
         </label>
-        <label>你最近最想改变的一件具体事情是什么？ <span>*</span><textarea name="main_challenge" required maxlength="1500" placeholder="比如：记录散在很多地方；保存后很难找回；有很多输入，却走不到表达或行动。"></textarea></label>
+        <label>你最近最想改变的一件具体事情是什么？ <span>*</span><textarea name="main_challenge" required maxlength="1500" placeholder="比如：每次记录都卡在应该放哪里；想写日记但总是没有开始；记了很多，却几乎不会再回看。"></textarea></label>
         <label>还有什么想告诉我？ <span>选填</span><textarea name="expectation" maxlength="1500" placeholder="如果你愿意参与第二场的现场共创，也可以写下现在使用的工具和想解决的问题。"></textarea></label>
         <div class="checkout" id="payment" aria-labelledby="payment-title">
-          <div class="checkout-heading">
-            <h3 id="payment-title">提交前完成付款</h3>
-            <span class="checkout-price"><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></span>
-          </div>
+          <div class="checkout-heading"><h3 id="payment-title">提交前完成付款</h3><span class="checkout-price"><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></span></div>
           <p class="checkout-intro">付款时请备注“报名称呼 + 微信号”。点击二维码可以打开大图。</p>
           <div class="checkout-methods">
-            <article class="checkout-method">
-              <h4>微信支付</h4>
-              <a href="assets/lingsun-wechat-pay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大微信支付二维码"><img class="checkout-qr" src="assets/lingsun-wechat-pay-qr.jpg" alt="孙玲的微信支付收款码" /></a>
-              <p>支付 <strong data-rmb-price>249 元</strong></p>
-            </article>
-            <article class="checkout-method">
-              <h4>支付宝</h4>
-              <a href="assets/lingsun-alipay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大支付宝二维码"><img class="checkout-qr" src="assets/lingsun-alipay-qr.jpg" alt="孙玲的支付宝收款码" /></a>
-              <p>支付 <strong data-rmb-price>249 元</strong></p>
-            </article>
-            <article class="checkout-method">
-              <h4>Venmo</h4>
-              <a href="assets/lingsun-venmo-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大 Venmo 二维码"><img class="checkout-qr" src="assets/lingsun-venmo-qr.jpg" alt="孙玲的 Venmo 收款二维码，用户名 @susbob" /></a>
-              <p>支付 <strong data-usd-price>39 美元</strong></p>
-            </article>
+            <article class="checkout-method"><h4>微信支付</h4><a href="assets/lingsun-wechat-pay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大微信支付二维码"><img class="checkout-qr" src="assets/lingsun-wechat-pay-qr.jpg" alt="孙玲的微信支付收款码" /></a><p>支付 <strong data-rmb-price>249 元</strong></p></article>
+            <article class="checkout-method"><h4>支付宝</h4><a href="assets/lingsun-alipay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大支付宝二维码"><img class="checkout-qr" src="assets/lingsun-alipay-qr.jpg" alt="孙玲的支付宝收款码" /></a><p>支付 <strong data-rmb-price>249 元</strong></p></article>
+            <article class="checkout-method"><h4>Venmo</h4><a href="assets/lingsun-venmo-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大 Venmo 二维码"><img class="checkout-qr" src="assets/lingsun-venmo-qr.jpg" alt="孙玲的 Venmo 收款二维码，用户名 @susbob" /></a><p>支付 <strong data-usd-price>39 美元</strong></p></article>
           </div>
           <p class="checkout-discount">如果费用会带来压力，可以在付款前发邮件至 <a href="mailto:sunling621@gmail.com?subject=%E5%B7%A5%E4%BD%9C%E5%9D%8A%E4%BC%98%E6%83%A0%E7%94%B3%E8%AF%B7">sunling621@gmail.com</a> 申请优惠，不需要详细解释。</p>
         </div>
@@ -228,20 +204,8 @@
     </section>
 
     <section class="payment-panel" id="confirmation" tabindex="-1" hidden aria-labelledby="confirmation-title">
-      <div class="payment-heading">
-        <div>
-          <h2 id="confirmation-title">报名信息已收到，扫码申请入群</h2>
-          <p>请使用微信扫描下方二维码申请加入工作坊群。群管理员会核对报名信息和付款记录，通过审核后即可入群。</p>
-        </div>
-      </div>
-      <div class="review-grid">
-        <a href="assets/recording-to-practice-group-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大工作坊微信群二维码"><img class="review-qr" src="assets/recording-to-practice-group-qr.jpg" alt="从记录到实践工作坊微信群二维码" /></a>
-        <div class="review-copy">
-          <h3>加入工作坊群</h3>
-          <p>扫码后请提交入群申请。二维码有有效期；如果无法加入，我会通过报名时填写的微信 ID 联系你。</p>
-          <p><strong>提交报名不等于自动入群。</strong>群聊只向已经完成报名和付款核对的参与者开放。</p>
-        </div>
-      </div>
+      <div class="payment-heading"><div><h2 id="confirmation-title">报名信息已收到，扫码申请入群</h2><p>请使用微信扫描下方二维码申请加入工作坊群。群管理员会核对报名信息和付款记录，通过审核后即可入群。</p></div></div>
+      <div class="review-grid"><a href="assets/recording-to-practice-group-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大工作坊微信群二维码"><img class="review-qr" src="assets/recording-to-practice-group-qr.jpg" alt="从记录到实践工作坊微信群二维码" /></a><div class="review-copy"><h3>加入工作坊群</h3><p>扫码后请提交入群申请。二维码有有效期；如果无法加入，我会通过报名时填写的微信 ID 联系你。</p><p><strong>提交报名不等于自动入群。</strong>群聊只向已经完成报名和付款核对的参与者开放。</p></div></div>
     </section>
 
     <footer>主理人：孙玲</footer>
@@ -264,13 +228,9 @@
         localStorage.setItem(referralStorageKey, JSON.stringify({ code: urlReferralCode, capturedAt: Date.now() }));
       } else {
         const savedReferral = JSON.parse(localStorage.getItem(referralStorageKey) || "null");
-        if (savedReferral && Date.now() - savedReferral.capturedAt <= referralMaxAge) {
-          referralCode = normalizeReferralCode(savedReferral.code);
-        }
+        if (savedReferral && Date.now() - savedReferral.capturedAt <= referralMaxAge) referralCode = normalizeReferralCode(savedReferral.code);
       }
-    } catch (error) {
-      // Signup still works when storage is disabled or contains invalid data.
-    }
+    } catch (error) {}
     referralInput.value = referralCode;
     const earlyBirdDeadline = new Date("2026-08-16T16:00:00Z");
     const isEarlyBird = new Date() < earlyBirdDeadline;
@@ -292,11 +252,7 @@
       status.textContent = "";
       try {
         const payload = Object.fromEntries(new FormData(form).entries());
-        const response = await fetch("/.netlify/functions/workshop-signup", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+        const response = await fetch("/.netlify/functions/workshop-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
         form.reset();
