@@ -55,6 +55,7 @@
     .signup-copy p { color:var(--muted); line-height:1.75; }
     .signup-price { padding:14px 16px; border-radius:12px; background:#fff7e8; color:#75430a !important; }
     .signup-price strong { display:block; margin-bottom:3px; color:#7c3f00; font-size:18px; }
+    .expectation-note { padding:14px 16px; border-radius:12px; background:#f4f8ff; color:#40516b !important; }
     form { display:grid; gap:16px; padding:28px; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 18px 44px rgba(15,42,95,.08); }
     label,legend { color:#263754; font-weight:750; }
     label span,legend span { color:var(--muted); font-weight:500; }
@@ -103,7 +104,7 @@
       <p class="belief">想记录，却总卡在「记什么、放哪里、以后怎么用」？先别急着设计一套完美系统。我们从一个入口开始，把每天真实发生的事情接住。</p>
       <p class="lead">两次线上工作坊，中间连续记录七天。第一场一起聊清楚为什么记录、可以记录什么，以及怎样减少记录时的犹豫和分类负担；七天后带着真实材料回来，我会打开自己正在使用的记录方式，也一起拆解参与者遇到的具体卡点。你也会看到，我怎样借助 AI 回看、整理、连接和继续创作。</p>
       <div class="facts" aria-label="工作坊信息">
-        <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact" id="price-fact">早鸟价 249 元 / 39 美元 · 北京时间 8 月 17 日 00:00 前</span>
+        <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact" id="price-fact">费用 299 元 / 45 美元</span>
       </div>
       <div class="schedule" aria-label="工作坊时间">
         <article><span class="number">第一场</span><strong>美国：8 月 22 日（周六）</strong><p>西部 17:30 · 中部 19:30 · 东部 20:30 · 60–90 分钟</p><strong>北京：8 月 23 日（周日）08:30</strong></article>
@@ -142,8 +143,8 @@
     <section class="demo" aria-labelledby="demo-title">
       <div>
         <h2 id="demo-title">我也会打开自己的真实做法</h2>
-        <p>这不是要求大家照搬，而是让你看到：当这些问题落到一个真实的人身上，可以怎样一步一步实现。</p>
-        <p class="note">GitHub、Markdown、Codex 和可复用的 AI 工作流，是我的实现方式，不是参加这次工作坊的前置要求。</p>
+        <p>这不是要求大家照搬，而是让你看到：这些问题落到我的真实生活里，我目前是怎样处理的。</p>
+        <p class="note"><strong>边界说明：</strong>GitHub、Markdown、Codex 和可复用的 Skill / AI 工作流会作为我的真实案例展示，但不会从零教学这些工具，也不会手把手带大家搭出同样的系统。如果你期待的是一门 AI 工作流、智能体或 Skill 搭建实操课，这次可能不适合你。</p>
       </div>
       <ol>
         <li>我在电脑里怎样组织日记、输入和长期实践，而不是每接触一种信息都先新建一个分类。</li>
@@ -166,7 +167,8 @@
       <div class="signup-copy">
         <h2 id="signup-title">填写报名信息</h2>
         <p>请先填写报名信息，再在点击提交前完成付款。我会核对报名与付款记录；核对完成后，通过微信邀请你进入工作坊群。</p>
-        <p class="signup-price"><strong><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></strong><span data-price-note>北京时间 8 月 17 日 00:00 前；之后为 299 元 / 45 美元。</span></p>
+        <p class="expectation-note"><strong>报名前请确认：</strong>这是一场围绕个人记录与实践的引导式工作坊，不是从零教学 AI / Skill / Codex 搭建的技术课程。</p>
+        <p class="signup-price"><strong><span data-price-label>费用</span>：<span data-rmb-price>299 元</span> / <span data-usd-price>45 美元</span></strong><span data-price-note>早鸟优惠已结束。</span></p>
       </div>
       <form id="signup-form" novalidate>
         <label>你的称呼 <span>*</span><input name="name" autocomplete="name" required maxlength="80" /></label>
@@ -179,18 +181,18 @@
             <option>偶尔会记录，但很难稳定持续</option>
             <option>已经经常记录，但内容散落、很难找回</option>
             <option>会记录和回看，但很难走向表达或行动</option>
-            <option>已经有自己的系统，想进一步加入 AI 或可复用流程</option>
+            <option>已经有自己的系统，想看看 AI 如何参与记录、回顾和整理</option>
           </select>
         </label>
         <label>你最近最想改变的一件具体事情是什么？ <span>*</span><textarea name="main_challenge" required maxlength="1500" placeholder="比如：每次记录都卡在应该放哪里；想写日记但总是没有开始；记了很多，却几乎不会再回看。"></textarea></label>
         <label>还有什么想告诉我？ <span>选填</span><textarea name="expectation" maxlength="1500" placeholder="如果你愿意参与第二场的现场共创，也可以写下现在使用的工具和想解决的问题。"></textarea></label>
         <div class="checkout" id="payment" aria-labelledby="payment-title">
-          <div class="checkout-heading"><h3 id="payment-title">提交前完成付款</h3><span class="checkout-price"><span data-price-label>早鸟价</span>：<span data-rmb-price>249 元</span> / <span data-usd-price>39 美元</span></span></div>
+          <div class="checkout-heading"><h3 id="payment-title">提交前完成付款</h3><span class="checkout-price"><span data-price-label>费用</span>：<span data-rmb-price>299 元</span> / <span data-usd-price>45 美元</span></span></div>
           <p class="checkout-intro">付款时请备注“报名称呼 + 微信号”。点击二维码可以打开大图。</p>
           <div class="checkout-methods">
-            <article class="checkout-method"><h4>微信支付</h4><a href="assets/lingsun-wechat-pay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大微信支付二维码"><img class="checkout-qr" src="assets/lingsun-wechat-pay-qr.jpg" alt="孙玲的微信支付收款码" /></a><p>支付 <strong data-rmb-price>249 元</strong></p></article>
-            <article class="checkout-method"><h4>支付宝</h4><a href="assets/lingsun-alipay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大支付宝二维码"><img class="checkout-qr" src="assets/lingsun-alipay-qr.jpg" alt="孙玲的支付宝收款码" /></a><p>支付 <strong data-rmb-price>249 元</strong></p></article>
-            <article class="checkout-method"><h4>Venmo</h4><a href="assets/lingsun-venmo-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大 Venmo 二维码"><img class="checkout-qr" src="assets/lingsun-venmo-qr.jpg" alt="孙玲的 Venmo 收款二维码，用户名 @susbob" /></a><p>支付 <strong data-usd-price>39 美元</strong></p></article>
+            <article class="checkout-method"><h4>微信支付</h4><a href="assets/lingsun-wechat-pay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大微信支付二维码"><img class="checkout-qr" src="assets/lingsun-wechat-pay-qr.jpg" alt="孙玲的微信支付收款码" /></a><p>支付 <strong data-rmb-price>299 元</strong></p></article>
+            <article class="checkout-method"><h4>支付宝</h4><a href="assets/lingsun-alipay-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大支付宝二维码"><img class="checkout-qr" src="assets/lingsun-alipay-qr.jpg" alt="孙玲的支付宝收款码" /></a><p>支付 <strong data-rmb-price>299 元</strong></p></article>
+            <article class="checkout-method"><h4>Venmo</h4><a href="assets/lingsun-venmo-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大 Venmo 二维码"><img class="checkout-qr" src="assets/lingsun-venmo-qr.jpg" alt="孙玲的 Venmo 收款二维码，用户名 @susbob" /></a><p>支付 <strong data-usd-price>45 美元</strong></p></article>
           </div>
           <p class="checkout-discount">如果费用会带来压力，可以在付款前发邮件至 <a href="mailto:sunling621@gmail.com?subject=%E5%B7%A5%E4%BD%9C%E5%9D%8A%E4%BC%98%E6%83%A0%E7%94%B3%E8%AF%B7">sunling621@gmail.com</a> 申请优惠，不需要详细解释。</p>
         </div>

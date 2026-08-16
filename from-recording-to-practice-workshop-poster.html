@@ -10,30 +10,31 @@
     * { box-sizing:border-box; }
     body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; gap:16px; padding:24px; background:#eaf0f8; font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); }
     .render-mode body { display:grid; place-items:center; padding:0; }
-    .poster { position:relative; width:720px; height:960px; overflow:hidden; padding:56px 62px; background:linear-gradient(155deg,#fff 0%,#f8fbff 58%,#edf4ff 100%); }
+    .poster { position:relative; width:720px; height:960px; overflow:hidden; padding:54px 62px; background:linear-gradient(155deg,#fff 0%,#f8fbff 58%,#edf4ff 100%); }
     .poster::before { content:""; position:absolute; width:430px; height:430px; border:82px solid rgba(37,99,235,.065); border-radius:50%; right:-235px; top:-225px; }
     .poster::after { content:""; position:absolute; width:170px; height:170px; border-radius:50%; left:-105px; bottom:125px; background:rgba(37,99,235,.045); }
     .top,.bottom { position:relative; z-index:1; }
-    .kicker { margin:0 0 10px; color:var(--blue); font-size:20px; font-weight:800; letter-spacing:.01em; }
+    .kicker { margin:0 0 10px; color:var(--blue); font-size:19px; font-weight:800; letter-spacing:.01em; }
     h1 { margin:0; max-width:570px; color:var(--navy); font-size:68px; line-height:1.08; letter-spacing:-.055em; }
-    .belief { margin:18px 0 0; max-width:580px; color:#344869; font-size:24px; font-weight:750; line-height:1.5; }
-    .loop { margin-top:28px; padding:20px 22px 18px; border-radius:24px; background:linear-gradient(145deg,#102452,#16366f); color:#fff; box-shadow:0 18px 38px rgba(16,36,82,.18); }
-    .loop-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:16px; }
+    .belief { margin:18px 0 0; max-width:590px; color:#344869; font-size:24px; font-weight:750; line-height:1.5; }
+    .loop { margin-top:25px; padding:19px 22px 17px; border-radius:24px; background:linear-gradient(145deg,#102452,#16366f); color:#fff; box-shadow:0 18px 38px rgba(16,36,82,.18); }
+    .loop-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:14px; }
     .loop-head strong { font-size:19px; }
-    .loop-head span { padding:6px 10px; border:1px solid rgba(147,197,253,.48); border-radius:999px; color:#bfdbfe; font-size:13px; font-weight:800; }
+    .loop-head span { padding:6px 10px; border:1px solid rgba(147,197,253,.48); border-radius:999px; color:#bfdbfe; font-size:12px; font-weight:800; }
     .loop-track { display:flex; align-items:center; justify-content:space-between; gap:6px; }
     .loop-track span { flex:1; padding:9px 5px; border-radius:9px; background:rgba(255,255,255,.09); color:#f8fbff; font-size:14px; font-weight:750; text-align:center; }
     .loop-track b { color:#8eb8ff; font-size:14px; }
-    .loop-note { margin:13px 0 0; color:#b9cae7; font-size:13px; line-height:1.5; }
-    .path { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px; }
-    .step { position:relative; min-height:150px; padding:14px 13px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.92); box-shadow:0 8px 20px rgba(30,64,175,.05); }
+    .loop-note { margin:12px 0 0; color:#c8d6ec; font-size:13px; line-height:1.55; }
+    .path { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:17px; }
+    .step { position:relative; min-height:158px; padding:14px 13px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.92); box-shadow:0 8px 20px rgba(30,64,175,.05); }
     .step em { display:block; margin-bottom:6px; color:var(--blue); font-size:11px; font-style:normal; font-weight:850; letter-spacing:.08em; }
-    .step b { display:block; min-height:40px; color:var(--navy); font-size:16px; line-height:1.3; }
+    .step b { display:block; min-height:42px; color:var(--navy); font-size:16px; line-height:1.3; }
     .step .step-time { display:block; margin-top:5px; color:#315b98; font-size:12px; font-weight:800; line-height:1.45; }
     .step p { margin:7px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
-    .promise { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .promise { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
     .promise span { padding:7px 10px; border-radius:999px; background:#eaf2ff; color:#315b98; font-size:12px; font-weight:750; }
-    .bottom { position:absolute; left:62px; right:62px; bottom:48px; display:flex; align-items:end; justify-content:space-between; gap:28px; border-top:1px solid #cbdaf0; padding-top:21px; }
+    .promise .boundary { background:#fff4dd; color:#7c4a0b; }
+    .bottom { position:absolute; left:62px; right:62px; bottom:46px; display:flex; align-items:end; justify-content:space-between; gap:28px; border-top:1px solid #cbdaf0; padding-top:19px; }
     .meta { color:#52637c; font-size:15px; line-height:1.72; }
     .meta strong { display:block; margin-bottom:2px; color:var(--navy); font-size:20px; }
     .meta .price { color:#7c3f00; font-weight:800; }
@@ -55,23 +56,23 @@
 <body>
   <main class="poster" id="poster">
     <div class="top">
-      <p class="kicker">搭建你的个人生活系统</p>
+      <p class="kicker">个人记录实践工作坊 · 两次线上 + 七天实践</p>
       <h1>从记录到实践</h1>
-      <p class="belief">用七天真实记录，<br />搭出能接住生活的最小系统。</p>
+      <p class="belief">先别急着分类。<br />先把每天真实发生的事接住，再看看哪些值得继续。</p>
       <div class="loop">
-        <div class="loop-head"><strong>让一条记录真正走起来</strong><span>AI 贯穿其中</span></div>
-        <div class="loop-track"><span>接住</span><b>→</b><span>找回</span><b>→</b><span>整理</span><b>→</b><span>实践</span><b>↺</b><span>反馈</span></div>
-        <p class="loop-note">AI 帮助降低阻力、连接和复用；人的判断决定什么值得继续。</p>
+        <div class="loop-head"><strong>这次真正会做什么</strong><span>从自己的生活开始</span></div>
+        <div class="loop-track"><span>理解</span><b>→</b><span>记录</span><b>→</b><span>七天实践</span><b>→</b><span>回看</span><b>→</b><span>继续</span></div>
+        <p class="loop-note">我会展示自己怎样用 GitHub、Codex 和 Skill 支持记录与回顾，但这不是一门 AI 工作流搭建课，也不要求你复制我的系统。</p>
       </div>
       <div class="path">
-        <div class="step"><em>01 · 第一场</em><b>理解记录，找到低阻力入口</b><span class="step-time">北京时间 8/23（日）08:30<br />60–90 分钟</span><p>看见记录为什么值得继续，以及 AI 怎样帮助接住生活。</p></div>
-        <div class="step"><em>02 · 七天实践</em><b>每天留下真实记录</b><span class="step-time">两场之间 · 连续 7 天</span><p>记录生活与输入，观察自己的路径和断点。</p></div>
-        <div class="step"><em>03 · 第二场</em><b>带着材料回来梳理</b><span class="step-time">北京时间 8/30（日）08:30<br />75–90 分钟</span><p>参考真实示范，现场拆解并搭出最小系统。</p></div>
+        <div class="step"><em>01 · 第一场</em><b>为什么记、记什么、从哪里开始</b><span class="step-time">北京时间 8/23（日）08:30<br />60–90 分钟</span><p>梳理记录的阻力，选一个你已经会用的入口。</p></div>
+        <div class="step"><em>02 · 七天实践</em><b>按时间留下真实材料</b><span class="step-time">两场之间 · 连续 7 天</span><p>记录生活、阅读、对话和触动，不要求写长日记。</p></div>
+        <div class="step"><em>03 · 第二场</em><b>带着记录回来梳理</b><span class="step-time">北京时间 8/30（日）08:30<br />75–90 分钟</span><p>看哪些值得成为长期练习；展示真实做法，并拆解具体卡点。</p></div>
       </div>
-      <div class="promise"><span>使用现有工具</span><span>不要求编程基础</span><span>真实案例现场拆解</span></div>
+      <div class="promise"><span>使用现有工具即可</span><span>不要求编程基础</span><span class="boundary">不手把手教学 AI / Skill 搭建</span></div>
     </div>
     <div class="bottom">
-      <div class="meta"><strong>北京时间 8/23、8/30 周日 08:30</strong>对应美国时间：8/22、8/29 周六<br />西部 17:30 · 中部 19:30 · 东部 20:30<br /><span class="price">早鸟 249 元 / 39 美元 · 北京时间 8/17 00:00 前</span><br />之后 299 元 / 45 美元 · 主理人：孙玲</div>
+      <div class="meta"><strong>北京时间 8/23、8/30 周日 08:30</strong>对应美国时间：8/22、8/29 周六<br />西部 17:30 · 中部 19:30 · 东部 20:30<br /><span class="price">费用 299 元 / 45 美元</span><br />主理人：孙玲</div>
       <div class="qr"><img id="poster-qr" src="assets/from-recording-to-practice-workshop-qr.png" alt="从记录到实践工作坊报名页面二维码" />扫码了解并报名</div>
     </div>
   </main>
@@ -85,7 +86,7 @@
     <output class="share-link" id="share-link">通用海报：二维码不记录合作渠道</output>
     <div class="generator-row">
       <button class="secondary" id="copy-button" type="button" disabled>复制专属链接</button>
-      <button id="download-button" type="button">下载通用海报</button>
+      <button id="download-button" type="button">下载当前海报 PNG</button>
     </div>
     <p class="generator-status" id="generator-status" role="status" aria-live="polite"></p>
   </div>
@@ -113,7 +114,7 @@
           ? "代号只能使用英文字母、数字、短横线和下划线。"
           : "通用海报：二维码不记录合作渠道";
         copyButton.disabled = true;
-        downloadButton.textContent = "下载通用海报";
+        downloadButton.textContent = "下载当前海报 PNG";
         return "";
       }
 
@@ -145,20 +146,12 @@
 
     downloadButton.addEventListener("click", async () => {
       const code = normalizeReferralCode(referralInput.value);
-      if (!code) {
-        const link = document.createElement("a");
-        link.href = "assets/from-recording-to-practice-workshop-poster.png";
-        link.download = "从记录到实践-工作坊海报.png";
-        link.click();
-        return;
-      }
-
       if (typeof html2canvas !== "function") {
         status.textContent = "海报生成工具暂时未加载，请刷新后重试。";
         return;
       }
 
-      status.textContent = "正在生成专属海报…";
+      status.textContent = "正在生成海报…";
       try {
         if (!qrImage.complete) await new Promise((resolve, reject) => {
           qrImage.addEventListener("load", resolve, { once:true });
@@ -167,9 +160,9 @@
         const canvas = await html2canvas(poster, { scale:2, backgroundColor:null, useCORS:true });
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
-        link.download = `从记录到实践-工作坊海报-${code}.png`;
+        link.download = code ? `从记录到实践-工作坊海报-${code}.png` : "从记录到实践-工作坊海报.png";
         link.click();
-        status.textContent = "专属海报已下载。";
+        status.textContent = "海报已下载。";
       } catch (error) {
         status.textContent = "海报生成失败，请刷新后重试。";
       }
