@@ -123,6 +123,7 @@
 
         status.textContent = '更新成功！GitHub 仓库中的图片已覆盖。';
         status.className = 'success';
+        status.style.display = 'block';
         
         // 保存一下口令，方便下次
         localStorage.setItem('admin_passcode', passcode.value);
@@ -130,6 +131,7 @@
       } catch (err) {
         status.textContent = err.message;
         status.className = 'error';
+        status.style.display = 'block';
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = '立即更新并替换';
