@@ -234,11 +234,7 @@
       }
     } catch (error) {}
     referralInput.value = referralCode;
-    const earlyBirdDeadline = new Date("2026-08-16T16:00:00Z");
-    const isEarlyBird = new Date() < earlyBirdDeadline;
-    const price = isEarlyBird
-      ? { label: "早鸟价", rmb: "249 元", usd: "39 美元", note: "北京时间 8 月 17 日 00:00 前；之后为 299 元 / 45 美元。" }
-      : { label: "费用", rmb: "299 元", usd: "45 美元", note: "" };
+    const price = { label: "费用", rmb: "249 元", usd: "39 美元", note: "" };
     document.querySelectorAll("[data-price-label]").forEach((element) => { element.textContent = price.label; });
     document.querySelectorAll("[data-rmb-price]").forEach((element) => { element.textContent = price.rmb; });
     document.querySelectorAll("[data-usd-price]").forEach((element) => { element.textContent = price.usd; });
