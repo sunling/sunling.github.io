@@ -216,7 +216,7 @@
               <p>支付 <strong data-usd-price>39 美元</strong></p>
             </article>
           </div>
-          <p class="checkout-discount">如果费用会带来压力，可以在付款前发邮件至 <a href="mailto:sunling621@gmail.com?subject=%E5%B7%A5%E4%BD%9C%E5%9D%8A%E4%BC%98%E6%83%A0%E7%94%B3%E8%AF%B7">sunling621@gmail.com</a> 申请优惠，不需要详细解释。</p>
+          <p class="checkout-discount">如果费用会带来压力，可以在付款前发个简单的邮件至 <a href="mailto:sunling621@gmail.com?subject=%E5%B7%A5%E4%BD%9C%E5%9D%8A%E4%BC%98%E6%83%A0%E7%94%B3%E8%AF%B7">sunling621@gmail.com</a> 申请优惠。</p>
         </div>
         <input type="hidden" name="stage" value="从记录到实践｜2026-08-22" />
         <label class="honeypot" aria-hidden="true">网站<input name="website" tabindex="-1" autocomplete="off" /></label>
@@ -253,7 +253,7 @@
     const isEarlyBird = new Date() < earlyBirdDeadline;
     const price = isEarlyBird
       ? { label: "早鸟价", rmb: "249 元", usd: "39 美元", note: "北京时间 8 月 17 日 00:00 前；之后为 299 元 / 45 美元。" }
-      : { label: "费用", rmb: "299 元", usd: "45 美元", note: "早鸟优惠已结束。" };
+      : { label: "费用", rmb: "299 元", usd: "45 美元", note: "" };
     document.querySelectorAll("[data-price-label]").forEach((element) => { element.textContent = price.label; });
     document.querySelectorAll("[data-rmb-price]").forEach((element) => { element.textContent = price.rmb; });
     document.querySelectorAll("[data-usd-price]").forEach((element) => { element.textContent = price.usd; });
