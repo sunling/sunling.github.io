@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>加入工作坊微信群</title>
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    :root { --blue:#2563eb; --navy:#102452; --ink:#172033; --muted:#64748b; --line:#dbe7f6; --soft:#f4f8ff; }
+    body { background:linear-gradient(180deg,#f5f9ff 0,#fff 34rem); color:var(--ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 24px; text-align: center; font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    .container { max-width: 500px; padding: 40px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 12px 34px rgba(30,64,175,.05); }
+    h1 { margin: 0 0 16px; color: var(--navy); font-size: 28px; line-height: 1.2; letter-spacing: -.03em; }
+    p { margin: 0 0 24px; color: var(--muted); font-size: 16px; line-height: 1.6; }
+    .qr-container { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; margin-bottom: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); overflow: hidden; }
+    .qr-image { display: block; max-width: 100%; max-height: 400px; }
+    .error-note { margin: 0; padding: 16px; border-radius: 10px; background: #fff4dd; color: #8a4b07; font-size: 14px; line-height: 1.6; text-align: left; }
+    .loading-state { color: var(--blue); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>报名成功！<br>请扫码加入工作坊微信群</h1>
+    <p>您的报名信息已收到。为了不错过后续的工作坊通知和交流，请立即扫码入群。</p>
+    
+    <div class="qr-container">
+      <img src="/.netlify/functions/group-qr" alt="工作坊微信群二维码" class="qr-image" 
+           onload="document.getElementById('loading').style.display='none'"
+           onerror="this.style.display='none'; document.getElementById('loading').textContent='二维码加载失败'; document.getElementById('loading').style.color='red';" />
+      <span id="loading" class="loading-state">正在加载二维码...</span>
+    </div>
+
+    <div class="error-note">
+      <strong>如果扫码失败或无法加入：</strong><br>
+      由于微信群二维码有时间或人数限制，如果以上二维码已失效或遇到任何问题，请发邮件至 <a href="mailto:sunling621@gmail.com" style="color: #8a4b07; font-weight: bold;">sunling621@gmail.com</a>，我会尽快协助您入群。
+    </div>
+  </div>
+</body>
+</html>

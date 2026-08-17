@@ -104,7 +104,8 @@
       <p class="belief">想记录，却总卡在「记什么、放哪里、以后怎么用」？先别急着设计一套完美系统。我们从一个入口开始，把每天真实发生的事情接住。</p>
       <p class="lead">两次线上工作坊，中间连续记录七天。第一场一起聊清楚为什么记录、可以记录什么，以及怎样减少记录时的犹豫和分类负担；七天后带着真实材料回来，我会打开自己正在使用的记录方式，也一起拆解参与者遇到的具体卡点。你也会看到，我怎样借助 AI 回看、整理、连接和继续创作。</p>
       <div class="facts" aria-label="工作坊信息">
-        <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact" id="price-fact">费用 299 元 / 45 美元</span>
+        <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact"
+          id="price-fact">费用 249 元 / 39 美元</span>
       </div>
       <div class="schedule" aria-label="工作坊时间">
         <article><span class="number">第一场</span><strong>美国：8 月 22 日（周六）</strong><p>西部 17:30 · 中部 19:30 · 东部 20:30 · 60–90 分钟</p><strong>北京：8 月 23 日（周日）08:30</strong></article>
@@ -130,7 +131,7 @@
       <p class="section-intro">不是先学一套工具，而是先从自己的生活开始：理解、记录、实践，再回来梳理。</p>
       <div class="steps">
         <article class="card"><span class="number">01 · 第一场</span><h3>找到一个愿意开始的入口</h3><p>一起想清楚：为什么记录、什么值得记录、现在为什么总是没有记下来。选一个你已经会用的入口，先让「想到就能记」发生，而不是先研究应该怎么分类。</p></article>
-        <article class="card"><span class="number">02 · 中间七天</span><h3>按时间接住七天生活</h3><p>当天发生了什么、经历了什么、读到了什么、和谁聊了什么、有什么触动，就先留在当天。可以很短，不要求写完整日记，也不需要公开打卡。</p></article>
+        <article class="card"><span class="number">02 · 中间七天</span><h3>按时间接住七天生活</h3><p>当天发生了什么、经历了什么、读到了什么、和谁聊了什么、有什么触动，就先留在当天。随时随手捕捉即可，不需要公开打卡。</p></article>
         <article class="card"><span class="number">03 · 第二场</span><h3>从记录里长出自己的实践</h3><p>带着七天材料回来，看哪些事情只是经过，哪些事情正在持续发生、值得长期练习。再决定它们是否需要一个名字、一个项目或一个更稳定的空间。</p></article>
       </div>
     </section>
@@ -205,17 +206,13 @@
       </form>
     </section>
 
-    <section class="payment-panel" id="confirmation" tabindex="-1" hidden aria-labelledby="confirmation-title">
-      <div class="payment-heading"><div><h2 id="confirmation-title">报名信息已收到，扫码申请入群</h2><p>请使用微信扫描下方二维码申请加入工作坊群。群管理员会核对报名信息和付款记录，通过审核后即可入群。</p></div></div>
-      <div class="review-grid"><a href="assets/recording-to-practice-group-qr.jpg" target="_blank" rel="noreferrer" aria-label="放大工作坊微信群二维码"><img class="review-qr" src="assets/recording-to-practice-group-qr.jpg" alt="从记录到实践工作坊微信群二维码" /></a><div class="review-copy"><h3>加入工作坊群</h3><p>扫码后请提交入群申请。二维码有有效期；如果无法加入，我会通过报名时填写的微信 ID 联系你。</p><p><strong>提交报名不等于自动入群。</strong>群聊只向已经完成报名和付款核对的参与者开放。</p></div></div>
-    </section>
+
 
     <footer>主理人：孙玲</footer>
   </main>
   <script>
     const form = document.querySelector("#signup-form");
-    const status = document.querySelector("#form-status");
-    const confirmationPanel = document.querySelector("#confirmation");
+                const status = document.querySelector("#form-status");
     const referralInput = form.elements.referral_code;
     const referralStorageKey = "workshop-referral";
     const referralMaxAge = 30 * 24 * 60 * 60 * 1000;
@@ -238,8 +235,7 @@
     document.querySelectorAll("[data-price-label]").forEach((element) => { element.textContent = price.label; });
     document.querySelectorAll("[data-rmb-price]").forEach((element) => { element.textContent = price.rmb; });
     document.querySelectorAll("[data-usd-price]").forEach((element) => { element.textContent = price.usd; });
-    document.querySelectorAll("[data-price-note]").forEach((element) => { element.textContent = price.note; });
-    if (!isEarlyBird) document.querySelector("#price-fact").textContent = "费用 299 元 / 45 美元";
+                document.querySelectorAll("[data-price-note]").forEach((element) => { element.textContent = price.note; });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       status.className = "";
@@ -254,11 +250,7 @@
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
         form.reset();
-        status.className = "success";
-        status.textContent = "报名信息已收到，请等待核对和入群邀请。";
-        confirmationPanel.hidden = false;
-        confirmationPanel.focus();
-        confirmationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.location.href = "/join-group.html";
       } catch (error) {
         status.className = "error";
         status.textContent = error.message || "提交没有成功，请稍后再试。";
