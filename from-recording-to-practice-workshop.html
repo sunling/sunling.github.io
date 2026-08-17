@@ -250,7 +250,8 @@
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "提交没有成功，请稍后再试。");
         form.reset();
-        window.location.href = "/join-group.html";
+        sessionStorage.setItem("signup_success", "true");
+        window.location.href = "/join-group.html?workshop=from-recording-to-practice-2026-08";
       } catch (error) {
         status.className = "error";
         status.textContent = error.message || "提交没有成功，请稍后再试。";

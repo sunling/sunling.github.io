@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上传最新微信群二维码</title>
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    :root { --blue:#2563eb; --navy:#102452; --ink:#172033; --muted:#64748b; --line:#dbe7f6; --soft:#f4f8ff; }
+    body { background:linear-gradient(180deg,#f5f9ff 0,#fff 34rem); color:var(--ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 24px; text-align: left; font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    .container { width: 100%; max-width: 500px; padding: 40px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 12px 34px rgba(30,64,175,.05); }
+    h1 { margin: 0 0 16px; color: var(--navy); font-size: 28px; line-height: 1.2; letter-spacing: -.03em; }
+    p { margin: 0 0 24px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    
+    label { display: block; margin-bottom: 16px; font-weight: 700; color: var(--navy); }
+    label span { display: block; margin-bottom: 8px; }
+    
+    input[type="password"], input[type="text"] { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font-size: 16px; outline: none; transition: border-color .2s; box-sizing: border-box; }
+    input[type="password"]:focus, input[type="text"]:focus { border-color: var(--blue); }
+    
+    .file-drop { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; border: 2px dashed var(--line); border-radius: 12px; background: var(--soft); cursor: pointer; text-align: center; transition: all .2s; }
+    .file-drop:hover { border-color: var(--blue); background: #eef4ff; }
+    .file-drop input[type="file"] { display: none; }
+    .preview { max-width: 200px; max-height: 200px; margin-top: 16px; display: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    
+    .button { display: flex; width: 100%; margin-top: 24px; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border: 0; border-radius: 12px; background: var(--blue); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; transition: opacity .2s; }
+    .button:disabled { opacity: 0.6; cursor: not-allowed; }
+    
+    #status { margin-top: 16px; padding: 12px; border-radius: 10px; font-size: 14px; display: none; line-height: 1.5; }
+    #status.error { display: block; background: #fff4dd; color: #8a4b07; }
+    #status.success { display: block; background: #edfaef; color: #15803d; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>更新微信群二维码</h1>
+    <p>上传的图片将自动替换 <code>workshop-assets</code> 仓库中当前的二维码文件。替换后，所有新报名用户将立刻看到新的二维码。</p>
+    
+    <form id="upload-form">
+      <label>
+        <span>管理员口令</span>
+        <input type="password" id="passcode" required placeholder="请输入口令" />
+      </label>
+      
+      <label>
+        <span>工作坊代号 (对应 GitHub 文件夹名)</span>
+        <input type="text" id="workshop-id" required value="from-recording-to-practice-2026-08" />
+      </label>
+      
+      <label>
+        <span>选择新的二维码图片 (.png, .jpg)</span>
+        <div class="file-drop" id="drop-zone">
+          <span id="file-name">点击选择图片或拖拽到此处</span>
+          <img id="preview" class="preview" alt="图片预览" />
+          <input type="file" id="file-input" accept="image/png, image/jpeg" required />
+        </div>
+      </label>
+
+      <div id="status"></div>
+      
+      <button type="submit" class="button" id="submit-btn" disabled>立即更新并替换</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('upload-form');
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const preview = document.getElementById('preview');
+    const fileName = document.getElementById('file-name');
+    const submitBtn = document.getElementById('submit-btn');
+    const status = document.getElementById('status');
+    const passcode = document.getElementById('passcode');
+    const workshopId = document.getElementById('workshop-id');
+    
+    let base64Data = null;
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    
+    fileInput.addEventListener('change', handleFile);
+
+    function handleFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        base64Data = e.target.result;
+        preview.src = base64Data;
+        preview.style.display = 'block';
+        fileName.textContent = file.name;
+        submitBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!base64Data || !passcode.value) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '正在上传并替换...';
+      status.className = '';
+      status.style.display = 'none';
+
+      try {
+        const response = await fetch('/.netlify/functions/update-group-qr', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            passcode: passcode.value,
+            workshopId: workshopId.value,
+            imageBase64: base64Data
+          })
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(result.error || '更新失败，请检查口令或稍后再试。');
+        }
+
+        status.textContent = '更新成功！GitHub 仓库中的图片已覆盖。';
+        status.className = 'success';
+        
+        // 保存一下口令，方便下次
+        localStorage.setItem('admin_passcode', passcode.value);
+        
+      } catch (err) {
+        status.textContent = err.message;
+        status.className = 'error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '立即更新并替换';
+      }
+    });
+
+    // 自动回填口令
+    const savedPass = localStorage.getItem('admin_passcode');
+    if (savedPass) passcode.value = savedPass;
+  </script>
+</body>
+</html>

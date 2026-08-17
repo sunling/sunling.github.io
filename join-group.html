@@ -24,7 +24,7 @@
     <p>您的报名信息已收到。为了不错过后续的工作坊通知和交流，请立即扫码入群。</p>
     
     <div class="qr-container">
-      <img src="/.netlify/functions/group-qr" alt="工作坊微信群二维码" class="qr-image" 
+      <img id="qr-image" alt="工作坊微信群二维码" class="qr-image" 
            onload="document.getElementById('loading').style.display='none'"
            onerror="this.style.display='none'; document.getElementById('loading').textContent='二维码加载失败'; document.getElementById('loading').style.color='red';" />
       <span id="loading" class="loading-state">正在加载二维码...</span>
@@ -35,5 +35,25 @@
       由于微信群二维码有时间或人数限制，如果以上二维码已失效或遇到任何问题，请发邮件至 <a href="mailto:sunling621@gmail.com" style="color: #8a4b07; font-weight: bold;">sunling621@gmail.com</a>，我会尽快协助您入群。
     </div>
   </div>
+  <script>
+    // 防止其他人直接通过链接访问本页
+    if (sessionStorage.getItem("signup_success") !== "true") {
+      document.querySelector(".container").innerHTML = `
+        <h1>访问无效</h1>
+        <p>此页面仅供刚完成报名的用户访问。</p>
+        <div class="error-note" style="margin-top: 24px;">
+          如果您已经完成报名但看到此提示，请通过邮件联系 <a href="mailto:sunling621@gmail.com" style="color: #8a4b07; font-weight: bold;">sunling621@gmail.com</a> 获取入群方式。
+        </div>
+      `;
+    } else {
+      // 获取当前页面的 workshop 参数，并传给获取二维码的接口
+      const params = new URLSearchParams(window.location.search);
+      const workshopId = params.get("workshop") || "from-recording-to-practice-2026-08";
+      document.getElementById("qr-image").src = `/.netlify/functions/group-qr?workshop=${workshopId}`;
+
+      // 访问后清除记录，刷新页面或二次访问即失效
+      sessionStorage.removeItem("signup_success");
+    }
+  </script>
 </body>
 </html>

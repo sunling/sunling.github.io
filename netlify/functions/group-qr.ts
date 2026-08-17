@@ -10,10 +10,12 @@ export const handler: Handler = async (event, context) => {
   // Assuming the owner is sunling if not specified in repoName
   const fullRepoName = repoName.includes('/') ? repoName : `sunling/${repoName}`;
   const branch = process.env.GH_REPO_BRANCH || "main";
-  
+  const workshopId = event.queryStringParameters?.workshop || "from-recording-to-practice-2026-08";
+  const filePath = `group-qr/${workshopId}/latest.png`;
+
   try {
     const response = await fetch(
-      `https://api.github.com/repos/${fullRepoName}/contents/group-qr/from-recording-to-practice-2026-08/latest.png?ref=${branch}`,
+      `https://api.github.com/repos/${fullRepoName}/contents/${filePath}?ref=${branch}`,
       {
         headers: {
           Authorization: `token ${token}`,
