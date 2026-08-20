@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>从记录到实践｜把自己记录下来，并让记录继续被用起来</title>
+  <title>从记录到实践｜建立一个会慢慢生长的个人系统</title>
   <meta name="description"
-    content="想记录，却常卡在记什么、放哪里、以后怎么用？两次线上工作坊，中间实践七天：先用一个入口接住每天的生活和输入，再从持续发生的事情里长出自己的练习场，并看看 AI 怎样参与回顾、整理与创作。" />
-  <meta property="og:title" content="从记录到实践｜个人记录实践工作坊" />
-  <meta property="og:description" content="先按时间接住生活，不急着分类；再从持续发生的实践里长出自己的结构。两次线上工作坊，中间连续记录七天。" />
+    content="建立一个随时能记、可以回看，并且会从真实生活中慢慢长出结构与实践的个人系统。你负责生活、选择和记录；AI 用来减少整理、归档、查找和连接的负担。" />
+  <meta property="og:title" content="从记录到实践｜个人记录与实践系统工作坊" />
+  <meta property="og:description" content="两次线上工作坊，中间连续记录七天：随时记下、借助 AI 减少整理负担、持续回看，并从记录中看见自己、拓宽输入、发展实践。" />
   <meta property="og:image" content="/assets/from-recording-to-practice-workshop-poster.png" />
   <link rel="stylesheet" href="styles/shared.css" />
   <link rel="icon" type="image/png" href="favicon.ico" />
@@ -215,6 +215,51 @@
       line-height: 1.65;
     }
 
+    .system-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .system-flow li {
+      min-height: 172px;
+      padding: 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(30, 64, 175, .05);
+    }
+
+    .system-flow .number {
+      margin-bottom: 18px;
+    }
+
+    .system-flow strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .system-flow p {
+      margin-bottom: 0;
+      color: #5b687c;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .human-boundary {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: #eaf2ff;
+      color: #315b98;
+      line-height: 1.75;
+    }
+
     .card {
       padding: 24px;
       border: 1px solid var(--line);
@@ -257,6 +302,10 @@
 
     .demo h2 {
       color: #fff;
+    }
+
+    .demo a {
+      color: #bfdbfe;
     }
 
     .demo p {
@@ -583,6 +632,7 @@
       .steps,
       .takeaways,
       .problems,
+      .system-flow,
       .schedule,
       .demo,
       .signup,
@@ -617,11 +667,10 @@
     <header class="hero">
       <span class="badge">8 月工作坊 · 报名开放</span>
       <h1>从记录到实践</h1>
-      <p class="workshop-type">一个关于「怎么把自己记录下来，并让记录继续被用起来」的实践工作坊</p>
-      <p class="belief">想记录，却总卡在「记什么、放哪里、以后怎么用」？先别急着设计一套完美系统。我们从一个入口开始，把每天真实发生的事情接住。</p>
+      <p class="workshop-type">个人记录与实践系统工作坊</p>
+      <p class="belief">建立一个随时能记、可以回看，并且会从真实生活中慢慢长出结构与实践的个人系统。</p>
       <p class="lead">
-        两次线上工作坊，中间连续记录七天。第一场一起聊清楚为什么记录、可以记录什么，以及怎样减少记录时的犹豫和分类负担；七天后带着真实材料回来，我会打开自己正在使用的记录方式，也一起拆解参与者遇到的具体卡点。你也会看到，我怎样借助
-        AI 回看、整理、连接和继续创作。</p>
+        生活每天都在发生，但很多经历、触动和正在做的事情，还没来得及被看见，就已经过去了。两次线上工作坊，中间连续记录七天：从一个你已经会用的入口开始，留下自己的生活和输入，再带着真实材料回来回看。你负责认真生活、感受、选择和记录；AI 用来减少整理、归档、查找和连接的负担，回看与判断仍然由你完成。</p>
       <div class="facts" aria-label="工作坊信息">
         <span>第一场 60–90 分钟</span><span>7 天真实记录</span><span>第二场 75–90 分钟</span><span>线上进行</span><span class="price-fact"
           id="price-fact">费用 249 元 / 39 美元</span>
@@ -638,28 +687,41 @@
     </header>
 
     <section aria-labelledby="problems-title">
-      <h2 id="problems-title">你是不是也遇到过这些情况？</h2>
-      <p class="section-intro">很多时候，我们并不是没有东西想记，而是在真正写下之前就多了太多判断。</p>
+      <h2 id="problems-title">真正的问题，不只是没有记录习惯</h2>
+      <p class="section-intro">我们每天都在经历、接触和行动，但这些东西很容易在来得及看见以前就过去。即使偶尔记了下来，也可能因为散落和整理负担，很少重新回到生活里。</p>
       <ul class="problems">
-        <li>读一本书、听一场播客、和朋友聊出一个想法，第一反应却是：这到底应该放哪个文件夹、哪一个 App？</li>
-        <li>微信、备忘录、Notion、纸笔里都留过东西，但真正想找的时候，又记不起自己到底放在哪里。</li>
-        <li>很想开始写日记，却觉得每天好像没有什么「值得记录」；或者一想到要写完整，就干脆没有开始。</li>
-        <li>已经积累了很多记录，但很少重新看见它们，更不知道怎样把它们带回写作、工作、关系或长期实践里。</li>
+        <li>一天里明明发生了很多事，也有感受和触动，但等想回头时，只剩下一种模糊的印象。</li>
+        <li>阅读、对话、日记和灵感散落在微信、备忘录、Notion 或纸笔里，想找的时候不知道放在哪里。</li>
+        <li>还没开始记录，就先要判断类别、标题和格式；整理系统本身逐渐变成新的负担。</li>
+        <li>已经留下不少内容，却很少重新看见自己在关注什么、经历什么变化，以及哪些事情正在持续发生。</li>
       </ul>
-      <p class="section-intro" style="margin-top:20px">这次不会试着一次解决所有问题。我们先找到你真正卡住的一步，然后用七天生活去验证一个更轻的做法。</p>
+      <p class="section-intro" style="margin-top:20px">这次不是为了建立一个装得更多的知识库，而是让记录重新参与之后的生活：帮助你看见自己，也有意识地接触既有信息圈之外的世界。</p>
+    </section>
+
+    <section aria-labelledby="system-title">
+      <h2 id="system-title">你会建立一条可以继续运转的路径</h2>
+      <p class="section-intro">系统不需要一开始就很完整。先让记录发生，再把重复工作交给合适的工具，结构会从真实生活和持续实践里慢慢长出来。</p>
+      <ol class="system-flow">
+        <li><span class="number">01</span><strong>随时记下</strong><p>用手机或电脑，从一个已经会用的入口，留下生活、感受、输入和行动。</p></li>
+        <li><span class="number">02</span><strong>按时间保存</strong><p>让记录进入同一条时间线并持续同步，不必在当下急着完成分类。</p></li>
+        <li><span class="number">03</span><strong>借助 AI 减负</strong><p>让 AI 协助命名、归档、查找和连接，减少维持系统的重复劳动。</p></li>
+        <li><span class="number">04</span><strong>回看与拓宽</strong><p>定期回看自己，也通过「突破信息茧房」工作流接触既有信息圈之外的一个陌生输入。</p></li>
+        <li><span class="number">05</span><strong>发展实践</strong><p>看见持续在做的事情，为它命名，并发展成可以长期回顾和精进的练习场。</p></li>
+      </ol>
+      <p class="human-boundary"><strong>生活与选择始终属于你。</strong>AI 可以协助处理重复工作，却不能替你决定什么值得记录、怎样理解自己的经历，以及接下来想怎样行动。</p>
     </section>
 
     <section aria-labelledby="process-title">
       <h2 id="process-title">这次会怎样进行</h2>
-      <p class="section-intro">不是先学一套工具，而是先从自己的生活开始：理解、记录、实践，再回来梳理。</p>
+      <p class="section-intro">不是先学一套工具，而是先从自己的生活开始：理解为什么记录，真实记录七天，再回来一起回看。</p>
       <div class="steps">
         <article class="card"><span class="number">01 · 第一场</span>
           <h3>找到一个愿意开始的入口</h3>
           <p>一起想清楚：为什么记录、什么值得记录、现在为什么总是没有记下来。选一个你已经会用的入口，先让「想到就能记」发生，而不是先研究应该怎么分类。</p>
         </article>
         <article class="card"><span class="number">02 · 中间七天</span>
-          <h3>按时间接住七天生活</h3>
-          <p>当天发生了什么、经历了什么、读到了什么、和谁聊了什么、有什么触动，就先留在当天。随时随手捕捉即可，不需要公开打卡。</p>
+          <h3>按时间留下七天生活</h3>
+          <p>当天发生了什么、经历了什么、读到了什么、和谁聊了什么、有什么触动，就先留在当天。随时随手记下即可，不需要公开打卡。</p>
         </article>
         <article class="card"><span class="number">03 · 第二场</span>
           <h3>从记录里长出自己的实践</h3>
@@ -669,9 +731,9 @@
     </section>
 
     <section class="principle" aria-label="核心方法">
-      <strong>先按时间接住，再从持续实践里长出结构。</strong>
+      <strong>先按时间留下，再从持续实践里长出结构。</strong>
       <p>
-        记录发生的那一刻，不急着判断「这是什么类别」。阅读、对话、当天的情绪和触动，都可以先进入同一条时间轴。等某件事持续发生——比如写作、启发星球、一对一对话、一个长期工作项目——它才慢慢成为一个可以命名、可以回看、可以精进的练习场。不是先设计好分类，再开始生活；而是先把生活接住，再让结构从实践里长出来。
+        记录发生的那一刻，不急着判断「这是什么类别」。阅读、对话、当天的情绪和触动，都可以先进入同一条时间轴。等某件事持续发生——比如写作、启发星球、一对一对话、一个长期工作项目——它才慢慢成为一个可以命名、可以回看、可以精进的练习场。不是先设计好分类，再开始生活；而是先把生活留下，再让结构从实践里长出来。
       </p>
     </section>
 
@@ -691,10 +753,10 @@
       </div>
       <ol>
         <li>我在电脑里怎样组织日记、输入和长期实践，而不是每接触一种信息都先新建一个分类。</li>
-        <li>记录怎样同步到 GitHub，再让 Codex 直接读取这些真实材料，帮助我找回、整理和继续思考。</li>
+        <li>记录怎样同步到 GitHub，以及我怎样借助 Codex 找回、整理和连接这些真实材料。</li>
         <li>如果你不使用 GitHub 和 Codex，我也会分享怎样用豆包记录、用飞书云盘同步，把同一套方法迁移到更容易上手的工具里。</li>
         <li>当一件事持续发生时，我怎样把它变成一个练习场，并用可重复的工作流支持回顾、写作或分享。</li>
-        <li>会分享一套<strong>可以直接复制的记录系统模板</strong>，以及 5 个可以直接使用和修改的 Agent Skill：<code>capture-journal</code>、<code>capture-input</code>、<code>explore-new-bubble</code>、<code>review-seven-days</code> 和 <code>develop-practice</code>。</li>
+        <li>会分享一套<a href="https://github.com/sunling/log-reflect-practice"><strong>可以直接复制的 Log · Reflect · Practice 记录系统模板</strong></a>，以及 5 个可以直接使用和修改的 Agent Skill：<code>capture-journal</code>、<code>capture-input</code>、<code>bubble-breaker</code>、<code>review-daily-entries</code> 和 <code>develop-practice</code>。</li>
         <li>邀请参与者拿出自己正在使用的工具和真实材料，现场拆解一个具体的不顺。</li>
       </ol>
     </section>
@@ -703,16 +765,16 @@
       <h2 id="takeaway-title">你会带走什么</h2>
       <div class="takeaways">
         <article class="card">
-          <h3>一个更容易开始的记录方式</h3>
-          <p>知道自己可以记录什么、从哪里记，并带走一套可复制的记录系统模板和 5 个 Agent Skill，分别帮助你记录日记、保存输入、探索陌生信息、回看七天记录，以及从记录里发展实践。</p>
+          <h3>一个已经开始运转的个人系统</h3>
+          <p>知道自己可以记录什么、从哪里记，并完成「随时记下 → 按时间保存 → 回看」的最小闭环，而不是只带走一套还没使用的分类方法。</p>
         </article>
         <article class="card">
           <h3>七天属于自己的真实材料</h3>
           <p>不是模板里的示例，而是你自己的生活、输入、对话和触动。它们会成为第二场真正可以拿来工作的材料。</p>
         </article>
         <article class="card">
-          <h3>一个继续实践的下一步</h3>
-          <p>看见哪些事情值得长期留下和精进，也知道自己的记录接下来可以怎样回到行动、表达和创作里。</p>
+          <h3>五种可以继续使用的能力</h3>
+          <p>带走可复制的模板和 5 个 Agent Skill，分别支持记录日记、保存输入、探索陌生信息、回看近期记录，以及从记录里发展实践。</p>
         </article>
       </div>
     </section>
