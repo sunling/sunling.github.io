@@ -16,8 +16,9 @@
     .top,.bottom { position:relative; z-index:1; }
     .kicker { margin:0 0 10px; color:var(--blue); font-size:19px; font-weight:800; letter-spacing:.01em; }
     h1 { margin:0; max-width:570px; color:var(--navy); font-size:68px; line-height:1.08; letter-spacing:-.055em; }
-    .belief { margin:18px 0 0; max-width:590px; color:#344869; font-size:24px; font-weight:750; line-height:1.5; }
-    .loop { margin-top:25px; padding:19px 22px 17px; border-radius:24px; background:linear-gradient(145deg,#102452,#16366f); color:#fff; box-shadow:0 18px 38px rgba(16,36,82,.18); }
+    .belief { margin:17px 0 0; max-width:590px; color:#344869; font-size:22px; font-weight:750; line-height:1.48; }
+    .problem { margin:10px 0 0; max-width:590px; color:#64748b; font-size:14px; line-height:1.55; }
+    .loop { margin-top:18px; padding:17px 20px 15px; border-radius:24px; background:linear-gradient(145deg,#102452,#16366f); color:#fff; box-shadow:0 18px 38px rgba(16,36,82,.18); }
     .loop-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:14px; }
     .loop-head strong { font-size:19px; }
     .loop-head span { padding:6px 10px; border:1px solid rgba(147,197,253,.48); border-radius:999px; color:#bfdbfe; font-size:12px; font-weight:800; }
@@ -25,8 +26,8 @@
     .loop-track span { flex:1; padding:9px 5px; border-radius:9px; background:rgba(255,255,255,.09); color:#f8fbff; font-size:14px; font-weight:750; text-align:center; }
     .loop-track b { color:#8eb8ff; font-size:14px; }
     .loop-note { margin:12px 0 0; color:#c8d6ec; font-size:13px; line-height:1.55; }
-    .path { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:17px; }
-    .step { position:relative; min-height:158px; padding:14px 13px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.92); box-shadow:0 8px 20px rgba(30,64,175,.05); }
+    .path { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:15px; }
+    .step { position:relative; min-height:153px; padding:14px 13px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.92); box-shadow:0 8px 20px rgba(30,64,175,.05); }
     .step em { display:block; margin-bottom:6px; color:var(--blue); font-size:11px; font-style:normal; font-weight:850; letter-spacing:.08em; }
     .step b { display:block; min-height:42px; color:var(--navy); font-size:16px; line-height:1.3; }
     .step .step-time { display:block; margin-top:5px; color:#315b98; font-size:12px; font-weight:800; line-height:1.45; }
@@ -57,21 +58,21 @@
 <body>
   <main class="poster" id="poster">
     <div class="top">
-      <p class="kicker">个人记录实践工作坊 · 两次线上 + 七天实践</p>
+      <p class="kicker">个人记录与实践系统工作坊 · 两次线上 + 七天实践</p>
       <h1>从记录到实践</h1>
-      <p class="belief">先别急着分类。<br />先把每天真实发生的事接住，再看看哪些值得继续。</p>
+      <p class="belief">建立一个随时能记、可以回看，并且会从真实生活中慢慢长出结构与实践的个人系统。</p>
+      <p class="problem">很多经历、触动和正在做的事，在我们来得及看见以前就已经过去了。</p>
       <div class="loop">
-        <div class="loop-head"><strong>这次真正会做什么</strong><span>从自己的生活开始</span></div>
-        <div class="loop-track"><span>理解</span><b>→</b><span>记录</span><b>→</b><span>七天实践</span><b>→</b><span>回看</span><b>→</b><span>继续</span></div>
-        <p class="loop-note">我会展示自己怎样用 GitHub、Codex 和 Skill 支持记录与回顾，并会分享一套可复制的记录系统模板，以及<strong> 5 个可直接使用和修改的 Agent Skill</strong>。但这不是一门 AI 工作流搭建课，也不要求你复制我的系统。
-        </p>
+        <div class="loop-head"><strong>让记录重新参与之后的生活</strong><span>从自己的生活开始</span></div>
+        <div class="loop-track"><span>记下</span><b>→</b><span>保存</span><b>→</b><span>整理</span><b>→</b><span>回看</span><b>→</b><span>实践</span></div>
+        <p class="loop-note">你负责生活、选择和记录；AI 用来减少整理、归档、查找和连接的负担。现场会提供可复制的模板与 5 个工作流。</p>
       </div>
       <div class="path">
         <div class="step"><em>01 · 第一场</em><b>为什么记、记什么、从哪里开始</b><span class="step-time">北京时间 8/23（日）08:30<br />60–90 分钟</span><p>梳理记录的阻力，选一个你已经会用的入口。</p></div>
         <div class="step"><em>02 · 七天实践</em><b>按时间留下真实材料</b><span class="step-time">两场之间 · 连续 7 天</span><p>随时随手捕捉生活、阅读、对话和触动。</p></div>
-        <div class="step"><em>03 · 第二场</em><b>带着记录回来梳理</b><span class="step-time">北京时间 8/30（日）08:30<br />75–90 分钟</span><p>看哪些值得成为长期练习；展示真实做法，并拆解具体卡点。</p></div>
+        <div class="step"><em>03 · 第二场</em><b>带着记录回来回看</b><span class="step-time">北京时间 8/30（日）08:30<br />75–90 分钟</span><p>看见自己、拓宽输入，并发现值得继续的练习。</p></div>
       </div>
-      <div class="promise"><span>不需要技术基础</span><span>用手机也可以开始</span><span class="boundary">带走 5 个 Agent Skill</span></div>
+      <div class="promise"><span>随时随地记录</span><span>突破信息茧房</span><span class="boundary">发现长期练习</span></div>
     </div>
     <div class="bottom">
       <div class="meta"><strong>北京时间 8/23、8/30 周日 08:30</strong>对应美国时间：8/22、8/29 周六<br />西部 17:30 · 中部 19:30 · 东部
