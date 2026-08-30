@@ -23,5 +23,6 @@ Netlify 已连接本仓库。推送到 `main` 后会自动触发部署，发布�
 - 首页：`/`
 - 工作坊记录：`/workshops.html`
 - 输入输出系统工作坊：`/input-output-workshop.html`
+- 第二期工作坊参与回看：`/workshop-feedback.html`
 
 旧的 `/zh/*` 和 `/en/*` 地址由 Netlify 永久跳转到新的无语言前缀地址。

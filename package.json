@@ -1,7 +1,11 @@
 {
   "name": "sunling-site",
   "private": true,
+  "scripts": {
+    "test": "node --test netlify/functions/lib/*.test.js netlify/functions/_shared/*.test.mjs"
+  },
   "dependencies": {
+    "@netlify/functions": "6.0.0",
     "html2canvas": "1.4.1",
     "qrcode": "1.5.4"
   }

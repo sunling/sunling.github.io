@@ -9,6 +9,9 @@ scripts/dev_server.py
 # Local Netlify folder
 .netlify
 
+# Local Supabase CLI state
+supabase/.temp/
+
 # Node modules
 node_modules/
 
