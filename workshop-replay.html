@@ -130,6 +130,56 @@
       font-size: 19px;
     }
 
+    .template-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin: -38px 0 70px;
+      padding: 26px;
+      border: 1px solid #c8d9f3;
+      border-radius: 18px;
+      background: #f2f7ff;
+    }
+
+    .template-label {
+      margin: 0 0 6px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .template-card h2 {
+      font-size: 23px;
+    }
+
+    .template-card p:last-child {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .template-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border: 1px solid #9db8e7;
+      border-radius: 11px;
+      background: #fff;
+      color: var(--blue-dark);
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .template-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
     .session {
       scroll-margin-top: 24px;
     }
@@ -315,6 +365,16 @@
         align-items: start;
       }
 
+      .template-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+        margin-top: -30px;
+      }
+
+      .template-link {
+        width: fit-content;
+      }
+
       .recording-link {
         width: fit-content;
       }
@@ -347,6 +407,15 @@
       <a href="#upper"><span>上半场</span><strong>让记录先发生 ↓</strong></a>
       <a href="#lower"><span>下半场</span><strong>把记录用起来 ↓</strong></a>
     </div>
+
+    <section class="template-card" aria-labelledby="template-title">
+      <div>
+        <p class="template-label">START HERE</p>
+        <h2 id="template-title">工作坊配套模板仓库</h2>
+        <p>还没有开始搭建，可以从模板仓库的最新版本进入；已经创建过自己的仓库，也可以回来查看最新说明与新增 Skill。</p>
+      </div>
+      <a class="template-link" href="https://github.com/sunling/log-reflect-practice" target="_blank" rel="noreferrer">打开模板仓库 ↗</a>
+    </section>
 
     <section class="session" id="upper">
       <header class="session-header">
