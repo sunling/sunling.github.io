@@ -8,6 +8,7 @@ scripts/dev_server.py
 
 # Local Netlify folder
 .netlify
+**/supabase/.temp/
 
 # Local Supabase CLI state
 supabase/.temp/
