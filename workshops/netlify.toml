@@ -1,0 +1,22 @@
+[build]
+publish = "public"
+functions = "netlify/functions"
+
+[[redirects]]
+from = "/learning-system"
+to = "/input-output-workshop.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/recording-workshop"
+to = "/recording-workshop.html"
+status = 301
+force = true
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
