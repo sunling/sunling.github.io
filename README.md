@@ -1,29 +1,35 @@
 # bysunling.com
 
-孙玲的中文个人站点，由 Netlify 自动部署。
+孙玲的中文个人站点，以及同仓库维护的工作坊子站。两个站点由 Netlify 独立部署。
+
+## 站点结构
+
+| 目录 | 站点 | Netlify 发布目录 |
+| --- | --- | --- |
+| 仓库根目录 | <https://bysunling.com/> | `.` |
+| `workshops/` | <https://workshops.bysunling.com/> | `workshops/public` |
+
+当前是工作坊子站迁移的第一阶段。根目录中的旧工作坊页面会暂时保留，等子域名完成部署和验证后，再改成永久跳转并删除重复文件。
 
 ## 本地预览
+
+个人站：
 
 ```bash
 python -m http.server 8000
 ```
 
-然后浏览器访问 http://localhost:8000/ 。
+工作坊站：
+
+```bash
+cd workshops
+npx netlify dev
+```
 
 ## 部署
 
-生产站点：<https://bysunling.com/>
+`bysunling.com` 继续使用仓库根目录的 `netlify.toml`。
 
-Netlify 已连接本仓库。推送到 `main` 后会自动触发部署，发布目录为仓库根目录。
+`workshops.bysunling.com` 使用 `workshops/netlify.toml`。在 Netlify 中把 Base directory 设置为 `workshops`，它会发布 `public/` 并从 `netlify/functions/` 加载 Functions。
 
-## URL 结构
-
-站点以中文内容为准，首页和各内容页面都直接位于根路径：
-
-- 首页：`/`
-- 工作坊记录：`/workshops.html`
-- 输入输出系统工作坊：`/input-output-workshop.html`
-- 第二期工作坊参与回看：`/workshop-feedback.html`
-- 第二期工作坊回放导航：`/workshop-replay.html`
-
-旧的 `/zh/*` 和 `/en/*` 地址由 Netlify 永久跳转到新的无语言前缀地址。
+工作坊子站的迁移与环境变量说明见 [`workshops/README.md`](workshops/README.md)。

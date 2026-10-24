@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>第二期工作坊｜回放与时间导航</title>
+  <meta name="description" content="从记录到实践第二期工作坊上下半场录制与时间导航。" />
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    :root {
+      --blue: #2f63c8;
+      --blue-dark: #214a9d;
+      --navy: #172d59;
+      --ink: #263449;
+      --muted: #66758d;
+      --line: #dce5f2;
+      --soft: #f4f7fc;
+      --warm: #fff8ec;
+      --white: rgba(255, 255, 255, .95);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(207, 224, 255, .78), transparent 34rem),
+        linear-gradient(180deg, #f8fbff 0, #fff 44rem);
+      color: var(--ink);
+    }
+
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: auto;
+      padding: 24px 0 72px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0 0 20px;
+      color: var(--navy);
+      font-size: clamp(40px, 7vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: #4e5f79;
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .watch-note {
+      margin: 28px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid #e3ad55;
+      border-radius: 0 14px 14px 0;
+      background: var(--warm);
+      color: #6d4c1d;
+      line-height: 1.75;
+    }
+
+    .session-jump {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 38px 0 70px;
+    }
+
+    .session-jump a {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+      color: inherit;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(30, 64, 120, .05);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .session-jump a:hover {
+      transform: translateY(-2px);
+      border-color: #a9c2ed;
+    }
+
+    .session-jump span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .05em;
+    }
+
+    .session-jump strong {
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .template-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin: -38px 0 70px;
+      padding: 26px;
+      border: 1px solid #c8d9f3;
+      border-radius: 18px;
+      background: #f2f7ff;
+    }
+
+    .template-label {
+      margin: 0 0 6px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .template-card h2 {
+      font-size: 23px;
+    }
+
+    .template-card p:last-child {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .template-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border: 1px solid #9db8e7;
+      border-radius: 11px;
+      background: #fff;
+      color: var(--blue-dark);
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .template-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .session {
+      scroll-margin-top: 24px;
+    }
+
+    .session + .session {
+      margin-top: 82px;
+    }
+
+    .session-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 26px;
+      align-items: end;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .session-label {
+      margin: 0 0 7px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .recording-meta {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .recording-link,
+    .feedback-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 11px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .recording-link:hover,
+    .feedback-link:hover {
+      background: var(--blue-dark);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 20px;
+      padding: 18px 12px;
+      border-bottom: 1px solid var(--line);
+      line-height: 1.65;
+    }
+
+    .timeline time {
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timeline strong {
+      color: var(--navy);
+    }
+
+    .timeline p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .path-note {
+      margin: 24px 0 0;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: var(--soft);
+      color: #52627a;
+      line-height: 1.75;
+    }
+
+    .core-path {
+      margin: 30px 0 0;
+      padding: 24px;
+      border: 1px solid #cbdcf7;
+      border-radius: 18px;
+      background: #f5f9ff;
+    }
+
+    .core-path h3 {
+      margin: 0 0 15px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .core-path ol {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .core-path li {
+      padding-left: 5px;
+      line-height: 1.65;
+    }
+
+    .core-path time {
+      color: var(--blue);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .feedback {
+      margin-top: 82px;
+      padding: 30px;
+      border: 1px solid #cddbf0;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 16px 42px rgba(30, 64, 120, .07);
+    }
+
+    .feedback h2 {
+      font-size: 26px;
+    }
+
+    .feedback p {
+      max-width: 680px;
+      margin: 10px 0 20px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, 920px);
+      }
+
+      nav {
+        margin-bottom: 38px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .session-jump {
+        grid-template-columns: 1fr;
+        margin-bottom: 56px;
+      }
+
+      .session-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .template-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+        margin-top: -30px;
+      }
+
+      .template-link {
+        width: fit-content;
+      }
+
+      .recording-link {
+        width: fit-content;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 16px 8px;
+      }
+
+      .feedback {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav><a href="https://bysunling.com/">孙玲</a><a href="./">工作坊记录 →</a></nav>
+
+    <header>
+      <p class="eyebrow">AI 时代的个人输入输出系统</p>
+      <h1>第二期工作坊<br />回放与时间导航</h1>
+      <p class="lead">上半场让记录先发生，下半场把真实记录用起来。你不需要从头完整观看，也不需要搭建所有工具，可以根据自己的路径和卡点直接跳转。</p>
+      <p class="watch-note"><strong>怎样使用这份导航：</strong>点击“打开录制”，进入腾讯会议后手动拖到对应时间。先选择 ChatGPT + GitHub 或豆包 + 飞书中的一条路径，再看与你有关的片段。</p>
+    </header>
+
+    <div class="session-jump" aria-label="快速前往不同场次">
+      <a href="#upper"><span>上半场</span><strong>让记录先发生 ↓</strong></a>
+      <a href="#lower"><span>下半场</span><strong>把记录用起来 ↓</strong></a>
+    </div>
+
+    <section class="template-card" aria-labelledby="template-title">
+      <div>
+        <p class="template-label">START HERE</p>
+        <h2 id="template-title">工作坊配套模板仓库</h2>
+        <p>还没有开始搭建，可以从模板仓库的最新版本进入；已经创建过自己的仓库，也可以回来查看最新说明与新增 Skill。</p>
+      </div>
+      <a class="template-link" href="https://github.com/sunling/log-reflect-practice" target="_blank" rel="noreferrer">打开模板仓库 ↗</a>
+    </section>
+
+    <section class="session" id="upper">
+      <header class="session-header">
+        <div>
+          <p class="session-label">UPPER SESSION</p>
+          <h2>上半场｜让记录先发生</h2>
+          <p class="recording-meta">录制于 2026-08-22 17:26:17</p>
+        </div>
+        <a class="recording-link" href="https://meeting.tencent.com/crm/2VYdLO842b" target="_blank" rel="noreferrer">打开上半场录制 ↗</a>
+      </header>
+
+      <ol class="timeline">
+        <li><time datetime="PT14M43S">00:14:43</time><div><strong>工作坊正式开始与两场结构</strong></div></li>
+        <li><time datetime="PT18M28S">00:18:28</time><div><strong>为什么要记录</strong></div></li>
+        <li><time datetime="PT24M8S">00:24:08</time><div><strong>可以记录什么：Journal 与 Input</strong></div></li>
+        <li><time datetime="PT27M40S">00:27:40</time><div><strong>两分钟记录练习</strong></div></li>
+        <li><time datetime="PT29M37S">00:29:37</time><div><strong>一个记录系统需要具备什么</strong></div></li>
+        <li><time datetime="PT33M24S">00:33:24</time><div><strong>Markdown 是什么</strong></div></li>
+        <li><time datetime="PT44M24S">00:44:24</time><div><strong>ChatGPT + GitHub 记录演示</strong></div></li>
+        <li><time datetime="PT1H5M36S">01:05:36</time><div><strong>豆包 + 飞书记录演示</strong></div></li>
+        <li><time datetime="PT1H13M57S">01:13:57</time><div><strong>如何记录外部信息</strong></div></li>
+        <li><time datetime="PT1H17M16S">01:17:16</time><div><strong>豆包 + GitHub 演示</strong><p>进阶参考，不需要作为第一条路径搭建。</p></div></li>
+        <li><time datetime="PT1H31M38S">01:31:38</time><div><strong>两条记录路径的梳理与澄清</strong></div></li>
+      </ol>
+
+      <p class="path-note">工具部分不需要全部观看或全部搭建。根据自己准备使用的方式选择对应演示，现阶段最重要的是选一个顺手的入口，先让真实记录发生。</p>
+    </section>
+
+    <section class="session" id="lower">
+      <header class="session-header">
+        <div>
+          <p class="session-label">LOWER SESSION</p>
+          <h2>下半场｜把记录用起来</h2>
+          <p class="recording-meta">录制于 2026-08-29 17:29:16</p>
+        </div>
+        <a class="recording-link" href="https://meeting.tencent.com/crm/NLEk3OG415" target="_blank" rel="noreferrer">打开下半场录制 ↗</a>
+      </header>
+
+      <ol class="timeline">
+        <li><time datetime="PT5M48S">00:05:48</time><div><strong>搭建与记录问题诊所</strong><p>现有记录要不要迁移，怎样避免因为折腾工具让记录停下来。</p></div></li>
+        <li><time datetime="PT11M">00:11:00</time><div><strong>参与者实操成果</strong><p>ChatGPT + GitHub 实际用起来是什么样，日记怎样自动创建、追加和归档。</p></div></li>
+        <li><time datetime="PT22M51S">00:22:51</time><div><strong>现场排查配置问题</strong><p>Project Settings、Project Instructions 和 Skill 分别放在哪里。</p></div></li>
+        <li><time datetime="PT28M35S">00:28:35</time><div><strong>零技术背景如何理解整条链路</strong><p>重新理解 ChatGPT、Skill 与 GitHub 之间的关系。</p></div></li>
+        <li><time datetime="PT32M55S">00:32:55</time><div><strong>下半场正式 Demo 开始</strong><p>怎样把过去七天记录下来的东西用起来。</p></div></li>
+        <li><time datetime="PT35M16S">00:35:16</time><div><strong>每周回看：看见自己</strong><p>从七天的 Journal 和 Inputs 中发现注意力、情绪、反复问题和行动线索。</p></div></li>
+        <li><time datetime="PT37M24S">00:37:24</time><div><strong>用 ChatGPT + GitHub 设置每周回看</strong></div></li>
+        <li><time datetime="PT44M55S">00:44:55</time><div><strong>周回看相关答疑</strong><p>更新 Skill、图片记录，以及已经手动放进 GitHub 的内容怎样再整理。</p></div></li>
+        <li><time datetime="PT55M5S">00:55:05</time><div><strong>用豆包 + 飞书设置每周回看</strong></div></li>
+        <li><time datetime="PT1H27S">01:00:27</time><div><strong>Bubble Breaker：扩大信息圈</strong><p>定时接触一个平时不会主动看到的高质量来源。</p></div></li>
+        <li><time datetime="PT1H7M24S">01:07:24</time><div><strong>用 ChatGPT + GitHub 设置 Bubble Breaker</strong></div></li>
+        <li><time datetime="PT1H9M49S">01:09:49</time><div><strong>用豆包 + 飞书设置 Bubble Breaker</strong></div></li>
+        <li><time datetime="PT1H13M3S">01:13:03</time><div><strong>隐私与备份</strong><p>GitHub 私有仓库是否在云端、是否需要另外备份。</p></div></li>
+        <li><time datetime="PT1H15M22S">01:15:22</time><div><strong>Chat 与 Work 模式</strong><p>免费与付费版本，以及怎样减少内容被覆盖。</p></div></li>
+        <li><time datetime="PT1H23M24S">01:23:24</time><div><strong>继续补充已经保存的 Input</strong><p>以及怎样调整 Bubble Breaker 关注的领域。</p></div></li>
+        <li><time datetime="PT1H26M21S">01:26:21</time><div><strong>New Article：从记录走向表达</strong><p>从一个主题或几个关键词开始，跨时间寻找过去的记录并形成文章草稿。</p></div></li>
+        <li><time datetime="PT1H40M6S">01:40:06</time><div><strong>最后的模板与结构答疑</strong><p>哪些模板可以删、Daily / Practice / Skill 的区别，以及为什么不一定需要添加 Tag。</p></div></li>
+      </ol>
+
+      <div class="core-path">
+        <h3>如果只想先抓住下半场的三条主线</h3>
+        <ol>
+          <li><time datetime="PT35M16S">00:35:16</time>｜每周回看：看见自己</li>
+          <li><time datetime="PT1H27S">01:00:27</time>｜Bubble Breaker：看见更大的世界</li>
+          <li><time datetime="PT1H26M21S">01:26:21</time>｜New Article：从记录走向表达</li>
+        </ol>
+      </div>
+
+      <p class="path-note">下半场的工具也不需要全部配置。先选择 ChatGPT + GitHub 或豆包 + 飞书中的一条路径，再从周回看开始尝试就可以。</p>
+    </section>
+
+    <section class="feedback">
+      <h2>也欢迎留下真实体验</h2>
+      <p>无论参加了多少、有没有跑通，都可以填写这份约 3–5 分钟的匿名回看。没有收获、没听懂或觉得工具太多，也可以直接写。</p>
+      <a class="feedback-link" href="./workshop-feedback.html">填写匿名回看 →</a>
+    </section>
+
+    <footer>主理人：孙玲</footer>
+  </main>
+</body>
+
+</html>
